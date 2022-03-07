@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/blankFragment3">
+
+    <activity
+        android:id="@+id/loginActivity"
+        android:name="com.safaashatha.allin1.LoginActivity"
+        android:label="activity_login"
+        tools:layout="@layout/activity_login" />
+    <activity
+        android:id="@+id/registerActivity"
+        android:name="com.safaashatha.allin1.RegisterActivity"
+        android:label="activity_register"
+        tools:layout="@layout/activity_register" />
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="com.safaashatha.allin1.MainActivity"
+        android:label="activity_main"
+        tools:layout="@layout/activity_main" />
+    <fragment
+        android:id="@+id/blankFragment3"
+        android:name="com.safaashatha.allin1.BlankFragment"
+        android:label="fragment_blank"
+        tools:layout="@layout/fragment_blank" >
+        <action
+            android:id="@+id/action_blankFragment3_to_storeAdd"
+            app:destination="@id/storeAdd" />
+        <action
+            android:id="@+id/action_blankFragment3_to_serviceadd"
+            app:destination="@id/serviceadd" />
+    </fragment>
+    <fragment
+        android:id="@+id/storeAdd"
+        android:name="com.safaashatha.allin1.StoreAdd"
+        android:label="fragment_store_add"
+        tools:layout="@layout/fragment_store_add" >
+        <action
+            android:id="@+id/action_storeAdd_to_mystore"
+            app:destination="@id/mystore" />
+    </fragment>
+    <fragment
+        android:id="@+id/serviceadd"
+        android:name="com.safaashatha.allin1.Serviceadd"
+        android:label="fragment_serviceadd"
+        tools:layout="@layout/fragment_serviceadd" >
+        <action
+            android:id="@+id/action_serviceadd_to_mystore2"
+            app:destination="@id/mystore" />
+    </fragment>
+    <fragment
+        android:id="@+id/mystore"
+        android:name="com.safaashatha.allin1.Mystore"
+        android:label="fragment_mystore"
+        tools:layout="@layout/fragment_mystore" />
+</navigation>
