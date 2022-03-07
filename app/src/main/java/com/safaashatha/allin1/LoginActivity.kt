@@ -9,12 +9,19 @@ import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+        //var database= FirebaseDatabase.getInstance().reference
+        //database.setValue("shops")
+
+        //database.setValue("susu")
         joinus.setOnClickListener {
             startActivity(Intent(this,RegisterActivity::class.java))
 
@@ -45,11 +52,12 @@ class LoginActivity : AppCompatActivity() {
                                     Toast.makeText(
                                         this, "you are logged successfully.", Toast.LENGTH_SHORT
                                     ).show()
-                                    val intent = Intent(this, MainActivity::class.java)
+                                      val intent = Intent(this, MainActivity::class.java)
                                     intent.flags =
                                         Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                                     intent.putExtra("user_id", FirebaseAuth.getInstance()!!.uid)
                                     intent.putExtra("email_id", email)
+
                                     startActivity(intent)
                                     finish()
                                 } else {

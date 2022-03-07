@@ -9,6 +9,8 @@ import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_main.*
@@ -24,6 +26,7 @@ class MainActivity : AppCompatActivity() {
 
         user_id.text="user id :: $userid"
         email_id.text="email id:: $emailid"
+
 
         logout.setOnClickListener {
             FirebaseAuth.getInstance().signOut()
