@@ -58,7 +58,7 @@
             -
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="363dp"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
                 android:padding="16dp"
@@ -68,13 +68,30 @@
                     android:id="@+id/namestoretext"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Name the store"
+                    android:text="store's name"
                     android:textColor="@color/purple_200"
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
                 <EditText
                     android:id="@+id/name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="15"
+                    android:inputType="text"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/abouttext"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="about"
+                    android:textColor="@color/purple_200"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/about"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="15"
@@ -124,13 +141,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
-                    android:text="Contact"
+                    android:text="phone"
                     android:textColor="@color/purple_200"
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
                 <EditText
-                    android:id="@+id/contact"
+                    android:id="@+id/phone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="15"
@@ -157,6 +174,7 @@
                         android:layout_height="51dp"
                         android:background="@drawable/img"
                         android:ems="15"
+                        android:onClick="savestore"
                         android:text="SAVE"
                         android:textAllCaps="false"
                         android:textColor="@color/white"
