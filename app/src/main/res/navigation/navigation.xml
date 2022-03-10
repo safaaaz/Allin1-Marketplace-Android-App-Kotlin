@@ -54,5 +54,18 @@
         android:id="@+id/mystore"
         android:name="com.safaashatha.allin1.Mystore"
         android:label="fragment_mystore"
-        tools:layout="@layout/fragment_mystore" />
+        tools:layout="@layout/fragment_mystore" >
+        <action
+            android:id="@+id/action_mystore_to_addprod"
+            app:destination="@id/addprod" />
+    </fragment>
+    <fragment
+        android:id="@+id/addprod"
+        android:name="com.safaashatha.allin1.addprod"
+        android:label="fragment_addprod"
+        tools:layout="@layout/fragment_addprod" >
+        <action
+            android:id="@+id/action_addprod_to_mystore"
+            app:destination="@id/mystore" />
+    </fragment>
 </navigation>
