@@ -41,8 +41,7 @@ class ownersignup : AppCompatActivity() {
         FirebaseDatabase.getInstance("https://allin1-23085-default-rtdb.asia-southeast1.firebasedatabase.app").reference.child(FirebaseAuth.getInstance().currentUser!!.uid).setValue(owner(name.text.toString()
             ,Address.text.toString(),Catagory.text.toString(),phone.text.toString()),"products")
         //name.setText("")
-        FirebaseDatabase.getInstance("https://allin1-23085-default-rtdb.asia-southeast1.firebasedatabase.app").reference.child(FirebaseAuth.getInstance().currentUser!!.uid+"/products").child("1").setValue(product(
-            "book","for reading","30"))
+
 
         FirebaseDatabase.getInstance().reference.child("300").setValue("tt")
 
@@ -84,8 +83,8 @@ class ownersignup : AppCompatActivity() {
     fun addprod(view: View){
 
 
-        FirebaseDatabase.getInstance("https://allin1-23085-default-rtdb.asia-southeast1.firebasedatabase.app").reference.child(FirebaseAuth.getInstance().currentUser!!.uid+"/products").child(name.text.toString()).setValue(product(
-             name.text.toString(),price.text.toString(),Catagory.text.toString()))
+        FirebaseDatabase.getInstance("https://allin1-23085-default-rtdb.asia-southeast1.firebasedatabase.app").reference.child(FirebaseAuth.getInstance().currentUser!!.uid+"/products").child(name1.text.toString()).setValue(product(
+             name1.text.toString(),price1.text.toString(),Catagory1.text.toString()))
         Toast.makeText(this@ownersignup, "The product is add", Toast.LENGTH_LONG).show()
         view.findNavController().navigate(R.id.action_addprod_to_mystore)
 
