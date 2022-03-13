@@ -8,7 +8,6 @@ class owner {
     var phone:String?=null
     constructor(
         name:String,
-        about:String="",
         address:String="",
         category:String="",
         phone: String =""){
@@ -16,7 +15,6 @@ class owner {
         this.address=address
         this.category=category
         this.phone=phone
-        this.about=about
-        this.category=category
+
     }
 }

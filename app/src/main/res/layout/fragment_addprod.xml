@@ -74,7 +74,7 @@
                     android:textStyle="bold" />
 
                 <EditText
-                    android:id="@+id/name"
+                    android:id="@+id/name1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="15"
@@ -92,7 +92,7 @@
                     android:textStyle="bold" />
 
                 <EditText
-                    android:id="@+id/Catagory"
+                    android:id="@+id/Catagory1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="15"
@@ -111,7 +111,7 @@
                     android:textStyle="bold" />
 
                 <EditText
-                    android:id="@+id/price"
+                    android:id="@+id/price1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="15"
