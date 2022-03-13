@@ -17,6 +17,9 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+        if(FirebaseAuth.getInstance().currentUser!=null){
+            startActivity(Intent(this, MainActivity::class.java))
+        }
         //var database= FirebaseDatabase.getInstance().reference
         //database.setValue("shops")
 

@@ -9,7 +9,7 @@ class product {
     var name:String?=null
     var price:String=""
     var category:String=""
-
+    var image:Int?=null
     
 
 
@@ -17,12 +17,14 @@ class product {
         name:String,
         price:String="",
         category:String="",
+        image:Int=0,
 
     )
     {
         this.name=name
         this.price=price
         this.category=category
+        this.image=image
 
 
     }
