@@ -1,5 +1,6 @@
 package com.safaashatha.allin1
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -17,7 +18,9 @@ import android.widget.LinearLayout
 
 import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_main.logoutuser
 import kotlinx.android.synthetic.main.fragment_addprod.*
+import kotlinx.android.synthetic.main.fragment_mystore.*
 import kotlinx.android.synthetic.main.fragment_store_add.*
 import kotlinx.android.synthetic.main.fragment_store_add.Catagory
 import kotlinx.android.synthetic.main.fragment_store_add.name
@@ -28,6 +31,12 @@ class ownersignup : AppCompatActivity() {
         setContentView(R.layout.activity_ownersignup)
 
 
+    }
+    fun logoutowner(view: View){
+        FirebaseAuth.getInstance().signOut()
+
+        startActivity(Intent(this,LoginActivity::class.java))
+        finish()
     }
     fun addstore(view: View) {
 
@@ -84,8 +93,8 @@ class ownersignup : AppCompatActivity() {
     fun addprod(view: View){
 
 
-        FirebaseDatabase.getInstance("https://allin1-23085-default-rtdb.asia-southeast1.firebasedatabase.app").reference.child("shops").child(FirebaseAuth.getInstance().currentUser!!.uid+"/products").child(name.text.toString()).setValue(product(
-             name.text.toString(),price.text.toString(),Catagory.text.toString()))
+        FirebaseDatabase.getInstance("https://allin1-23085-default-rtdb.asia-southeast1.firebasedatabase.app").reference.child("shops").child(FirebaseAuth.getInstance().currentUser!!.uid+"/products").child(name1.text.toString()).setValue(product(
+             name1.text.toString(),price1.text.toString(),Catagory1.text.toString()))
         Toast.makeText(this@ownersignup, "The product is add", Toast.LENGTH_LONG).show()
         view.findNavController().navigate(R.id.action_addprod_to_mystore)
 

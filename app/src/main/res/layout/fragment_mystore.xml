@@ -43,6 +43,13 @@
         android:layout_height="wrap_content"
         android:text="Edit" />
 
+    <Button
+        android:id="@+id/logoutowner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="logoutowner"
+        android:text="logout" />
+
 
 </LinearLayout>
 
