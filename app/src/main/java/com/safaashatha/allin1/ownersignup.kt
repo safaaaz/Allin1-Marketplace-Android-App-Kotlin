@@ -29,7 +29,12 @@ class ownersignup : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_ownersignup)
+        val userid=intent.getStringExtra("user_id")
+        if(userid!=null){
+            val view=findViewById<View>(R.id.Add_store)
+            view.findNavController().navigate(R.id.action_blankFragment3_to_mystore)
 
+        }
 
     }
     fun logoutowner(view: View){

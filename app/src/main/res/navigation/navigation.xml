@@ -31,6 +31,9 @@
         <action
             android:id="@+id/action_blankFragment3_to_serviceadd"
             app:destination="@id/serviceadd" />
+        <action
+            android:id="@+id/action_blankFragment3_to_mystore"
+            app:destination="@id/mystore" />
     </fragment>
     <fragment
         android:id="@+id/storeAdd"
