@@ -33,4 +33,13 @@ class product {
         print(this.category)
         print(this.price)
     }
+
+
+    fun toMap(): Map<String, Any?> {
+        return mapOf(
+            "uid" to name,
+            "author" to price
+        )
+    }
+
 }
