@@ -133,6 +133,7 @@ class MainActivity : AppCompatActivity() {
 
     }
     fun readData() {
+/*
         productsarrylist= ArrayList()
         val c=product("book","30","learning",R.drawable.img)
         productsarrylist.add(c)
@@ -148,9 +149,9 @@ class MainActivity : AppCompatActivity() {
                     println("-------------------------------------------------------------------------------------")
                     println(prod.value)
                     println("-------------------------------------------------------------------------------------")
-
-                    productsarrylist.add(product(prod.child("name").value.toString(),prod.child("price").value.toString(),prod.child("category").value.toString(),R.drawable.googleg_standard_color_18))
-
+                    val prod=product(prod.child("name").value.toString(),prod.child("price").value.toString(),prod.child("category").value.toString(),R.drawable.googleg_standard_color_18)
+                    productsarrylist.add(prod)
+                    print(productsarrylist.size)
 
                 }
                 //val firstname = x.child("products").value
@@ -158,6 +159,8 @@ class MainActivity : AppCompatActivity() {
 
             }
     }
+        print("proooooooooooooooooooooooooooooooooductsssssssssssssssssssssssssssss---> "+productsarrylist.size)
+
         for (i in productsarrylist){
             println("-------------------------------------------------------------------------------------")
             print(i)
@@ -167,6 +170,28 @@ class MainActivity : AppCompatActivity() {
         }
 
         products.adapter= productadapter(this,productsarrylist)
+*/
+        productsarrylist = ArrayList()
+        database =FirebaseDatabase.getInstance("https://allin1-23085-default-rtdb.asia-southeast1.firebasedatabase.app/")
+                .getReference("shops")
+        database.get().addOnSuccessListener {
+            for (x in it.children)
+
+                if (x.exists()) {
+                    for (prod in x.child("products").children) {
+                        val pr = product(
+                            prod.child("name").value.toString(),
+                            prod.child("price").value.toString(),
+                            prod.child("category").value.toString(),
+                            R.drawable.img
+                        )
+                        productsarrylist.add(pr)
+
+                    }
+                }
+        }
+        print("---------------------------------------------------------->>"+productsarrylist.size)
+        products.adapter = productadapter(this, productsarrylist)
 
     }
 
