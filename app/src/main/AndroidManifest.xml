@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Allin1">
         <activity
+            android:name=".productsdetails"
+            android:exported="true" />
+        <activity
             android:name=".ownersignup"
             android:exported="true" />
         <activity
@@ -26,7 +29,7 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
     </application>
 
 </manifest>

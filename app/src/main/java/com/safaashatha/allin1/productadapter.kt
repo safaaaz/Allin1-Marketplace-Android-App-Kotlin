@@ -2,12 +2,16 @@ package com.safaashatha.allin1
 
 import android.app.Activity
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+import kotlinx.android.synthetic.main.list_products.view.*
+import kotlinx.android.synthetic.main.productsdetails.view.*
 
 class productadapter(private val context: Activity,private val arrayList: ArrayList<product>):ArrayAdapter<product>(context,
 R.layout.list_products,arrayList) {
@@ -22,6 +26,18 @@ R.layout.list_products,arrayList) {
         imageview.setImageResource(arrayList[position].image!!)
         nameview.text=arrayList[position].name
         priceview.text=arrayList[position].price
+
+            val product=arrayList[position]
+            val inflator=context!!.getSystemService(AppCompatActivity.LAYOUT_INFLATER_SERVICE)as LayoutInflater
+            var productview=inflator.inflate(R.layout.productsdetails,null)
+
+        view.productimage.setOnClickListener(){
+                var intent= Intent(context,productsdetails::class.java)
+                intent.putExtra("image",product.image!!)
+                intent.putExtra("name",product.name!!)
+                intent.putExtra("price",product.price!!)
+                context!!.startActivity(intent)
+            }
 
         return view
     }
