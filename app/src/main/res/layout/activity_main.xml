@@ -11,13 +11,32 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:gravity="center"
         android:orientation="vertical">
+
         <Button
             android:id="@+id/logoutuser"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/logout" />
 
+
+        <TextView
+            android:id="@+id/prodcattext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="all the products"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+            android:textColor="@color/purple_200"
+            android:textColorLink="@color/orchid"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/noprod"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center" />
 
         <ListView
             android:id="@+id/products"
