@@ -18,23 +18,31 @@ import kotlinx.android.synthetic.main.activity_register.*
 import kotlinx.android.synthetic.main.fragment_blank.*
 
 import android.R.string.no
+import android.graphics.ColorSpace.get
+import android.nfc.tech.NfcA.get
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
 import android.widget.*
+import androidx.core.view.get
 import com.google.firebase.database.*
+import kotlinx.android.synthetic.main.fragment_store_add.*
+import kotlinx.android.synthetic.main.productsdetails.*
+import kotlinx.android.synthetic.main.showcart.*
+import kotlinx.android.synthetic.main.showcart.view.*
 
 
 class MainActivity : AppCompatActivity() {
     private lateinit var database: DatabaseReference
     private lateinit var binding: ActivityMainBinding
     private lateinit var productsarrylist:ArrayList<product>
+    var userid:String? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val userid=intent.getStringExtra("user_id")
+        userid=intent.getStringExtra("user_id")
         val emailid=intent.getStringExtra("email_id")
 
         binding=ActivityMainBinding.inflate(layoutInflater)
@@ -71,45 +79,12 @@ class MainActivity : AppCompatActivity() {
                             R.drawable.img
                         )
                         productsarrylist.add(pr)
-                        //println("-######################################################################shatha  "+ productsarrylist.size)
 
                     }
                 }
-            //println("---------------------------------------------------------------------safa  "+ productsarrylist.size)
             val listView: ListView = findViewById(R.id.products)
             listView.setAdapter(productadapter(this, productsarrylist))
         }
-        //println("---------------------------------------------------------------------shatha  "+ productsarrylist.size)
-
-        //products.adapter = productadapter(this, productsarrylist)
-
-
-        /*var array = arrayOf("Melbourne", "Vienna", "Vancouver", "Toronto")
-        val adapter = ArrayAdapter(
-            this,
-            R.layout.listview_item, array
-        )
-*/
-
-       /* listView.onItemClickListener = object : AdapterView.OnItemClickListener {
-
-            override fun onItemClick(
-                parent: AdapterView<*>, view: View,
-                position: Int, id: Long
-            ) {
-
-                // value of item that is clicked
-                val itemValue = listView.getItemAtPosition(position) as String
-
-                // Toast the values
-                Toast.makeText(
-                    applicationContext,
-                    "Position :$position\nItem Value : $itemValue", Toast.LENGTH_LONG
-                )
-                    .show()
-            }
-
-        }*/
 
     }
 
@@ -155,10 +130,49 @@ class MainActivity : AppCompatActivity() {
                 showproductsbycategory("home")
                 true
             }
+            R.id.cart -> {
+                showcart()
+                true
+            }
             else -> super.onOptionsItemSelected(item)
         }
 
     }
+
+    fun showcart(){
+        //nocart.text=" "
+        setContentView(R.layout.showcart)
+        val cartarraylist=ArrayList<product>()
+        database =
+            FirebaseDatabase.getInstance("https://allin1-23085-default-rtdb.asia-southeast1.firebasedatabase.app/")
+                .getReference("cart")
+        println("-######################################################################userid  "+ FirebaseAuth.getInstance()!!.uid)
+
+        database.child(FirebaseAuth.getInstance()!!.uid!!).get().addOnSuccessListener {
+            for (x in it.children)
+
+                if (x.exists()) {
+                            val pr = product(
+                                x.child("name").value.toString(),
+                                x.child("price").value.toString(),
+                                x.child("category").value.toString(),
+                                R.drawable.img
+                            )
+                            cartarraylist.add(pr)
+                            println("-######################################################################shatha  "+ cartarraylist.size)
+                        }
+
+
+        if(cartarraylist.size==0){
+            nocart.text="there is no products in this category"
+        }
+
+        //println("---------------------------------------------------------------------safa  "+ productsarrylist.size)
+        val listVieww: ListView = findViewById(R.id.cartlist!!)
+        listVieww.setAdapter(productadapter(this, cartarraylist))
+        }}
+
+
     fun showproductsbycategory(cat:String){
         prodcattext.text=cat
         productsarrylist = ArrayList()
@@ -229,4 +243,13 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    fun addtocart(view: View){
+        val usercart = FirebaseDatabase.getInstance().getReference("cart")
+            .child(intent.getStringExtra("user_id").toString())
+        usercart.child("1").setValue(product(productsname.text.toString(),productsprice.text.toString(),"vv",productsimg.imageAlpha))
+            .addOnSuccessListener {
+                Toast.makeText(this,"Success add to cart",Toast.LENGTH_LONG).show()
+
+            }
+    }
 }

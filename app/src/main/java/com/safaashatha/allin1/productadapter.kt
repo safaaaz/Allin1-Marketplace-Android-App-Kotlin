@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.list_products.view.*
 import kotlinx.android.synthetic.main.productsdetails.view.*
 
@@ -36,7 +37,10 @@ R.layout.list_products,arrayList) {
                 intent.putExtra("image",product.image!!)
                 intent.putExtra("name",product.name!!)
                 intent.putExtra("price",product.price!!)
+                print("[[[[[[[[[[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]][[[[[[[[[[[[[[[[[[[[[[[\n\n"+position.toString())
+                intent.putExtra("user_id", FirebaseAuth.getInstance()!!.uid)
                 context!!.startActivity(intent)
+
             }
 
         return view
