@@ -24,6 +24,8 @@
         android:layout_marginRight="-50dp"
         android:src="@drawable/img" />
 
+
+
     <Button
         android:id="@+id/Add_product"
         android:layout_width="match_parent"
@@ -49,6 +51,16 @@
         android:layout_height="wrap_content"
         android:onClick="logoutowner"
         android:text="logout" />
+
+    <ListView
+        android:id="@+id/productss"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:listitem="@layout/list_products">
+
+
+    </ListView>
+
 
 
 </LinearLayout>

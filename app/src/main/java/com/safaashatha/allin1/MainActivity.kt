@@ -53,8 +53,8 @@ class MainActivity : AppCompatActivity() {
     }
     fun readData() {
         productsarrylist = ArrayList()
-        val c=product("book","30","learning",R.drawable.img)
-        productsarrylist.add(c)
+        //val c=product("book","30","learning",R.drawable.img)
+        //productsarrylist.add(c)
 
         database =
             FirebaseDatabase.getInstance("https://allin1-23085-default-rtdb.asia-southeast1.firebasedatabase.app/")
