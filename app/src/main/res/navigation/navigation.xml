@@ -61,6 +61,9 @@
         <action
             android:id="@+id/action_mystore_to_addprod"
             app:destination="@id/addprod" />
+        <action
+            android:id="@+id/action_mystore_to_editprof"
+            app:destination="@id/editprof" />
     </fragment>
     <fragment
         android:id="@+id/addprod"
@@ -70,5 +73,28 @@
         <action
             android:id="@+id/action_addprod_to_mystore"
             app:destination="@id/mystore" />
+        <action
+            android:id="@+id/action_addprod_to_ownersignup"
+            app:destination="@id/ownersignup" />
     </fragment>
+    <activity
+        android:id="@+id/ownersignup"
+        android:name="com.safaashatha.allin1.ownersignup"
+        android:label="fragment_mystore"
+        tools:layout="@layout/fragment_mystore" />
+    <activity
+        android:id="@+id/productsdetails"
+        android:name="com.safaashatha.allin1.productsdetails"
+        android:label="productsdetails"
+        tools:layout="@layout/productsdetails" />
+    <activity
+        android:id="@+id/productsowdetails2"
+        android:name="com.safaashatha.allin1.productsowdetails"
+        android:label="productsowdetails"
+        tools:layout="@layout/productsowdetails" />
+    <fragment
+        android:id="@+id/editprof"
+        android:name="com.safaashatha.allin1.editprof"
+        android:label="fragment_editprof"
+        tools:layout="@layout/fragment_editprof" />
 </navigation>

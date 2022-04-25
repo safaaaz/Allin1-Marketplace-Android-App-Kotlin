@@ -24,6 +24,8 @@
         android:layout_marginRight="-50dp"
         android:src="@drawable/img" />
 
+
+
     <Button
         android:id="@+id/Add_product"
         android:layout_width="match_parent"
@@ -31,17 +33,14 @@
         android:onClick="addproduct"
         android:text="Add Product" />
 
-    <Button
-        android:id="@+id/delete_product"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Delete Products" />
+
 
     <Button
-        android:id="@+id/Edit"
+        android:id="@+id/Edit_profile"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Edit" />
+        android:onClick="editprofile"
+        android:text="Edit Profile" />
 
     <Button
         android:id="@+id/logoutowner"
@@ -49,6 +48,16 @@
         android:layout_height="wrap_content"
         android:onClick="logoutowner"
         android:text="logout" />
+
+    <ListView
+        android:id="@+id/productss"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:listitem="@layout/list_productsowner">
+
+
+    </ListView>
+
 
 
 </LinearLayout>

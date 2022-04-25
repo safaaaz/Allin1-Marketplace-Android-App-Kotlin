@@ -17,6 +17,7 @@ import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_register.*
+import java.security.acl.Owner
 
 class RegisterActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -52,10 +53,16 @@ class RegisterActivity : AppCompatActivity() {
                         .addOnCompleteListener(
                             OnCompleteListener<AuthResult> { task ->
                                 if (task.isSuccessful) {
+                                    //var database=FirebaseDatabase.getInstance().reference
+                                    //database.setValue("Owners")
+                                    FirebaseDatabase.getInstance("https://allin1-23085-default-rtdb.asia-southeast1.firebasedatabase.app").reference.child("Owners").child(FirebaseAuth.getInstance().currentUser!!.uid).setValue(owner(EmailSignup.text.toString()
+                                        ,password_text_s.text.toString()))
                                     val firebaseuser: FirebaseUser = task.result!!.user!!
                                     Toast.makeText(
                                         this, "you are registered successfully.", Toast.LENGTH_LONG
                                     ).show()
+
+
                                     val intent =(Intent(this, ownersignup::class.java))
 
                                     intent.flags =
@@ -74,6 +81,7 @@ class RegisterActivity : AppCompatActivity() {
                             }
                         )
                 }
+
 
             }
 
@@ -102,6 +110,10 @@ class RegisterActivity : AppCompatActivity() {
                         .addOnCompleteListener(
                             OnCompleteListener<AuthResult> { task ->
                                 if (task.isSuccessful) {
+                                    var database=FirebaseDatabase.getInstance().reference
+                                    database.setValue("Users")
+                                    FirebaseDatabase.getInstance("https://allin1-23085-default-rtdb.asia-southeast1.firebasedatabase.app").reference.child("Users").child(FirebaseAuth.getInstance().currentUser!!.uid).setValue(owner(EmailSignup.text.toString()
+                                        ,password_text_s.text.toString()))
                                     val firebaseuser: FirebaseUser = task.result!!.user!!
                                     Toast.makeText(
                                         this, "you are registered successfully.", Toast.LENGTH_LONG

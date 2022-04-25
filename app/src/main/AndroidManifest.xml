@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.safaashatha.allin1">
 
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -11,6 +14,9 @@
         android:theme="@style/Theme.Allin1">
         <activity
             android:name=".productsdetails"
+            android:exported="true" />
+        <activity
+            android:name=".productsowdetails"
             android:exported="true" />
         <activity
             android:name=".ownersignup"
@@ -30,6 +36,8 @@
         <activity
             android:name=".MainActivity"
             android:exported="true" />
+
+
     </application>
 
 </manifest>
