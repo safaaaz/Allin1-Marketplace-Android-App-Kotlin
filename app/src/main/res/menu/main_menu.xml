@@ -6,13 +6,16 @@
         android:id="@+id/cart"
         android:icon="@drawable/ic_baseline_shopping_cart_24"
         android:title="cart"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="always"
+        />
+
     <item
         android:id="@+id/prodsearch"
         android:icon="@drawable/ic_search_black_24dp"
         android:title="Type here to search"
         app:actionViewClass="android.widget.SearchView"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="ifRoom"
+        />
     <item
         android:id="@+id/books"
         android:title="books" />

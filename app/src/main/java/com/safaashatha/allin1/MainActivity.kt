@@ -31,6 +31,10 @@ import kotlinx.android.synthetic.main.fragment_store_add.*
 import kotlinx.android.synthetic.main.productsdetails.*
 import kotlinx.android.synthetic.main.showcart.*
 import kotlinx.android.synthetic.main.showcart.view.*
+import android.widget.TextView
+
+
+
 
 
 class MainActivity : AppCompatActivity() {
@@ -82,13 +86,14 @@ class MainActivity : AppCompatActivity() {
 
                     }
                 }
-            val listView: ListView = findViewById(R.id.products)
+            val listView: GridView = findViewById(R.id.products)
             listView.setAdapter(productadapter(this, productsarrylist))
         }
 
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+
         val inflater:MenuInflater = menuInflater
         inflater.inflate(R.menu.main_menu,menu)
         val search = menu!!.findItem(R.id.prodsearch)

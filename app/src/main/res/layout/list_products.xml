@@ -9,6 +9,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/material_on_primary_emphasis_medium"
         android:gravity="center"
         android:orientation="vertical">
 
@@ -16,7 +17,10 @@
             android:id="@+id/productimage"
             android:layout_width="50pt"
             android:layout_height="50pt"
+            android:background="@android:drawable/ic_menu_slideshow"
+            app:srcCompat="@color/teal_200"
             tools:srcCompat="@tools:sample/avatars" />
+
 
         <TextView
             android:id="@+id/productname"

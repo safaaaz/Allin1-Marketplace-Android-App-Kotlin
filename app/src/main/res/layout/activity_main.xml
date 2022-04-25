@@ -38,14 +38,21 @@
             android:layout_height="wrap_content"
             android:gravity="center" />
 
-        <ListView
+        <GridView
             android:id="@+id/products"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:listitem="@layout/list_products">
+            android:columnWidth="90dp"
+            android:gravity="center"
+            android:horizontalSpacing="10dp"
+            android:numColumns="2"
+            android:stretchMode="columnWidth"
+            android:verticalSpacing="10dp"
+
+            tools:listitem="@layout/list_products" />
 
 
-        </ListView>
+
 
 
     </LinearLayout>
