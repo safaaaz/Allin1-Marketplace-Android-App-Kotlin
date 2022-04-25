@@ -32,16 +32,14 @@
             android:layout_marginRight="-50dp"
             android:src="@drawable/img" />
 
-
-
         <TextView
-            android:id="@+id/Adding_prod"
+            android:id="@+id/editting_profile"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:gravity="center"
             android:padding="8dp"
-            android:text="Add Product"
+            android:text="EDIT PROFILE  "
             android:textColor="@color/purple_200"
             android:textSize="24sp"
             android:textStyle="bold" />
@@ -70,7 +68,7 @@
                     android:id="@+id/nametext"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Product name"
+                    android:text="owner name"
                     android:textColor="@color/purple_200"
                     android:textSize="16sp"
                     android:textStyle="bold" />
@@ -81,83 +79,59 @@
                     android:layout_height="wrap_content"
                     android:ems="15"
                     android:inputType="text"
+                    android:hint="Enter a new name"
                     android:textSize="16sp" />
 
                 <TextView
-                    android:id="@+id/Catagorytext"
+                    android:id="@+id/owner_add"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
-                    android:text="Catagory"
+                    android:text="Owner Address"
                     android:textColor="@color/purple_200"
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
                 <EditText
-                    android:id="@+id/Catagory1"
+                    android:id="@+id/addresss"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="15"
                     android:inputType="text"
                     android:padding="8dp"
+                    android:hint="Enter a new Address"
                     android:textSize="16sp" />
 
                 <TextView
-                    android:id="@+id/Pricetext"
+                    android:id="@+id/Owner_phone"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
-                    android:text="Price"
+                    android:text="Phone"
                     android:textColor="@color/purple_200"
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
                 <EditText
-                    android:id="@+id/price1"
+                    android:id="@+id/phone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="15"
                     android:inputType="text"
                     android:padding="8dp"
+                    android:hint="Enter a new Phone"
                     android:textSize="16sp" />
 
 
 
                 <Button
-                    android:id="@+id/Add_button"
+                    android:id="@+id/Edit_prof"
                     android:layout_width="309dp"
                     android:layout_height="51dp"
-                    android:onClick="addprod"
-                    android:text="ADD"
+                    android:onClick="editpeoff"
+                    android:text="Edit"
                     />
 
-<!--                <Button-->
-<!--                    android:id="@+id/cancel_button"-->
-<!--                    android:layout_width="309dp"-->
-<!--                    android:layout_height="51dp"-->
-<!--                    android:onClick="Cancel"-->
-<!--                    android:text="Cancel"-->
-
-<!--                   />-->
-
-                <Button
-                    android:id="@+id/btn_choose_image"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Choose image"
-                    android:onClick="pickpic"
-                    />
-
-                <ImageView
-                    android:id="@+id/putim"
-                    android:layout_width="match_parent"
-                    android:layout_height="150dp"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginStart="-50dp"
-                    android:layout_marginLeft="-50dp"
-                    android:layout_marginEnd="-50dp"
-                    android:layout_marginRight="-50dp"
-                    />
 
 
 

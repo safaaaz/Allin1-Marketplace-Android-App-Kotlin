@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ownersignup">
+    tools:context=".productsowdetails">
 
     <LinearLayout
         android:layout_width="0dp"
@@ -19,10 +19,8 @@
         app:layout_constraintTop_toTopOf="parent">
 
 
-        -
-
         <ImageView
-            android:id="@+id/top_curve"
+            android:id="@+id/productsimg"
             android:layout_width="match_parent"
             android:layout_height="150dp"
             android:layout_gravity="center_horizontal"
@@ -30,18 +28,16 @@
             android:layout_marginLeft="-50dp"
             android:layout_marginEnd="-50dp"
             android:layout_marginRight="-50dp"
-            android:src="@drawable/img" />
-
-
+            />
 
         <TextView
-            android:id="@+id/Adding_prod"
+            android:id="@+id/editting_prod"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:gravity="center"
             android:padding="8dp"
-            android:text="Add Product"
+            android:text="Edit Product"
             android:textColor="@color/purple_200"
             android:textSize="24sp"
             android:textStyle="bold" />
@@ -67,7 +63,7 @@
                 android:paddingTop="8dp">
 
                 <TextView
-                    android:id="@+id/nametext"
+                    android:id="@+id/nameee"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Product name"
@@ -76,7 +72,7 @@
                     android:textStyle="bold" />
 
                 <EditText
-                    android:id="@+id/name1"
+                    android:id="@+id/productsnamee"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="15"
@@ -84,26 +80,7 @@
                     android:textSize="16sp" />
 
                 <TextView
-                    android:id="@+id/Catagorytext"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="left"
-                    android:text="Catagory"
-                    android:textColor="@color/purple_200"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-
-                <EditText
-                    android:id="@+id/Catagory1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ems="15"
-                    android:inputType="text"
-                    android:padding="8dp"
-                    android:textSize="16sp" />
-
-                <TextView
-                    android:id="@+id/Pricetext"
+                    android:id="@+id/productsprice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
@@ -113,7 +90,7 @@
                     android:textStyle="bold" />
 
                 <EditText
-                    android:id="@+id/price1"
+                    android:id="@+id/productspricee"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="15"
@@ -121,48 +98,19 @@
                     android:padding="8dp"
                     android:textSize="16sp" />
 
+    <Button
+        android:id="@+id/delete_pro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="delete_prod"
+        android:text="Delete" />
 
-
-                <Button
-                    android:id="@+id/Add_button"
-                    android:layout_width="309dp"
-                    android:layout_height="51dp"
-                    android:onClick="addprod"
-                    android:text="ADD"
-                    />
-
-<!--                <Button-->
-<!--                    android:id="@+id/cancel_button"-->
-<!--                    android:layout_width="309dp"-->
-<!--                    android:layout_height="51dp"-->
-<!--                    android:onClick="Cancel"-->
-<!--                    android:text="Cancel"-->
-
-<!--                   />-->
-
-                <Button
-                    android:id="@+id/btn_choose_image"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Choose image"
-                    android:onClick="pickpic"
-                    />
-
-                <ImageView
-                    android:id="@+id/putim"
-                    android:layout_width="match_parent"
-                    android:layout_height="150dp"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginStart="-50dp"
-                    android:layout_marginLeft="-50dp"
-                    android:layout_marginEnd="-50dp"
-                    android:layout_marginRight="-50dp"
-                    />
-
-
-
-
-
+    <Button
+        android:id="@+id/edit_pro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="edit_pro"
+        android:text="Edit" />
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
@@ -202,3 +150,6 @@
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
