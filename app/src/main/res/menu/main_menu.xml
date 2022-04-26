@@ -3,6 +3,29 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
+        android:id="@+id/categories"
+        android:title="categories" >
+        <menu >
+            <item
+                android:id="@+id/books"
+                android:title="books" />
+            <item
+                android:id="@+id/nails"
+                android:title="nails" />
+            <item
+                android:id="@+id/home"
+                android:title="home"></item>
+            <item
+                android:id="@+id/clothes"
+                android:title="clothes">
+                <menu>
+                    <item android:title="men" />
+                    <item android:title="women" />
+                </menu>
+            </item>
+        </menu>
+    </item>
+    <item
         android:id="@+id/cart"
         android:icon="@drawable/ic_baseline_shopping_cart_24"
         android:title="cart"
@@ -17,20 +40,9 @@
         app:showAsAction="ifRoom"
         />
     <item
-        android:id="@+id/books"
-        android:title="books" />
+        android:id="@+id/editprofile"
+        android:title="edit profile" />
     <item
-        android:id="@+id/clothes"
-        android:title="clothes">
-        <menu>
-            <item android:title="men" />
-            <item android:title="women" />
-        </menu>
-    </item>
-    <item
-        android:id="@+id/nails"
-        android:title="nails" />
-    <item
-        android:id="@+id/home"
-        android:title="home"></item>
+        android:id="@+id/logout"
+        android:title="logout" />
 </menu>

@@ -21,14 +21,11 @@ import com.google.firebase.auth.FirebaseUser
 
 
 import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.storage.FirebaseStorage
-import com.google.firebase.storage.UploadTask
 //import com.safaashatha.allin1.databinding.ActivityMainBinding
 //import com.safaashatha.allin1.databinding.ActivityOwnersignupBinding
 import com.safaashatha.allin1.databinding.FragmentMystoreBinding
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.activity_main.logoutuser
 import kotlinx.android.synthetic.main.fragment_addprod.*
 import kotlinx.android.synthetic.main.fragment_addprod.name1
 import kotlinx.android.synthetic.main.fragment_editprof.*

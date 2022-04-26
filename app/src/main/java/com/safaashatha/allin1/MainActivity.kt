@@ -55,12 +55,6 @@ class MainActivity : AppCompatActivity() {
 
 
 
-        logoutuser.setOnClickListener {
-            FirebaseAuth.getInstance().signOut()
-
-            startActivity(Intent(this,LoginActivity::class.java))
-            finish()
-        }
 
     }
     fun readData() {
@@ -139,6 +133,19 @@ class MainActivity : AppCompatActivity() {
                 showcart()
                 true
             }
+            R.id.logout -> {
+                FirebaseAuth.getInstance().signOut()
+
+                startActivity(Intent(this,LoginActivity::class.java))
+                finish()
+                true
+            }
+            R.id.editprofile -> {
+                val intent=Intent(this,editprofileuser::class.java)
+                intent.putExtra("user_id", FirebaseAuth.getInstance()!!.uid)
+                startActivity(intent)
+                true
+            }
             else -> super.onOptionsItemSelected(item)
         }
 
@@ -209,7 +216,7 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
             //println("---------------------------------------------------------------------safa  "+ productsarrylist.size)
-            val listView: ListView = findViewById(R.id.products)
+            val listView: GridView = findViewById(R.id.products)
             listView.setAdapter(productadapter(this, productsarrylist))
         }
     }
@@ -242,7 +249,7 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
             //println("---------------------------------------------------------------------safa  "+ productsarrylist.size)
-            val listView: ListView = findViewById(R.id.products)
+            val listView: GridView = findViewById(R.id.products)
             listView.setAdapter(productadapter(this, productsarrylist))
 
         }

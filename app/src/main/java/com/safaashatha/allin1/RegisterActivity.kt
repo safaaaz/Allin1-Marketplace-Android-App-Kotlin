@@ -69,8 +69,7 @@ class RegisterActivity : AppCompatActivity() {
                                         Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                                     intent.putExtra("user_id", firebaseuser.uid)
                                     intent.putExtra("email_id", firebaseuser.email)
-
-                                    startActivity(intent)
+                                   startActivity(intent)
                                     //finish()
                                 } else {
                                     Toast.makeText(
@@ -111,9 +110,14 @@ class RegisterActivity : AppCompatActivity() {
                             OnCompleteListener<AuthResult> { task ->
                                 if (task.isSuccessful) {
                                     var database=FirebaseDatabase.getInstance().reference
-                                    database.setValue("Users")
-                                    FirebaseDatabase.getInstance("https://allin1-23085-default-rtdb.asia-southeast1.firebasedatabase.app").reference.child("Users").child(FirebaseAuth.getInstance().currentUser!!.uid).setValue(owner(EmailSignup.text.toString()
-                                        ,password_text_s.text.toString()))
+                                    //database.setValue("Users")
+                                    //FirebaseDatabase.getInstance("https://allin1-23085-default-rtdb.asia-southeast1.firebasedatabase.app").reference.child("Users").child(FirebaseAuth.getInstance().currentUser!!.uid).setValue(owner(EmailSignup.text.toString()
+                                    //    ,password_text_s.text.toString()))
+
+                                    FirebaseDatabase.getInstance("https://allin1-23085-default-rtdb.asia-southeast1.firebasedatabase.app").reference.child(
+                                        "Users"
+                                    ).child(FirebaseAuth.getInstance().currentUser!!.uid).setValue(user(id=FirebaseAuth.getInstance().currentUser!!.uid,Email = FirebaseAuth.getInstance().currentUser!!.email!!,Image = R.drawable.img))
+
                                     val firebaseuser: FirebaseUser = task.result!!.user!!
                                     Toast.makeText(
                                         this, "you are registered successfully.", Toast.LENGTH_LONG
