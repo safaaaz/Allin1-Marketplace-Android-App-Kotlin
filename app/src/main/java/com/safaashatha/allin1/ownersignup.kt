@@ -21,9 +21,11 @@ import com.google.firebase.auth.FirebaseUser
 
 
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.storage.FirebaseStorage
 //import com.safaashatha.allin1.databinding.ActivityMainBinding
 //import com.safaashatha.allin1.databinding.ActivityOwnersignupBinding
 import com.safaashatha.allin1.databinding.FragmentMystoreBinding
+import kotlinx.android.synthetic.main.activity_editprofileuser.*
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_addprod.*
@@ -66,20 +68,29 @@ class ownersignup : AppCompatActivity() {
         //}
 
     }
-//    private fun openGalleryForImage() {
-//        val intent = Intent(Intent.ACTION_PICK)
-//        intent.type = "image/*"
-//        startActivityForResult(intent, REQUEST_CODE)
-//    }
-//    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-//        super.onActivityResult(requestCode, resultCode, data)
-//        if (resultCode == Activity.RESULT_OK && requestCode == REQUEST_CODE){
-//            putim.setImageURI(data?.data)
-//             file_uri = data?.data!!
+    private fun openGalleryForImage() {
+        val intent = Intent(Intent.ACTION_PICK)
+        intent.type = "image/*"
+        startActivityForResult(intent, 100)
+    }
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+                super.onActivityResult(requestCode, resultCode, data)
+                if (resultCode == Activity.RESULT_OK && requestCode == 100){
+                println("2222222222222222222222222222222222222222222"+ data?.data!!.hashCode())
+                val fileUri=data?.data!!
+                putim.setImageURI(fileUri)
+                    val filename=FirebaseAuth.getInstance().currentUser!!.uid.toString()
+                    val storref= FirebaseStorage.getInstance().getReference("productsimages/$filename/${name1.text.toString()}")
+                    storref.putFile(fileUri).
+                    addOnSuccessListener {
+                        Toast.makeText(this,"success",Toast.LENGTH_LONG)
+                    }.addOnFailureListener{
+                        Toast.makeText(this,"failed",Toast.LENGTH_LONG)
+
+                    }
+
 //            uploadImageToFirebase(file_uri)
-//
-//
-//        }
+        }}
 //    }
 //    private fun uploadImageToFirebase(fileUri: Uri) {
 //        if (fileUri != null) {
@@ -104,7 +115,7 @@ class ownersignup : AppCompatActivity() {
 
 
     fun pickpic(view: View){
-       //penGalleryForImage()
+        openGalleryForImage()
 
 
 

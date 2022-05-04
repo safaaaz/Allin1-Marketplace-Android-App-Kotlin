@@ -5,41 +5,13 @@ import androidx.annotation.DrawableRes
 
 
 
-class product {
-    var name:String?=null
-    var price:String=""
-    var category:String=""
-    var image:Int?=null
-    
+data class product (
+    var name:String?=null,
+    var price:String="",
+    var category:String="",
+    var image:Int?=null,
+    var count:Int=0
+
+)
 
 
-    constructor(
-        name:String,
-        price:String="",
-        category:String="",
-        image:Int=0,
-
-    )
-    {
-        this.name=name
-        this.price=price
-        this.category=category
-        this.image=image
-
-
-    }
-     fun printproduct(){
-        print(this.name)
-        print(this.category)
-        print(this.price)
-    }
-
-
-    fun toMap(): Map<String, Any?> {
-        return mapOf(
-            "uid" to name,
-            "author" to price
-        )
-    }
-
-}
