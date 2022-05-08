@@ -21,12 +21,10 @@ class productsdetails : AppCompatActivity() {
         val prodname = b.getString("name")
         val prodprice = b.getString("price")
         val storref = FirebaseStorage.getInstance().reference.child("productsimages/"+b.getString("owner")+"/"+prodname)
-        print("5555555555555555555555555555555555555555555555555555555\n"+b.getString("owner"))
         val localfile = File.createTempFile("tempimage", "jpg")
         storref.getFile(localfile).addOnSuccessListener {
             val bitmap = BitmapFactory.decodeFile(localfile.absolutePath)
             productsimg.setImageBitmap(bitmap)
-            print("99999999999999999999999999999999999999999999raratsrs")
         }
 
         productsname.text = prodname
@@ -35,6 +33,7 @@ class productsdetails : AppCompatActivity() {
     }
 
     fun addtocart(view: View) {
+        /* add product to the cart of the user */
         val usercart = FirebaseDatabase.getInstance().getReference("cart")
             .child(intent.getStringExtra("user_id").toString())
         usercart.child("1").setValue(product(productsname.text.toString(),productsprice.text.toString(),"vv"))
