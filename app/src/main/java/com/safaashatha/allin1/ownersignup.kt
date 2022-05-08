@@ -198,7 +198,7 @@ class ownersignup : AppCompatActivity() {
 
                 }
 
-                fun addprod(view: View) {
+    fun addprod(view: View) {
 
 
                     FirebaseDatabase.getInstance("https://allin1-23085-default-rtdb.asia-southeast1.firebasedatabase.app").reference.child(
@@ -206,7 +206,7 @@ class ownersignup : AppCompatActivity() {
                     ).child(FirebaseAuth.getInstance().currentUser!!.uid + "/products")
                         .child(name1.text.toString()).setValue(
                         product(
-                            name1.text.toString(), price1.text.toString(), Catagory1.text.toString()
+                            name1.text.toString(),FirebaseAuth.getInstance().currentUser!!.uid,"", price1.text.toString(),  Catagory1.text.toString()
                         )
                     )
                     Toast.makeText(this@ownersignup, "The product is add", Toast.LENGTH_LONG).show()
@@ -224,13 +224,10 @@ class ownersignup : AppCompatActivity() {
 
                 }
 
-                fun Cancel(view: View) {
-
-
+    fun Cancel(view: View) {
                     view.findNavController().navigate(R.id.action_addprod_to_mystore)
+}
 
-
-                }
     fun editprofile(view: View){
         view.findNavController().navigate(R.id.action_mystore_to_editprof)
     }

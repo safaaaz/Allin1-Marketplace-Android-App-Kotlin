@@ -12,9 +12,11 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.storage.FirebaseStorage
 import kotlinx.android.synthetic.main.activity_editprofileuser.*
 import kotlinx.android.synthetic.main.list_products.view.*
 import kotlinx.android.synthetic.main.productsdetails.view.*
+import java.io.File
 
 class productadapter(private val context: Activity,private val arrayList: ArrayList<product>):ArrayAdapter<product>(context,
 R.layout.list_products,arrayList) {
@@ -25,8 +27,16 @@ R.layout.list_products,arrayList) {
         val imageview:ImageView=view.findViewById(R.id.productimage)
         val nameview:TextView=view.findViewById(R.id.productname)
         val priceview:TextView=view.findViewById(R.id.productprice)
-        val bitmap = BitmapFactory.decodeFile(arrayList[position].image.toString()!!)
-        imageview.setImageBitmap(bitmap)
+        //val filename = FirebaseAuth.getInstance().currentUser!!.uid.toString()
+        val storref = FirebaseStorage.getInstance().reference.child("productsimages/"+arrayList[position].owner.toString()+"/"+arrayList[position].name.toString())
+        print("5555555555555555555555555555555555555555555555555555555\n"+arrayList[position].owner.toString())
+        val localfile = File.createTempFile("tempimage", "jpg")
+        storref.getFile(localfile).addOnSuccessListener {
+            val bitmap = BitmapFactory.decodeFile(localfile.absolutePath)
+            imageview.setImageBitmap(bitmap)
+            print("99999999999999999999999999999999999999999999raratsrs")
+
+        }
         //imageview. .setImageResource(arrayList[position].image!!)
         nameview.text=arrayList[position].name
         priceview.text=arrayList[position].price
@@ -38,6 +48,9 @@ R.layout.list_products,arrayList) {
         view.productimage.setOnClickListener(){
                 var intent= Intent(context,productsdetails::class.java)
                 //intent.putExtra("image",product.image!!)
+
+                intent.putExtra("owner",arrayList[position].owner.toString())
+                intent.putExtra("name",arrayList[position].name.toString()!!)
                 intent.putExtra("name",product.name!!)
                 intent.putExtra("price",product.price!!)
                 print("[[[[[[[[[[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]][[[[[[[[[[[[[[[[[[[[[[[\n\n"+arrayList[position].name.toString())
