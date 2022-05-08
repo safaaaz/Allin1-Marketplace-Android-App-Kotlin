@@ -7,6 +7,7 @@ import androidx.annotation.DrawableRes
 
 data class product (
     var name:String?=null,
+    var about:String?=null,
     var price:String="",
     var category:String="",
     var image:Int?=null,

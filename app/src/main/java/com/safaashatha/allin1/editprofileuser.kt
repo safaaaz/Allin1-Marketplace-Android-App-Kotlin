@@ -43,7 +43,6 @@ class editprofileuser : AppCompatActivity() {
         setContentView(R.layout.activity_editprofileuser)
         changeimage.setOnClickListener{
             openGalleryForImage()
-            //uploadimage()
         }
         saveprofile.setOnClickListener {
             val firstname= FirebaseDatabase.getInstance("https://allin1-23085-default-rtdb.asia-southeast1.firebasedatabase.app").reference.child(
@@ -65,11 +64,11 @@ class editprofileuser : AppCompatActivity() {
             "Users"
         ).child(FirebaseAuth.getInstance().currentUser!!.uid).get().addOnSuccessListener {
 
-            val k=it.getValue(user::class.java)
+            val k = it.getValue(user::class.java)
             image.setImageResource(k!!.Image)
-            val filename=FirebaseAuth.getInstance().currentUser!!.uid.toString()
-            val storref=FirebaseStorage.getInstance().reference.child("profileimages/$filename")
-            val localfile=File.createTempFile("tempimage","jpg")
+            val filename = FirebaseAuth.getInstance().currentUser!!.uid.toString()
+            val storref = FirebaseStorage.getInstance().reference.child("profileimages/$filename")
+            val localfile = File.createTempFile("tempimage", "jpg")
             storref.getFile(localfile).addOnSuccessListener {
                 val bitmap = BitmapFactory.decodeFile(localfile.absolutePath)
                 image.setImageBitmap(bitmap)
@@ -81,15 +80,7 @@ class editprofileuser : AppCompatActivity() {
             birthdayinput.setText(k!!.Birthday.toString())
             addressinput.setText(k!!.Address)
             phoneinput.setText(k!!.phone)
-
-            //image.setText(k!!.Firstname)
-
-            println("999999999999999999999999999999999999999999999999999999999"+k!!.Email)
         }
-        if(firstname==null){
-            println("999999999999999999999999999999999999999999999999999999999")
-        }
-        println("......................................"+firstname.toString()!!)
     }
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
 
@@ -138,6 +129,7 @@ class editprofileuser : AppCompatActivity() {
         intent.type = "image/*"
         startActivityForResult(intent, 100)
     }
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode == Activity.RESULT_OK && requestCode == 100){
@@ -164,22 +156,4 @@ class editprofileuser : AppCompatActivity() {
         }
 
     }
-    /*
-    private fun uploadimage(){
-        val progressgialog=ProgressDialog(this)
-        progressgialog.setMessage("uploading file...")
-        progressgialog.setCancelable(false)
-        progressgialog.show()
-         val filename=FirebaseAuth.getInstance().currentUser!!.uid.toString()
-         val storref=FirebaseStorage.getInstance().getReference("images/$filename")
-        storref.putFile(uriimage).
-                addOnSuccessListener {
-                        image.setImageURI(null)
-                        Toast.makeText(this,"success",Toast.LENGTH_LONG)
-                        if(progressgialog.isShowing) progressgialog.dismiss()
-                }.addOnFailureListener{
-                        Toast.makeText(this,"failed",Toast.LENGTH_LONG)
-
-        }
-    }*/
 }

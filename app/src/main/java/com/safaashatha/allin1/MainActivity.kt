@@ -74,7 +74,7 @@ class MainActivity : AppCompatActivity() {
                             prod.child("name").value.toString(),
                             prod.child("price").value.toString(),
                             prod.child("category").value.toString(),
-                            R.drawable.img
+
                         )
                         productsarrylist.add(pr)
 
@@ -168,7 +168,6 @@ class MainActivity : AppCompatActivity() {
                                 x.child("name").value.toString(),
                                 x.child("price").value.toString(),
                                 x.child("category").value.toString(),
-                                R.drawable.img
                             )
                             cartarraylist.add(pr)
                             println("-######################################################################shatha  "+ cartarraylist.size)
@@ -205,7 +204,6 @@ class MainActivity : AppCompatActivity() {
                                 prod.child("name").value.toString(),
                                 prod.child("price").value.toString(),
                                 prod.child("category").value.toString(),
-                                R.drawable.img
                             )
                             productsarrylist.add(pr)
                             println("-######################################################################shatha  "+ productsarrylist.size)
@@ -238,7 +236,6 @@ class MainActivity : AppCompatActivity() {
                                 prod.child("name").value.toString(),
                                 prod.child("price").value.toString(),
                                 prod.child("category").value.toString(),
-                                R.drawable.img
                             )
                             productsarrylist.add(pr)
                             println("-######################################################################shatha  "+ productsarrylist.size)
@@ -255,13 +252,4 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun addtocart(view: View){
-        val usercart = FirebaseDatabase.getInstance().getReference("cart")
-            .child(intent.getStringExtra("user_id").toString())
-        usercart.child("1").setValue(product(productsname.text.toString(),productsprice.text.toString(),"vv",productsimg.imageAlpha))
-            .addOnSuccessListener {
-                Toast.makeText(this,"Success add to cart",Toast.LENGTH_LONG).show()
-
-            }
-    }
 }

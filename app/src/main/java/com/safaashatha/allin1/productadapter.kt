@@ -3,6 +3,7 @@ package com.safaashatha.allin1
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
+import android.graphics.BitmapFactory
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,6 +12,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
+import kotlinx.android.synthetic.main.activity_editprofileuser.*
 import kotlinx.android.synthetic.main.list_products.view.*
 import kotlinx.android.synthetic.main.productsdetails.view.*
 
@@ -23,8 +25,9 @@ R.layout.list_products,arrayList) {
         val imageview:ImageView=view.findViewById(R.id.productimage)
         val nameview:TextView=view.findViewById(R.id.productname)
         val priceview:TextView=view.findViewById(R.id.productprice)
-
-        imageview.setImageResource(arrayList[position].image!!)
+        val bitmap = BitmapFactory.decodeFile(arrayList[position].image.toString()!!)
+        imageview.setImageBitmap(bitmap)
+        //imageview. .setImageResource(arrayList[position].image!!)
         nameview.text=arrayList[position].name
         priceview.text=arrayList[position].price
 
@@ -34,10 +37,10 @@ R.layout.list_products,arrayList) {
 
         view.productimage.setOnClickListener(){
                 var intent= Intent(context,productsdetails::class.java)
-                intent.putExtra("image",product.image!!)
+                //intent.putExtra("image",product.image!!)
                 intent.putExtra("name",product.name!!)
                 intent.putExtra("price",product.price!!)
-                print("[[[[[[[[[[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]][[[[[[[[[[[[[[[[[[[[[[[\n\n"+position.toString())
+                print("[[[[[[[[[[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]][[[[[[[[[[[[[[[[[[[[[[[\n\n"+arrayList[position].name.toString())
                 intent.putExtra("user_id", FirebaseAuth.getInstance()!!.uid)
                 context!!.startActivity(intent)
 

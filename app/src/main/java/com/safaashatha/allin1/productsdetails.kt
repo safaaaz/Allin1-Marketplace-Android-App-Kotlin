@@ -3,6 +3,7 @@ package com.safaashatha.allin1
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.productsdetails.*
@@ -20,9 +21,16 @@ class productsdetails : AppCompatActivity() {
         productsimg.setImageResource(prodimg)
     }
 
-   // FirebaseDatabase.getInstance("https://allin1-23085-default-rtdb.asia-southeast1.firebasedatabase.app").reference.child(
-    //"shops"
-    //).child(FirebaseAuth.getInstance().currentUser!!.uid + "/products")
-    //.child(productsname.text.toString()).removeValue()
+    fun addtocart(view: View) {
+        val usercart = FirebaseDatabase.getInstance().getReference("cart")
+            .child(intent.getStringExtra("user_id").toString())
+        usercart.child("1").setValue(product(productsname.text.toString(),productsprice.text.toString(),"vv"))
+            .addOnSuccessListener {
+                Toast.makeText(this,"Success add to cart", Toast.LENGTH_LONG).show()
+
+            }
+    }
+
+
 
 }

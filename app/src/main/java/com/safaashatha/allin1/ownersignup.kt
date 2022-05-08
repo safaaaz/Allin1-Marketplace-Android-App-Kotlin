@@ -236,13 +236,7 @@ class ownersignup : AppCompatActivity() {
     }
 
     fun editpeoff(view: View){
-
-
-//        FirebaseDatabase.getInstance("https://allin1-23085-default-rtdb.asia-southeast1.firebasedatabase.app").reference.child(
-//            "shops"
-//        ).child(FirebaseAuth.getInstance().currentUser!!.uid).child("address").setValue(addresss.text.toString())
-
-          if( !(TextUtils.isEmpty(name1.text.toString().trim { it <= ' ' })))
+        if( !(TextUtils.isEmpty(name1.text.toString().trim { it <= ' ' })))
           {
               FirebaseDatabase.getInstance("https://allin1-23085-default-rtdb.asia-southeast1.firebasedatabase.app").reference.child(
                   "shops"
@@ -304,7 +298,6 @@ class ownersignup : AppCompatActivity() {
                                             prod.child("name").value.toString(),
                                             prod.child("price").value.toString(),
                                             prod.child("category").value.toString(),
-                                            R.drawable.img
                                         )
                                         productsarrylistt.add(pr)
                                     }
@@ -317,11 +310,6 @@ class ownersignup : AppCompatActivity() {
                     }
 
                 }
-
-
-
-
-
             }
 
 
