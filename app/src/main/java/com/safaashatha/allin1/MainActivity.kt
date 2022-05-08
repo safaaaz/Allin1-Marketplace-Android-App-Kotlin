@@ -107,7 +107,7 @@ class MainActivity : AppCompatActivity() {
         })
         return true
     }
-
+//for shatha
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when(item.itemId){
             R.id.books -> {
