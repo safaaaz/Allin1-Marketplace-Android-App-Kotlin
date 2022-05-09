@@ -88,31 +88,7 @@ class ownersignup : AppCompatActivity() {
                         Toast.makeText(this,"failed",Toast.LENGTH_LONG)
 
                     }
-
-//            uploadImageToFirebase(file_uri)
-        }}
-//    }
-//    private fun uploadImageToFirebase(fileUri: Uri) {
-//        if (fileUri != null) {
-//            val fileName = UUID.randomUUID().toString() +".jpg"
-//
-//            val database = FirebaseDatabase.getInstance()
-//            val refStorage = FirebaseStorage.getInstance().reference.child("images/$fileName")
-//
-//            refStorage.putFile(fileUri)
-//                .addOnSuccessListener(
-//                    OnSuccessListener<UploadTask.TaskSnapshot> { taskSnapshot ->
-//                        taskSnapshot.storage.downloadUrl.addOnSuccessListener {
-//                            val imageUrl = it.toString()
-//                        }
-//                    })
-//
-//                ?.addOnFailureListener(OnFailureListener { e ->
-//                    print(e.message)
-//                })
-//        }
-//    }
-
+                }}
 
     fun pickpic(view: View){
         openGalleryForImage()
@@ -121,24 +97,19 @@ class ownersignup : AppCompatActivity() {
 
     }
 
-
-
-
-
-                fun logoutowner(view: View) {
+    fun logoutowner(view: View) {
                     FirebaseAuth.getInstance().signOut()
 
                     startActivity(Intent(this, LoginActivity::class.java))
                     finish()
                 }
 
-                fun addstore(view: View) {
+    fun addstore(view: View) {
 
                     view.findNavController().navigate(R.id.action_blankFragment3_to_storeAdd)
                 }
 
-
-                fun savestore(view: View) {
+    fun savestore(view: View) {
                     //val layout2 = findViewById(R.id.layout) as LinearLayout
                     FirebaseDatabase.getInstance("https://allin1-23085-default-rtdb.asia-southeast1.firebasedatabase.app").reference.child(
                         "shops"
@@ -165,42 +136,11 @@ class ownersignup : AppCompatActivity() {
                     view.findNavController().navigate(R.id.action_storeAdd_to_mystore)
                 }
 
-                fun addproduct(view: View) {
+    fun addproduct(view: View) {
                     view.findNavController().navigate(R.id.action_mystore_to_addprod)
-
-                    //val button = findViewById<Button>(R.id.Add_product)
-
-                    // button?.setOnClickListener()
-                    //{
-
-                    // Toast.makeText(this@ownersignup, "shatha", Toast.LENGTH_LONG).show() }
-
-                    //val layout1 = findViewById(R.id.layout) as LinearLayout
-                    //val name = TextView(this)
-
-
-                    //name.layoutParams= LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
-                    //name.text = "Name"
-
-                    //layout1.addView(name)
-
-                    //save_button.setOnClickListener{FirebaseDatabase.getInstance("https://allin1-23085-default-rtdb.asia-southeast1.firebasedatabase.app").reference.child(FirebaseAuth.getInstance().currentUser!!.uid+"/products").child("1").setValue(product(
-                    //  "book","for reading","30"))}
-                    //button_add.setOnClickListener()
-                    //{
-
-                    //Toast.makeText(this@ownersignup, "The product is add", Toast.LENGTH_LONG).show()
-                    //  FirebaseDatabase.getInstance("https://allin1-23085-default-rtdb.asia-southeast1.firebasedatabase.app").reference.child(FirebaseAuth.getInstance().currentUser!!.uid+"/products").child(editText.text.toString()).setValue(product(
-                    //  editText.text.toString(),price1.text.toString(),catagory1.text.toString()
-                    //))
-                    //}
-
-
                 }
 
     fun addprod(view: View) {
-
-
                     FirebaseDatabase.getInstance("https://allin1-23085-default-rtdb.asia-southeast1.firebasedatabase.app").reference.child(
                         "shops"
                     ).child(FirebaseAuth.getInstance().currentUser!!.uid + "/products")

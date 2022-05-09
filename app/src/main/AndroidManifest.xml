@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Allin1">
         <activity
+            android:name=".productsofshop"
+            android:exported="true" />
+        <activity
             android:name=".editprofileuser"
             android:exported="true" />
         <activity

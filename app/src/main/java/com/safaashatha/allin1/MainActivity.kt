@@ -1,40 +1,18 @@
 package com.safaashatha.allin1
 
-import android.content.ContentValues.TAG
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.TextUtils
-import android.util.Log
-import com.google.android.gms.tasks.OnCompleteListener
-import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
-import com.google.firebase.database.ktx.getValue
 import com.safaashatha.allin1.databinding.ActivityMainBinding
-import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.activity_register.*
-import kotlinx.android.synthetic.main.fragment_blank.*
 
-import android.R.string.no
-import android.graphics.ColorSpace.get
-import android.nfc.tech.NfcA.get
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
-import android.view.View
 import android.widget.*
-import androidx.core.view.get
 import com.google.firebase.database.*
-import kotlinx.android.synthetic.main.fragment_store_add.*
-import kotlinx.android.synthetic.main.productsdetails.*
 import kotlinx.android.synthetic.main.showcart.*
-import kotlinx.android.synthetic.main.showcart.view.*
-import android.widget.TextView
-
-
-
 
 
 class MainActivity : AppCompatActivity() {

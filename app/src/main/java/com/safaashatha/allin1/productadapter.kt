@@ -1,7 +1,6 @@
 package com.safaashatha.allin1
 
 import android.app.Activity
-import android.content.Context
 import android.content.Intent
 import android.graphics.BitmapFactory
 import android.view.LayoutInflater
@@ -13,12 +12,10 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.storage.FirebaseStorage
-import kotlinx.android.synthetic.main.activity_editprofileuser.*
 import kotlinx.android.synthetic.main.list_products.view.*
-import kotlinx.android.synthetic.main.productsdetails.view.*
 import java.io.File
 
-class productadapter(private val context: Activity,private val arrayList: ArrayList<product>):ArrayAdapter<product>(context,
+class productadapter(private val context: Activity, private val arrayList: ArrayList<product>):ArrayAdapter<product>(context,
 R.layout.list_products,arrayList) {
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
         val inflater:LayoutInflater= LayoutInflater.from(context)
@@ -51,9 +48,8 @@ R.layout.list_products,arrayList) {
 
                 intent.putExtra("owner",arrayList[position].owner.toString())
                 intent.putExtra("name",arrayList[position].name.toString()!!)
-                intent.putExtra("name",product.name!!)
+                intent.putExtra("about",arrayList[position].about.toString()!!)
                 intent.putExtra("price",product.price!!)
-                print("[[[[[[[[[[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]][[[[[[[[[[[[[[[[[[[[[[[\n\n"+arrayList[position].name.toString())
                 intent.putExtra("user_id", FirebaseAuth.getInstance()!!.uid)
                 context!!.startActivity(intent)
 
