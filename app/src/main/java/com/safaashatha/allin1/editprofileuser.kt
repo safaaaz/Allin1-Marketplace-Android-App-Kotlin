@@ -65,7 +65,7 @@ class editprofileuser : AppCompatActivity() {
         ).child(FirebaseAuth.getInstance().currentUser!!.uid).get().addOnSuccessListener {
 
             val k = it.getValue(user::class.java)
-            image.setImageResource(k!!.Image)
+            //image.setImageResource(k!!.Image)
             val filename = FirebaseAuth.getInstance().currentUser!!.uid.toString()
             val storref = FirebaseStorage.getInstance().reference.child("profileimages/$filename")
             val localfile = File.createTempFile("tempimage", "jpg")

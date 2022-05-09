@@ -80,7 +80,7 @@ class productsdetails : AppCompatActivity() {
     fun loadcommits() {
         var commitsarraylist: ArrayList<commit> = ArrayList()
         //commitsarraylist.add(commit("first commit","safaa"))
-        print("ppppppppppppppppppppppppppppppppppppppppppppppppppppppppppp")
+        println("ppppppppppppppppppppppppppppppppppppppppppppppppppppppppppp")
 
         var database =
             FirebaseDatabase.getInstance("https://allin1-23085-default-rtdb.asia-southeast1.firebasedatabase.app/")
@@ -92,31 +92,27 @@ class productsdetails : AppCompatActivity() {
                     .getReference("shops").child(intent.getStringExtra("owner")!!)
                     .child("products").child(productsname.text.toString()).child("commits").child("e").setValue(commit())
             }
-            print("nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn")
+            print("nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn"+it.child("commits"))
 
             for(x in it.child("commits").children){
                var commexplain= x.child("explain").value
                var commuser=x.child("username").value
                 commitsarraylist.add(commit(commuser.toString(),commexplain.toString()))
+                print("nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn"+commitsarraylist.size)
+
             }
             val listVieww: ListView = findViewById(R.id.peoplecomments!!)
             listVieww.setAdapter(commitadapter(this, commitsarraylist))
              }
-
         }
     fun gostore(view: View)
     {
-
         val b = intent.extras!!
         val prodid = b.getString("owner")
-
         var newtext=productsname.text.toString()
         val intent = Intent(this, productsofshop::class.java)
         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-        //intent.putExtra("user_id", FirebaseAuth.getInstance()!!.uid)
         intent.putExtra("prodId", prodid)
-        // print("--------------------------------------------------------------------------------as--------------")
-        // print("\n"+prodid+ "\n")
         startActivity(intent)
         finish()
 
