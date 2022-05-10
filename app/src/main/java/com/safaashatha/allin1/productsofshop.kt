@@ -15,9 +15,6 @@ class productsofshop:  AppCompatActivity() {
         setContentView(R.layout.activity_productsofshop)
         val b = intent.extras!!
         val prodname = b.getString("prodId")
-        //print("\n uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu\n")
-        //print("\n"+prodname+"\n")
-        //productsname.text = prodname
         showprod(prodname.toString())
 
 
