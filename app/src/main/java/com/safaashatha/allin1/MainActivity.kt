@@ -50,12 +50,19 @@ class MainActivity : AppCompatActivity() {
 
                 if (x.exists()) {
                     for (prod in x.child("products").children) {
+                        var rating=0
+                        var numraters=0
+                        if(prod.child("numraters").exists()){
+                            numraters=Integer.valueOf( prod.child("numraters").value.toString())
+                            rating=Integer.valueOf( prod.child("rating").value.toString())
+                        }
                         val pr = product(
                             name=prod.child("name").value.toString(),
                             owner=prod.child("owner").value.toString(),
                             price=prod.child("price").value.toString(),
                             category = prod.child("category").value.toString(),
-
+                            rating= Integer.valueOf( rating ),
+                            numraters = Integer.valueOf( numraters )
                         )
                         productsarrylist.add(pr)
 
