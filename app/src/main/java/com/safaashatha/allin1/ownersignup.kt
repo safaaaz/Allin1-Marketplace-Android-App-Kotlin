@@ -20,6 +20,7 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.auth.FirebaseUser
 
 
+
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
 //import com.safaashatha.allin1.databinding.ActivityMainBinding
@@ -51,15 +52,19 @@ class ownersignup : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_ownersignup)
         val userid=intent.getStringExtra("user_id")
+        val tempp=intent.getStringExtra("temp")
+
 
 
         binding = FragmentMystoreBinding.inflate(layoutInflater)
-        readData()
+
         //openGalleryForImage()
-        if(userid!=null) {
+        if(tempp.equals("yes")) {
+            readData()
             val view = findViewById<View>(R.id.Add_store)
             view.findNavController().navigate(R.id.action_blankFragment3_to_mystore)
         }
+
             //if(userid!=null){
         //  val view=findViewById<View>(R.id.Add_store)
         //view.findNavController().navigate(R.id.action_blankFragment3_to_mystore)
@@ -125,11 +130,6 @@ class ownersignup : AppCompatActivity() {
                     FirebaseDatabase.getInstance("https://allin1-23085-default-rtdb.asia-southeast1.firebasedatabase.app").reference.child(
                         "shops"
                     ).child(FirebaseAuth.getInstance().currentUser!!.uid + "/products").child("1")
-                        .setValue(
-                            product(
-                                "book", "for reading", "30"
-                            )
-                        )
 
                     FirebaseDatabase.getInstance().reference.child("300").setValue("tt")
 
@@ -156,7 +156,9 @@ class ownersignup : AppCompatActivity() {
                     intent.flags =
                         Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                     intent.putExtra("user_id", FirebaseAuth.getInstance()!!.uid)
-                    //intent.putExtra("email_id", email)
+                    intent.putExtra("temp", "yes")
+
+        //intent.putExtra("email_id", email)
 
                     startActivity(intent)
                     finish()
@@ -169,7 +171,7 @@ class ownersignup : AppCompatActivity() {
 }
 
     fun editprofile(view: View){
-        view.findNavController().navigate(R.id.action_mystore_to_editprof)
+        //view.findNavController().navigate(R.id.action_mystore_to_editprof)
     }
 
     fun editpeoff(view: View){
@@ -205,6 +207,8 @@ class ownersignup : AppCompatActivity() {
         intent.flags =
             Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         intent.putExtra("user_id", FirebaseAuth.getInstance()!!.uid)
+        intent.putExtra("temp", "yes")
+
         //intent.putExtra("email_id", email)
 
         startActivity(intent)
@@ -247,7 +251,13 @@ class ownersignup : AppCompatActivity() {
                     }
 
                 }
-            }
+
+    fun buy(view: View)
+    {
+        view.findNavController().navigate(R.id.action_mystore_to_editprof)
+    }
+
+}
 
 
 

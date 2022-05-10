@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.ListView
 import android.widget.Toast
+import androidx.navigation.findNavController
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
@@ -18,7 +19,6 @@ class productsdetails : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.productsdetails)
-
         val b = intent.extras!!
         val prodname = b.getString("name")
         val prodprice = b.getString("price")
@@ -117,4 +117,5 @@ class productsdetails : AppCompatActivity() {
         finish()
 
     }
+
 }

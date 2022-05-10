@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".payment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/cardNumberEditText"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginBottom="-0.25dp"
+            android:hint="Card number"
+            android:inputType="phone"
+            android:padding="16dp"
+            android:textColor="@android:color/black"
+            android:textSize="14sp"
+            tools:ignore="LabelFor,NegativeMargin" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-0.25dp"
+            android:orientation="horizontal"
+            tools:ignore="NegativeMargin">
+
+            <EditText
+                android:id="@+id/cardDateEditText"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_marginRight="-0.25dp"
+                android:layout_weight="1"
+
+                android:hint="MM/YY"
+                android:inputType="date"
+                android:padding="16dp"
+                android:textColor="@android:color/black"
+
+                android:textSize="14sp"
+                tools:ignore="LabelFor,RtlHardcoded" />
+
+            <EditText
+                android:id="@+id/cardCVCEditText"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_marginLeft="-0.25dp"
+                android:layout_weight="1"
+
+                android:hint="CVC"
+                android:inputType="number"
+                android:padding="16dp"
+                android:textColor="@android:color/black"
+                android:textSize="14sp"
+                tools:ignore="LabelFor,RtlHardcoded" />
+
+
+
+        </LinearLayout>
+        <Button
+            android:id="@+id/btnpay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/colorAccent"
+            android:text="checkout"
+            android:onClick="pay"
+            android:textColor="@android:color/white" />
+    </LinearLayout>
+
+</LinearLayout>

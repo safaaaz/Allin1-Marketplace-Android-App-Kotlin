@@ -13,7 +13,7 @@ class commitadapter(private val context: Activity,private val arrayList: ArrayLi
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
         val inflater: LayoutInflater = LayoutInflater.from(context)
         val view: View = inflater.inflate(R.layout.commit_list, parent, false);
-        print("halasssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss")
+        print("\nhalasssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss\n")
         val explainview: TextView = view.findViewById(R.id.explain)
         val userview: TextView = view.findViewById(R.id.commitsusername)
 

@@ -26,12 +26,12 @@ R.layout.list_products,arrayList) {
         val priceview:TextView=view.findViewById(R.id.productprice)
         //val filename = FirebaseAuth.getInstance().currentUser!!.uid.toString()
         val storref = FirebaseStorage.getInstance().reference.child("productsimages/"+arrayList[position].owner.toString()+"/"+arrayList[position].name.toString())
-        print("5555555555555555555555555555555555555555555555555555555\n"+arrayList[position].owner.toString())
+        //print("5555555555555555555555555555555555555555555555555555555\n"+arrayList[position].owner.toString())
         val localfile = File.createTempFile("tempimage", "jpg")
         storref.getFile(localfile).addOnSuccessListener {
             val bitmap = BitmapFactory.decodeFile(localfile.absolutePath)
             imageview.setImageBitmap(bitmap)
-            print("99999999999999999999999999999999999999999999raratsrs")
+            //print("99999999999999999999999999999999999999999999raratsrs")
 
         }
         //imageview. .setImageResource(arrayList[position].image!!)
