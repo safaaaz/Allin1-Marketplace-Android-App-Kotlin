@@ -8,7 +8,8 @@
         android:id="@+id/commitsusername"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="user" />
+        android:text="user"
+        android:textColor="@android:color/holo_blue_dark" />
 
     <TextView
         android:id="@+id/explain"

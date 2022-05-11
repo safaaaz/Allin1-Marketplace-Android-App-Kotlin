@@ -60,11 +60,13 @@ class ownersignup : AppCompatActivity() {
         //}
 
     }
+
     private fun openGalleryForImage() {
         val intent = Intent(Intent.ACTION_PICK)
         intent.type = "image/*"
         startActivityForResult(intent, 100)
     }
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
                 super.onActivityResult(requestCode, resultCode, data)
                 if (resultCode == Activity.RESULT_OK && requestCode == 100){
@@ -84,19 +86,7 @@ class ownersignup : AppCompatActivity() {
 
     fun pickpic(view: View){
         openGalleryForImage()
-
-
-
     }
-
-
-    fun choose_image_store(view: View){
-       // openGalleryForImagestore()
-
-
-
-    }
-
 
     fun logoutowner(view: View) {
                     FirebaseAuth.getInstance().signOut()
@@ -104,8 +94,6 @@ class ownersignup : AppCompatActivity() {
                     startActivity(Intent(this, LoginActivity::class.java))
                     finish()
                 }
-
-
 
     fun savestore(view: View) {
                     //val layout2 = findViewById(R.id.layout) as LinearLayout
@@ -208,7 +196,6 @@ class ownersignup : AppCompatActivity() {
 
     }
 
-
     fun readData() {
         productsarrylistt = ArrayList()
         val userid=intent.getStringExtra("user_id")
@@ -244,10 +231,10 @@ class ownersignup : AppCompatActivity() {
 
                 }
 
-    fun buy(view: View)
-    {
+    fun buy(view: View) {
         view.findNavController().navigate(R.id.action_mystore_to_editprof)
     }
+
     fun addstore(view: View) {
 
         view.findNavController().navigate(R.id.action_blankFragment3_to_storeAdd)

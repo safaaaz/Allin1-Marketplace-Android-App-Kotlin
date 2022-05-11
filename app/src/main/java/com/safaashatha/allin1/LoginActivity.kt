@@ -64,14 +64,8 @@ class LoginActivity : AppCompatActivity() {
                                                 if(x.key==firebaseuser.uid){
                                                     itsowner=1
                                                 }
-                                                print("sssssssssssssssssssssssssss------> "+itsowner)
-                                                print("sssssssssssssssssssssssssss x.key------> "+x.key)
-                                                print("sssssssssssssssssssssssssss uid------> "+firebaseuser.uid)
-
                                             }
                                         if(itsowner==1){
-                                            println("rrrrrrrrrrrrrrrrrrrrrrrrrrrrr------> ")
-
                                             val intent = Intent(this, ownersignup::class.java)
                                             intent.flags =
                                                 Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
@@ -82,8 +76,6 @@ class LoginActivity : AppCompatActivity() {
                                             startActivity(intent)
                                             finish()
                                         }
-                                        println("rrrrrrrrrrrrrrrrrrrrrrrrrrrrr------> "+itsowner)
-
                                     }
 
                                     Toast.makeText(

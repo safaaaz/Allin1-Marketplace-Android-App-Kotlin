@@ -59,7 +59,7 @@
         <Button
             android:id="@+id/addtocart"
             android:layout_width="60pt"
-            android:layout_height="15pt"
+            android:layout_height="18pt"
             android:layout_gravity="left"
             android:backgroundTint="@color/plum"
             android:bufferType="normal"
@@ -71,7 +71,7 @@
             android:text="add to cart"
             android:textColor="@color/design_default_color_on_secondary"
             android:textSelectHandleLeft="@color/plum"
-            android:textSize="6pt"
+            android:textSize="4pt"
             android:typeface="monospace"
             app:iconSize="3dp" />
 
@@ -207,7 +207,7 @@
                 android:text="save"
                 android:textColor="@color/design_default_color_primary"
                 android:textSelectHandleLeft="@color/plum"
-                android:textSize="5pt"
+                android:textSize="4pt"
                 android:typeface="monospace"
                 app:iconSize="3dp" />
         </LinearLayout>

@@ -12,9 +12,7 @@ class commitadapter(private val context: Activity,private val arrayList: ArrayLi
     ArrayAdapter<commit>(context, R.layout.commit_list,arrayList) {
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
-        print("\n[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[\n")
         print(arrayList)
-        print("\n]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]\n")
         val inflater: LayoutInflater = LayoutInflater.from(context)
         val view: View = inflater.inflate(R.layout.commit_list, parent, false);
         val explainview: TextView = view.findViewById(R.id.explain)
@@ -22,8 +20,7 @@ class commitadapter(private val context: Activity,private val arrayList: ArrayLi
 
         explainview.text = arrayList[position].explain.toString()
         userview.text = arrayList[position].username.toString()
-        print("\n halasssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss\n"+position)
-        print("\n bsggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg\n")
+
 
         return view
     }

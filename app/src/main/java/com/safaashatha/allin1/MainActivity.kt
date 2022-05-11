@@ -29,8 +29,10 @@ class MainActivity : AppCompatActivity() {
 
         userid=intent.getStringExtra("user_id")
         val emailid=intent.getStringExtra("email_id")
-        if(emailid!=null)
-            welcome.text="Welcome "+emailid.toString()
+        val namedata= FirebaseDatabase.getInstance("https://allin1-23085-default-rtdb.asia-southeast1.firebasedatabase.app").reference.child(
+            "users"
+        ).child(FirebaseAuth.getInstance().currentUser!!.uid).child("name").get()
+        //welcome.text="Welcome "+namedata.toString()
 
 
         binding=ActivityMainBinding.inflate(layoutInflater)
