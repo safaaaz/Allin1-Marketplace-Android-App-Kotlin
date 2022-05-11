@@ -5,6 +5,7 @@ import android.widget.GridView
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import kotlinx.android.synthetic.main.activity_productsofshop.*
 import kotlinx.android.synthetic.main.productsdetails.*
 
 class productsofshop:  AppCompatActivity() {
@@ -14,9 +15,16 @@ class productsofshop:  AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_productsofshop)
         val b = intent.extras!!
-        val prodname = b.getString("prodId")
+        var prodname = b.getString("prodId")
         showprod(prodname.toString())
-
+        database.child(prodname.toString()).get().addOnSuccessListener {
+            shopsname.text=it.child("name").value.toString()
+            shopsabout.text=it.child("about").value.toString()
+            shopsaddress.text=shopsaddress.text.toString()+it.child("address").value.toString()
+            shopscategory.text=shopscategory.text.toString()+it.child("category").value.toString()
+            shopsphone.text=shopsphone.text.toString()+it.child("phone").value.toString()
+        }
+        print("\ntttttttttttttttttttttttttttttttttttttttt---"+prodname)
 
     }
 

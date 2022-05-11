@@ -8,10 +8,12 @@
     android:gravity="center|top"
     android:orientation="vertical"
     tools:context=".productsdetails">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:paddingEnd="10pt">
 
 
         <ImageView
@@ -42,13 +44,13 @@
             android:gravity="center|left"
             android:longClickable="false"
             android:text="about"
-            android:textSize="8pt" />
+            android:textSize="7pt" />
 
         <TextView
             android:id="@+id/productsprice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="right"
+            android:layout_gravity="left"
             android:gravity="right"
             android:text="TextView"
             android:textSize="9pt"
@@ -56,7 +58,7 @@
 
         <Button
             android:id="@+id/addtocart"
-            android:layout_width="55pt"
+            android:layout_width="60pt"
             android:layout_height="15pt"
             android:layout_gravity="left"
             android:backgroundTint="@color/plum"
@@ -67,48 +69,39 @@
             android:onClick="addtocart"
             android:scrollbarSize="2dp"
             android:text="add to cart"
-            android:textColor="@color/design_default_color_primary"
+            android:textColor="@color/design_default_color_on_secondary"
             android:textSelectHandleLeft="@color/plum"
-            android:textSize="5pt"
+            android:textSize="6pt"
             android:typeface="monospace"
             app:iconSize="3dp" />
 
-        <TextView
-            android:id="@+id/tostore"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:autoLink="all"
-            android:linksClickable="true"
-            android:onClick="gostore"
-            android:text="go to store"
-            android:textColor="@android:color/holo_blue_dark" />
-
         <RatingBar
             android:id="@+id/ratingBar"
-            style="@android:style/Widget.Material.RatingBar.Indicator"
+            style="@android:style/Widget.Material.RatingBar.Small"
             android:layout_width="wrap_content"
-            android:layout_height="32dp"
-            android:layout_gravity="right"
+            android:layout_height="9pt"
+            android:layout_gravity="left"
             android:clickable="true"
             android:isIndicator="false"
             android:numStars="5"
             android:onClick="productrating"
-            android:scrollbarSize="0.5dp"
+            android:scrollbarSize="2dp"
             android:stepSize="1" />
 
         <TextView
             android:id="@+id/productsrate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="right"
+            android:layout_gravity="left"
+            android:paddingEnd="10pt"
             android:text="rating: " />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/softpink"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="4pt">
 
             <TextView
                 android:id="@+id/stor"
@@ -118,6 +111,7 @@
                 android:background="@color/plum"
                 android:gravity="center"
                 android:text="store details"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -144,13 +138,24 @@
                 android:layout_height="wrap_content"
                 android:text="shop address" />
 
+            <TextView
+                android:id="@+id/tostore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:autoLink="all"
+                android:linksClickable="true"
+                android:onClick="gostore"
+                android:text="go to store"
+                android:textColor="@android:color/holo_blue_dark" />
+
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingTop="5pt">
+            android:paddingTop="15pt">
 
             <TextView
                 android:id="@+id/comments"
@@ -158,6 +163,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="reviews"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <ListView
@@ -165,6 +171,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="78dp"
                 tools:listitem="@layout/commit_list" />
+
             <TextView
                 android:id="@+id/more"
                 android:layout_width="wrap_content"

@@ -60,7 +60,8 @@ class MainActivity : AppCompatActivity() {
                             price=prod.child("price").value.toString(),
                             category = prod.child("category").value.toString(),
                             rating= Integer.valueOf( rating ),
-                            numraters = Integer.valueOf( numraters )
+                            numraters = Integer.valueOf( numraters ),
+                            about = prod.child("about").value.toString()
                         )
                         productsarrylist.add(pr)
 
@@ -171,7 +172,7 @@ class MainActivity : AppCompatActivity() {
 
 
     fun showproductsbycategory(cat:String){
-        prodcattext.text=cat
+        shopsname.text=cat
         productsarrylist = ArrayList()
         noprod.text=""
         //val c=product("book","30","learning",R.drawable.img)
@@ -206,7 +207,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun searchforprod(newtext:String){
-        prodcattext.text=newtext
+        shopsname.text=newtext
         productsarrylist = ArrayList()
         noprod.text=""
         database =

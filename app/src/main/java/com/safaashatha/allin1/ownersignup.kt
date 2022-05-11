@@ -9,21 +9,10 @@ import android.text.TextUtils
 import android.view.View
 import androidx.navigation.findNavController
 import com.google.firebase.auth.FirebaseAuth
-import android.view.ViewGroup
-import android.view.Gravity
 import android.widget.*
-import com.google.android.gms.tasks.OnCompleteListener
-import com.google.android.gms.tasks.OnFailureListener
-import com.google.android.gms.tasks.OnSuccessListener
-import com.google.firebase.auth.AuthResult
 import com.google.firebase.database.DatabaseReference
-import com.google.firebase.auth.FirebaseUser
-
-
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
-//import com.safaashatha.allin1.databinding.ActivityMainBinding
-//import com.safaashatha.allin1.databinding.ActivityOwnersignupBinding
 import com.safaashatha.allin1.databinding.FragmentMystoreBinding
 import kotlinx.android.synthetic.main.activity_editprofileuser.*
 import kotlinx.android.synthetic.main.activity_login.*
@@ -150,18 +139,12 @@ class ownersignup : AppCompatActivity() {
                         )
                     )
                     Toast.makeText(this@ownersignup, "The product is add", Toast.LENGTH_LONG).show()
-
-                //view.findNavController().navigate(R.id.)
                     val intent = Intent(this, ownersignup::class.java)
                     intent.flags =
                         Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                     intent.putExtra("user_id", FirebaseAuth.getInstance()!!.uid)
-                    //intent.putExtra("email_id", email)
-
                     startActivity(intent)
                     finish()
-
-
                 }
 
     fun Cancel(view: View) {
@@ -212,7 +195,6 @@ class ownersignup : AppCompatActivity() {
 
     }
 
-
     fun readData() {
         productsarrylistt = ArrayList()
         val userid=intent.getStringExtra("user_id")
@@ -247,7 +229,7 @@ class ownersignup : AppCompatActivity() {
                     }
 
                 }
-            }
+}
 
 
 

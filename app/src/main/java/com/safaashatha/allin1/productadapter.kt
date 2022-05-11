@@ -50,6 +50,7 @@ R.layout.list_products,arrayList) {
                 intent.putExtra("user_id", FirebaseAuth.getInstance()!!.uid)
                 intent.putExtra("rating",product.rating!!)
                 intent.putExtra("numraters",product.numraters!!)
+
             context!!.startActivity(intent)
 
             }

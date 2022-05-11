@@ -64,7 +64,7 @@ class productsdetails : AppCompatActivity() {
 
         ratingBar.onRatingBarChangeListener =
             OnRatingBarChangeListener { ratingBar, rating, fromUser ->
-                Toast.makeText(this,"the rating is:"+ratingBar.rating,Toast.LENGTH_LONG).show()
+                Toast.makeText(this,"your rate "+ratingBar.rating.toInt()+" stars ",Toast.LENGTH_LONG).show()
 
                 var database =
                     FirebaseDatabase.getInstance("https://allin1-23085-default-rtdb.asia-southeast1.firebasedatabase.app/")
@@ -102,8 +102,9 @@ class productsdetails : AppCompatActivity() {
                         FirebaseAuth.getInstance().currentUser!!.email.toString()))
             writecomm.setText("")
             Toast.makeText(this,"your comment has been successfully save",Toast.LENGTH_LONG).show()
+
         }
-    }
+ }
 
     fun loadcommits() {
         var commitsarraylist: ArrayList<commit> = ArrayList()
@@ -135,19 +136,15 @@ class productsdetails : AppCompatActivity() {
 
     fun gostore(view: View) {
         val b = intent.extras!!
-        val prodid = b.getString("owner")
+        val shopid = b.getString("owner")
         var newtext=productsname.text.toString()
         val intent = Intent(this, productsofshop::class.java)
         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-        intent.putExtra("prodId", prodid)
+        intent.putExtra("prodId", shopid)
         startActivity(intent)
         finish()
 
     }
 
-    fun productrating(view:View){
-        print("mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm")
-        Toast.makeText(this,"the rating is:"+ratingBar.rating,Toast.LENGTH_LONG).show()
 
-    }
 }
