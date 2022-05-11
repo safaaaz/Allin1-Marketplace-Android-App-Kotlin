@@ -14,6 +14,7 @@ import android.view.View
 import android.widget.*
 import androidx.navigation.findNavController
 import com.google.firebase.database.*
+import kotlinx.android.synthetic.main.fragment_blank.*
 import kotlinx.android.synthetic.main.showcart.*
 
 
@@ -28,6 +29,9 @@ class MainActivity : AppCompatActivity() {
 
         userid=intent.getStringExtra("user_id")
         val emailid=intent.getStringExtra("email_id")
+        if(emailid!=null)
+            welcome.text="Welcome "+emailid.toString()
+
 
         binding=ActivityMainBinding.inflate(layoutInflater)
         readData()
@@ -253,4 +257,6 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
         finish()
     }
+
+
 }

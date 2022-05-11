@@ -121,6 +121,25 @@
                     android:padding="8dp"
                     android:textSize="16sp" />
 
+                <TextView
+                    android:id="@+id/about"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:text="Price"
+                    android:textColor="@color/purple_200"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/about1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="15"
+                    android:inputType="text"
+                    android:padding="8dp"
+                    android:textSize="16sp" />
+
 
 
                 <Button
