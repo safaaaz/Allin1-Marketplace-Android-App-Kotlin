@@ -9,5 +9,11 @@
     <color name="white">#FFFFFFFF</color>
     <color name="plum">#DDA0DD</color>
     <color name="orchid">#DA70D6</color>
+    <color name="colorPrimary">#607D8B</color>
+    <color name="colorPrimaryDark">#455A64</color>
+    <color name="colorAccent">#4CAF50</color>
     <color name="softpink">#fff3f5</color>
+    <color name="pink">#FF33F3</color>
+
+
 </resources>

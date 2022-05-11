@@ -77,6 +77,7 @@ class LoginActivity : AppCompatActivity() {
                                                 Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                                             intent.putExtra("user_id", FirebaseAuth.getInstance()!!.uid)
                                             intent.putExtra("email_id", email)
+                                            intent.putExtra("temp", "yes")
 
                                             startActivity(intent)
                                             finish()

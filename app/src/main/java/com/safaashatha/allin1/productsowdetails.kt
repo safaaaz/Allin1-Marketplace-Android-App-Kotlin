@@ -52,6 +52,8 @@ class productsowdetails : AppCompatActivity() {
         intent.flags =
             Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         intent.putExtra("user_id", FirebaseAuth.getInstance()!!.uid)
+        intent.putExtra("temp", "yes")
+
         startActivity(intent)
         finish()
 
@@ -81,6 +83,8 @@ class productsowdetails : AppCompatActivity() {
         intent.flags =
             Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         intent.putExtra("user_id", FirebaseAuth.getInstance()!!.uid)
+        intent.putExtra("temp", "yes")
+
         startActivity(intent)
         finish()
 

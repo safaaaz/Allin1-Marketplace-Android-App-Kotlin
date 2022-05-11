@@ -10,8 +10,11 @@ import kotlinx.android.synthetic.main.activity_main.*
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
+import android.view.View
 import android.widget.*
+import androidx.navigation.findNavController
 import com.google.firebase.database.*
+import kotlinx.android.synthetic.main.fragment_blank.*
 import kotlinx.android.synthetic.main.showcart.*
 
 
@@ -26,6 +29,9 @@ class MainActivity : AppCompatActivity() {
 
         userid=intent.getStringExtra("user_id")
         val emailid=intent.getStringExtra("email_id")
+        if(emailid!=null)
+            welcome.text="Welcome "+emailid.toString()
+
 
         binding=ActivityMainBinding.inflate(layoutInflater)
         readData()
@@ -162,7 +168,7 @@ class MainActivity : AppCompatActivity() {
 
 
         if(cartarraylist.size==0){
-            nocart.text="there is no products in this category"
+            nocart.text="There is no products in this category"
         }
 
         //println("---------------------------------------------------------------------safa  "+ productsarrylist.size)
@@ -238,5 +244,20 @@ class MainActivity : AppCompatActivity() {
 
         }
     }
+    fun buy(view: View)
+    {
+        val intent = Intent(this, payment::class.java)
+
+        intent.flags =
+            Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        intent.putExtra("user_id", FirebaseAuth.getInstance()!!.uid)
+        //intent.putExtra("temp", "yes")
+
+        //intent.putExtra("email_id", email)
+
+        startActivity(intent)
+        finish()
+    }
+
 
 }

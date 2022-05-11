@@ -40,12 +40,15 @@ class ownersignup : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_ownersignup)
         val userid=intent.getStringExtra("user_id")
+        val tempp=intent.getStringExtra("temp")
+
 
 
         binding = FragmentMystoreBinding.inflate(layoutInflater)
         readData()
         //openGalleryForImage()
-        if(userid!=null) {
+        if(tempp.equals("yes")) {
+            readData()
             val view = findViewById<View>(R.id.Add_store)
             view.findNavController().navigate(R.id.action_blankFragment3_to_mystore)
         }
@@ -86,6 +89,15 @@ class ownersignup : AppCompatActivity() {
 
     }
 
+
+    fun choose_image_store(view: View){
+       // openGalleryForImagestore()
+
+
+
+    }
+
+
     fun logoutowner(view: View) {
                     FirebaseAuth.getInstance().signOut()
 
@@ -93,10 +105,7 @@ class ownersignup : AppCompatActivity() {
                     finish()
                 }
 
-    fun addstore(view: View) {
 
-                    view.findNavController().navigate(R.id.action_blankFragment3_to_storeAdd)
-                }
 
     fun savestore(view: View) {
                     //val layout2 = findViewById(R.id.layout) as LinearLayout
@@ -135,7 +144,7 @@ class ownersignup : AppCompatActivity() {
                     ).child(FirebaseAuth.getInstance().currentUser!!.uid + "/products")
                         .child(name1.text.toString()).setValue(
                         product(
-                            name1.text.toString(),FirebaseAuth.getInstance().currentUser!!.uid,"", price1.text.toString(),  Catagory1.text.toString()
+                            name1.text.toString(),FirebaseAuth.getInstance().currentUser!!.uid,about1.text.toString(), price1.text.toString(),  Catagory1.text.toString()
                         )
                     )
                     Toast.makeText(this@ownersignup, "The product is add", Toast.LENGTH_LONG).show()
@@ -143,6 +152,8 @@ class ownersignup : AppCompatActivity() {
                     intent.flags =
                         Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                     intent.putExtra("user_id", FirebaseAuth.getInstance()!!.uid)
+                    //intent.putExtra("email_id", email)
+
                     startActivity(intent)
                     finish()
                 }
@@ -151,8 +162,8 @@ class ownersignup : AppCompatActivity() {
                     view.findNavController().navigate(R.id.action_addprod_to_mystore)
 }
 
-    fun editprofile(view: View){
-        view.findNavController().navigate(R.id.action_mystore_to_editprof)
+    fun editprofile(view: View) {
+        view.findNavController().navigate(R.id.action_mystore_to_editprof2)
     }
 
     fun editpeoff(view: View){
@@ -188,12 +199,15 @@ class ownersignup : AppCompatActivity() {
         intent.flags =
             Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         intent.putExtra("user_id", FirebaseAuth.getInstance()!!.uid)
+        intent.putExtra("temp", "yes")
+
         //intent.putExtra("email_id", email)
 
         startActivity(intent)
         finish()
 
     }
+
 
     fun readData() {
         productsarrylistt = ArrayList()
@@ -224,11 +238,21 @@ class ownersignup : AppCompatActivity() {
                                 }
                             }
 
-                        val listView: ListView = findViewById(R.id.productss)
+                        val listView: GridView = findViewById(R.id.productss)
                         listView.setAdapter(productowadapter(this, productsarrylistt))
                     }
 
                 }
+
+    fun buy(view: View)
+    {
+        view.findNavController().navigate(R.id.action_mystore_to_editprof)
+    }
+    fun addstore(view: View) {
+
+        view.findNavController().navigate(R.id.action_blankFragment3_to_storeAdd)
+    }
+
 }
 
 

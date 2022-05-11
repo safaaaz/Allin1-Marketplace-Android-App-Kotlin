@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Allin1">
         <activity
+            android:name=".payment"
+            android:exported="false" />
+        <activity
             android:name=".productsofshop"
             android:exported="true" />
         <activity
