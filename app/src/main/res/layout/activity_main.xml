@@ -20,9 +20,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="all the products"
+            android:text="All the products"
             android:textAppearance="@style/TextAppearance.AppCompat.Display2"
-            android:textColor="@color/purple_200"
+            android:textColor="#FF33F3"
             android:textColorLink="@color/orchid"
             android:textStyle="bold" />
 

@@ -40,7 +40,7 @@
             android:gravity="center"
             android:padding="8dp"
             android:text="EDIT PROFILE  "
-            android:textColor="@color/purple_200"
+            android:textColor="#FF33F3"
             android:textSize="24sp"
             android:textStyle="bold" />
 
@@ -69,7 +69,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="owner name"
-                    android:textColor="@color/purple_200"
+                    android:textColor="#FF33F3"
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
@@ -88,7 +88,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
                     android:text="Owner Address"
-                    android:textColor="@color/purple_200"
+                    android:textColor="#FF33F3"
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
@@ -108,7 +108,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
                     android:text="Phone"
-                    android:textColor="@color/purple_200"
+                    android:textColor="#FF33F3"
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
@@ -128,8 +128,11 @@
                     android:id="@+id/Edit_prof"
                     android:layout_width="309dp"
                     android:layout_height="51dp"
+                    android:textColor="#FF33F3"
                     android:onClick="editpeoff"
                     android:text="Edit"
+                    android:background="@drawable/custom_dialog"
+
                     />
 
 

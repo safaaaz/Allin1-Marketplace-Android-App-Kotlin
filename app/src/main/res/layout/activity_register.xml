@@ -40,8 +40,8 @@
             android:layout_gravity="center_horizontal"
             android:gravity="center"
             android:padding="8dp"
-            android:text="SignUp"
-            android:textColor="@color/purple_200"
+            android:text="Sign Up"
+            android:textColor="#FF33F3"
             android:textSize="24sp"
             android:textStyle="bold" />
 
@@ -70,7 +70,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Email"
-                    android:textColor="@color/purple_200"
+                    android:textColor="#FF33F3"
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
@@ -88,7 +88,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
                     android:text="Password"
-                    android:textColor="@color/purple_200"
+                    android:textColor="#FF33F3"
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
@@ -167,7 +167,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="?attr/selectableItemBackgroundBorderless"
-                    android:text="login"
+                    android:text="Login"
                     android:textColor="@color/plum"
                     android:textSize="16sp"
                     android:textStyle="bold" />
@@ -178,9 +178,20 @@
 
         <Button
             android:id="@+id/businessaccount"
+            android:layout_width="222dp"
+            android:layout_height="51dp"
+            android:background="@drawable/custom_dialog"
+            android:ems="15"
+            android:text="Business Account"
+            android:textAllCaps="false"
+            android:textColor="#FF33F3"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+       <!-- <Button
+            android:id="@+id/businessaccount"
             android:layout_width="125dp"
             android:layout_height="wrap_content"
-            android:text="business account" />
-
+            android:text="Business Account" />
+-->
     </LinearLayout>
   </androidx.constraintlayout.widget.ConstraintLayout>
