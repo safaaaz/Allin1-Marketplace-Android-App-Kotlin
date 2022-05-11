@@ -39,8 +39,8 @@
                 android:layout_gravity="center_horizontal"
                 android:gravity="center"
                 android:padding="8dp"
-                android:text="LOGIN"
-                android:textColor="@color/purple_200"
+                android:text="LOG IN"
+                android:textColor="#FF33F3"
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
@@ -66,10 +66,11 @@
 
                     <TextView
                         android:id="@+id/username1"
-                        android:layout_width="wrap_content"
+                        android:layout_width="67dp"
                         android:layout_height="wrap_content"
-                        android:text="username"
-                        android:textColor="@color/purple_200"
+                        android:text="E-mail"
+                        android:textColor="#FF33F3"
+
                         android:textSize="16sp"
                         android:textStyle="bold" />
 
@@ -83,11 +84,11 @@
 
                     <TextView
                         android:id="@+id/password_text"
-                        android:layout_width="wrap_content"
+                        android:layout_width="87dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="left"
                         android:text="Password"
-                        android:textColor="@color/purple_200"
+                        android:textColor="#FF33F3"
                         android:textSize="16sp"
                         android:textStyle="bold" />
 
@@ -119,11 +120,14 @@
                             android:layout_height="51dp"
                             android:background="@drawable/img"
                             android:ems="15"
+
                             android:text="Login"
                             android:textAllCaps="false"
                             android:textColor="@color/white"
                             android:textSize="16sp"
                             android:textStyle="bold" />
+
+
 
                     </androidx.cardview.widget.CardView>
 
