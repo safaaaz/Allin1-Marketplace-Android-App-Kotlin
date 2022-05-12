@@ -29,25 +29,23 @@ class MainActivity : AppCompatActivity() {
 
         userid=intent.getStringExtra("user_id")
         val emailid=intent.getStringExtra("email_id")
+        //try to write user name after welcom in main page
+        var usernameforwelcome=""
         val namedata= FirebaseDatabase.getInstance("https://allin1-23085-default-rtdb.asia-southeast1.firebasedatabase.app").reference.child(
             "users"
-        ).child(FirebaseAuth.getInstance().currentUser!!.uid).child("name").get()
-        //welcome.text="Welcome "+namedata.toString()
-
-
+        ).child(FirebaseAuth.getInstance().currentUser!!.uid).get().addOnSuccessListener {
+            usernameforwelcome=it.child("firstname").value.toString()+it.child("lastname").value.toString()
+            println("this is user name:            "+usernameforwelcome)
+            print("rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr"+it.key)
+            shopsname.text="Welcome "
+        }
         binding=ActivityMainBinding.inflate(layoutInflater)
         readData()
         val reference = FirebaseDatabase.getInstance("https://allin1-23085-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference().child("shops")
-
-
-
-
     }
+
     fun readData() {
         productsarrylist = ArrayList()
-        //val c=product("book","30","learning",R.drawable.img)
-        //productsarrylist.add(c)
-
         database =
             FirebaseDatabase.getInstance("https://allin1-23085-default-rtdb.asia-southeast1.firebasedatabase.app/")
                 .getReference("shops")
@@ -101,7 +99,7 @@ class MainActivity : AppCompatActivity() {
         })
         return true
     }
-//for shatha
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when(item.itemId){
             R.id.books -> {
@@ -112,6 +110,16 @@ class MainActivity : AppCompatActivity() {
             R.id.clothes -> {
                 Toast.makeText(this,"you click clothes category",Toast.LENGTH_LONG).show()
                 showproductsbycategory("clothes")
+                true
+            }
+            R.id.women -> {
+                Toast.makeText(this,"you click women clothes category",Toast.LENGTH_LONG).show()
+                showproductsbycategory("women")
+                true
+            }
+            R.id.men -> {
+                Toast.makeText(this,"you click men clothes category",Toast.LENGTH_LONG).show()
+                showproductsbycategory("men")
                 true
             }
             R.id.nails -> {
@@ -178,14 +186,10 @@ class MainActivity : AppCompatActivity() {
         listVieww.setAdapter(productadapter(this, cartarraylist))
         }}
 
-
     fun showproductsbycategory(cat:String){
         shopsname.text=cat
         productsarrylist = ArrayList()
         noprod.text=""
-        //val c=product("book","30","learning",R.drawable.img)
-        //productsarrylist.add(c)
-
         database =
             FirebaseDatabase.getInstance("https://allin1-23085-default-rtdb.asia-southeast1.firebasedatabase.app/")
                 .getReference("shops")
@@ -194,11 +198,21 @@ class MainActivity : AppCompatActivity() {
 
                 if (x.exists()) {
                     for (prod in x.child("products").children) {
-                        if(prod.child("category").value.toString()==cat) {
+                        var rating=0
+                        var numraters=0
+                        if(prod.child("numraters").exists()){
+                            numraters=Integer.valueOf( prod.child("numraters").value.toString())
+                            rating=Integer.valueOf( prod.child("rating").value.toString())
+                        }
+                        if(cat in prod.child("category").value.toString()) {
                             val pr = product(
-                                prod.child("name").value.toString(),
-                                prod.child("price").value.toString(),
-                                prod.child("category").value.toString(),
+                                name=prod.child("name").value.toString(),
+                                owner=prod.child("owner").value.toString(),
+                                price=prod.child("price").value.toString(),
+                                category = prod.child("category").value.toString(),
+                                rating= Integer.valueOf( rating ),
+                                numraters = Integer.valueOf( numraters ),
+                                about = prod.child("about").value.toString()
                             )
                             productsarrylist.add(pr)
                             println("-######################################################################shatha  "+ productsarrylist.size)
@@ -208,7 +222,6 @@ class MainActivity : AppCompatActivity() {
                         noprod.text="there is no products in this category"
                     }
                 }
-            //println("---------------------------------------------------------------------safa  "+ productsarrylist.size)
             val listView: GridView = findViewById(R.id.products)
             listView.setAdapter(productadapter(this, productsarrylist))
         }
@@ -246,8 +259,8 @@ class MainActivity : AppCompatActivity() {
 
         }
     }
-    fun buy(view: View)
-    {
+
+    fun buy(view: View){
         val intent = Intent(this, payment::class.java)
 
         intent.flags =

@@ -56,7 +56,7 @@ class editprofileuser : AppCompatActivity() {
                 addressinput.text.toString(),
                 phoneinput.text.toString()
             ))
-            Toast.makeText(this,"yesssss",Toast.LENGTH_LONG).show()
+            Toast.makeText(this,"Your information has been saved successfully ",Toast.LENGTH_LONG).show()
         }
         image.setImageResource(R.drawable.googleg_standard_color_18)
         val userid=intent.getStringExtra("user_id")
@@ -82,29 +82,19 @@ class editprofileuser : AppCompatActivity() {
             phoneinput.setText(k!!.phone)
         }
     }
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
 
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         val inflater: MenuInflater = menuInflater
         inflater.inflate(R.menu.main_menu,menu)
         val search = menu!!.findItem(R.id.prodsearch)
-        val searchView = search.actionView as SearchView
-        searchView.queryHint = "Search"
+        val editprod=menu!!.findItem(R.id.editprofile)
+        search.isVisible=false
+        editprod.isVisible=false
         val cat = menu!!.findItem(R.id.categories)
-        cat.isEnabled=false
-
-        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-            override fun onQueryTextSubmit(query: String?): Boolean {
-                return false
-            }
-
-            override fun onQueryTextChange(newText: String?): Boolean {
-                //products.adapter.filter.filter("hhh")
-
-                return true
-            }
-        })
+        cat.isVisible=false
         return true
     }
+
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when(item.itemId){

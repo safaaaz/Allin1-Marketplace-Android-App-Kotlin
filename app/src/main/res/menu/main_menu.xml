@@ -19,8 +19,8 @@
                 android:id="@+id/clothes"
                 android:title="clothes">
                 <menu>
-                    <item android:title="men" />
-                    <item android:title="women" />
+                    <item android:id="@+id/men" android:title="men" />
+                    <item android:id="@+id/women" android:title="women" />
                 </menu>
             </item>
         </menu>

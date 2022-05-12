@@ -41,24 +41,12 @@ class ownersignup : AppCompatActivity() {
         setContentView(R.layout.activity_ownersignup)
         val userid=intent.getStringExtra("user_id")
         val tempp=intent.getStringExtra("temp")
-
-
-
         binding = FragmentMystoreBinding.inflate(layoutInflater)
-        readData()
-        //openGalleryForImage()
         if(tempp.equals("yes")) {
             readData()
             val view = findViewById<View>(R.id.Add_store)
             view.findNavController().navigate(R.id.action_blankFragment3_to_mystore)
         }
-            //if(userid!=null){
-        //  val view=findViewById<View>(R.id.Add_store)
-        //view.findNavController().navigate(R.id.action_blankFragment3_to_mystore)
-
-
-        //}
-
     }
 
     private fun openGalleryForImage() {
@@ -136,15 +124,8 @@ class ownersignup : AppCompatActivity() {
                         )
                     )
                     Toast.makeText(this@ownersignup, "The product is add", Toast.LENGTH_LONG).show()
-                    val intent = Intent(this, ownersignup::class.java)
-                    intent.flags =
-                        Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                    intent.putExtra("user_id", FirebaseAuth.getInstance()!!.uid)
-                    //intent.putExtra("email_id", email)
-
-                    startActivity(intent)
-                    finish()
-                }
+                    startActivity(this.intent)
+    }
 
     fun Cancel(view: View) {
                     view.findNavController().navigate(R.id.action_addprod_to_mystore)
@@ -181,18 +162,8 @@ class ownersignup : AppCompatActivity() {
 
 
         Toast.makeText(this@ownersignup, "The Profile is updatted ", Toast.LENGTH_LONG).show()
-
-        //view.findNavController().navigate(R.id.)
-        val intent = Intent(this, ownersignup::class.java)
-        intent.flags =
-            Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-        intent.putExtra("user_id", FirebaseAuth.getInstance()!!.uid)
-        intent.putExtra("temp", "yes")
-
-        //intent.putExtra("email_id", email)
-
         startActivity(intent)
-        finish()
+
 
     }
 
