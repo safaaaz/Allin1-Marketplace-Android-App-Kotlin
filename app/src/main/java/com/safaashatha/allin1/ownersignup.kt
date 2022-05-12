@@ -226,8 +226,10 @@ class ownersignup : AppCompatActivity() {
                             }
 
                         val listView: GridView = findViewById(R.id.productss)
+                        print("\n---------------------------------------ssaass----------------\n"+productsarrylistt.size)
                         listView.setAdapter(productowadapter(this, productsarrylistt))
                     }
+
 
                 }
 

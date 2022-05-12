@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center|top"
-    android:orientation="vertical"
     tools:context=".ownersignup">
     <LinearLayout
         android:layout_width="0dp"
@@ -18,10 +16,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-
-
         -
-
         <ImageView
             android:id="@+id/top_curve"
             android:layout_width="match_parent"
@@ -32,9 +27,6 @@
             android:layout_marginEnd="-50dp"
             android:layout_marginRight="-50dp"
             android:src="@drawable/img" />
-
-
-
         <TextView
             android:id="@+id/Adding_prod"
             android:layout_width="wrap_content"
@@ -43,6 +35,7 @@
             android:gravity="center"
             android:padding="8dp"
             android:text="Add Product"
+
             android:textColor="#FF33F3"
             android:textSize="24sp"
             android:textStyle="bold" />
@@ -56,22 +49,19 @@
             android:layout_marginBottom="8dp"
             app:cardCornerRadius="8dp"
             app:cardElevation="8dp">
-
-
             -
-
             <LinearLayout
                 android:layout_width="363dp"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
                 android:padding="16dp"
                 android:paddingTop="8dp">
-
                 <TextView
                     android:id="@+id/nametext"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Product name"
+
                     android:textColor="#FF33F3"
                     android:textSize="16sp"
                     android:textStyle="bold" />
@@ -83,13 +73,13 @@
                     android:ems="15"
                     android:inputType="text"
                     android:textSize="16sp" />
-
                 <TextView
                     android:id="@+id/Catagorytext"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
                     android:text="Catagory"
+
                     android:textColor="#FF33F3"
                     android:textSize="16sp"
                     android:textStyle="bold" />
@@ -102,7 +92,6 @@
                     android:inputType="text"
                     android:padding="8dp"
                     android:textSize="16sp" />
-
                 <TextView
                     android:id="@+id/Pricetext"
                     android:layout_width="wrap_content"
@@ -121,13 +110,12 @@
                     android:inputType="text"
                     android:padding="8dp"
                     android:textSize="16sp" />
-
                 <TextView
                     android:id="@+id/about"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
-                    android:text="about"
+                    android:text="Price"
                     android:textColor="#FF33F3"
                     android:textSize="16sp"
                     android:textStyle="bold" />
@@ -143,26 +131,35 @@
 
 
 
+             <!--   <Button
+                    android:id="@+id/Add_button"
+                    android:layout_width="309dp"
+                    android:layout_height="51dp"
+                    android:onClick="addprod"
+                    android:text="ADD"
+                    />-->
 
+
+                <!--                <Button-->
+                <!--                    android:id="@+id/cancel_button"-->
+                <!--                    android:layout_width="309dp"-->
+                <!--                    android:layout_height="51dp"-->
+                <!--                    android:onClick="Cancel"-->
+                <!--                    android:text="Cancel"-->
+
+                <!--                   />-->
 
 <!--                <Button-->
-<!--                    android:id="@+id/cancel_button"-->
-<!--                    android:layout_width="309dp"-->
-<!--                    android:layout_height="51dp"-->
-<!--                    android:onClick="Cancel"-->
-<!--                    android:text="Cancel"-->
-
-<!--                   />-->
-
-            <!--    <Button
-                    android:id="@+id/btn_choose_image"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Choose image"
-                    android:textColor="#FF33F3"
-                    android:background="@drawable/custom_dialog"
-                    android:onClick="pickpic"
-                    />-->
+                <!--    <Button
+                        android:id="@+id/btn_choose_image"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Choose image"
+                        android:textColor="#FF33F3"
+                        android:background="@drawable/custom_dialog"
+                        android:onClick="pickpic"
+                        />
+                        />-->
                 <Button
                     android:id="@+id/btn_choose_image"
                     android:layout_width="309dp"
@@ -203,15 +200,8 @@
                     android:layout_marginEnd="-50dp"
                     android:layout_marginRight="-50dp"
                     />
-
-
-
-
-
             </LinearLayout>
-
         </androidx.cardview.widget.CardView>
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -220,13 +210,8 @@
             android:layout_marginRight="16dp"
             android:gravity="center"
             android:orientation="vertical">
-
-
             -
-
-
             -
-
             <LinearLayout
                 android:id="@+id/new_user_text"
                 android:layout_width="match_parent"
@@ -235,15 +220,7 @@
                 android:gravity="center"
                 android:orientation="horizontal"
                 android:padding="8dp">
-
-
-
-
-
             </LinearLayout>
-
         </LinearLayout>
-
     </LinearLayout>
-
-    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
