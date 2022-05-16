@@ -108,7 +108,7 @@ class ownersignup : AppCompatActivity() {
                         ), "products"
                     )
                     //name.setText("")
-                    FirebaseDatabase.getInstance("https://allin1-23085-default-rtdb.asia-southeast1.firebasedatabase.app").reference.child(
+                   /* FirebaseDatabase.getInstance("https://allin1-23085-default-rtdb.asia-southeast1.firebasedatabase.app").reference.child(
                         "shops"
                     ).child(FirebaseAuth.getInstance().currentUser!!.uid + "/products").child("1")
                         .setValue(
@@ -117,7 +117,7 @@ class ownersignup : AppCompatActivity() {
                             )
                         )
 
-                    FirebaseDatabase.getInstance().reference.child("300").setValue("tt")
+                    FirebaseDatabase.getInstance().reference.child("300").setValue("tt")*/
 
                     view.findNavController().navigate(R.id.action_storeAdd_to_mystore)
                 }

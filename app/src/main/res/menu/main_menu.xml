@@ -31,14 +31,23 @@
         android:title="cart"
         app:showAsAction="always"
         />
-
     <item
         android:id="@+id/prodsearch"
         android:icon="@drawable/ic_search_black_24dp"
         android:title="Type here to search"
         app:actionViewClass="android.widget.SearchView"
-        app:showAsAction="ifRoom"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/homepage"
+        android:icon="@drawable/ic_action_name"
+        android:title="home page"
+        app:showAsAction="always"
         />
+
+
+
+
+
     <item
         android:id="@+id/editprofile"
         android:title="edit profile" />

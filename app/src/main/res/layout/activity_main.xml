@@ -20,7 +20,19 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Welcome "
+
+            android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+            android:textColor="#FF33F3"
+            android:textColorLink="@color/orchid"
+            android:textSize="15pt"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/shopsnamee"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+
             android:textAppearance="@style/TextAppearance.AppCompat.Display2"
             android:textColor="#FF33F3"
             android:textColorLink="@color/orchid"

@@ -16,6 +16,7 @@ import androidx.navigation.findNavController
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.fragment_blank.*
 import kotlinx.android.synthetic.main.showcart.*
+import java.util.stream.DoubleStream.concat
 
 
 class MainActivity : AppCompatActivity() {
@@ -29,9 +30,34 @@ class MainActivity : AppCompatActivity() {
 
         userid=intent.getStringExtra("user_id")
         val emailid=intent.getStringExtra("email_id")
+        //print("\n mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm\n"+FirebaseAuth.getInstance().currentUser!!.uid+"\n")
+        //print("\n mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm\n"+emailid+"\n")
+
         val namedata= FirebaseDatabase.getInstance("https://allin1-23085-default-rtdb.asia-southeast1.firebasedatabase.app").reference.child(
-            "users"
-        ).child(FirebaseAuth.getInstance().currentUser!!.uid).child("name").get()
+            "Users"
+        )
+        namedata.get().addOnSuccessListener {
+            for (x in it.children) {
+                //print("\n pppppppppppppppppppppppppppppppppppppppppppppppppppppppppppp nppppppppppp\n")
+                if (x.exists()) {
+                   //print("\n ssspppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppp\n"+x.key+"\n")
+
+                    if (x.key.equals(FirebaseAuth.getInstance().currentUser!!.uid)) {
+                        //print("\n mmmppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppnppppppppppp\n")
+
+                        val name = x.child("firstname").getValue().toString()
+                            //print("oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo"+name)
+                        //val s1="Welcome"
+                        shopsname.text="Welcome "+name
+                        //shopsnamee.text=name
+
+
+                            // print("\n rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr \n" + name + "\nrrrrrrrrrrrrr\n")
+
+                    }
+                }
+            }
+        }
         //welcome.text="Welcome "+namedata.toString()
 
 
@@ -128,6 +154,10 @@ class MainActivity : AppCompatActivity() {
                 showcart()
                 true
             }
+            R.id.homepage->{
+                homepage()
+                true
+            }
             R.id.logout -> {
                 FirebaseAuth.getInstance().signOut()
 
@@ -144,6 +174,13 @@ class MainActivity : AppCompatActivity() {
             else -> super.onOptionsItemSelected(item)
         }
 
+    }
+
+    fun homepage(){
+        val intent=Intent(this,MainActivity::class.java)
+        intent.putExtra("user_id", FirebaseAuth.getInstance()!!.uid)
+        startActivity(intent)
+        true
     }
 
     fun showcart(){
