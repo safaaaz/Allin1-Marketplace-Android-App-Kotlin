@@ -90,13 +90,33 @@ class RegisterActivity : AppCompatActivity() {
             when {
                 TextUtils.isEmpty(EmailSignup.text.toString().trim { it <= ' ' }) -> {
                     Toast.makeText(
-                        this, "please enter email", Toast.LENGTH_LONG
+                        this, "Please enter email", Toast.LENGTH_LONG
                     ).show()
                 }
 
                 TextUtils.isEmpty(PasswordSignup.text.toString().trim { it <= ' ' }) -> {
                     Toast.makeText(
-                        this, "please enter password", Toast.LENGTH_LONG
+                        this, "Please enter password", Toast.LENGTH_LONG
+                    ).show()
+                }
+                TextUtils.isEmpty(firstnameSignup.text.toString().trim { it <= ' ' }) -> {
+                    Toast.makeText(
+                        this, "Please enter first name", Toast.LENGTH_LONG
+                    ).show()
+                }
+                TextUtils.isEmpty(PasswordSignupconferm.text.toString().trim { it <= ' ' }) -> {
+                    Toast.makeText(
+                        this, "Please enter confirm password", Toast.LENGTH_LONG
+                    ).show()
+                }
+                TextUtils.isEmpty(lastnameSignup.text.toString().trim { it <= ' ' }) -> {
+                    Toast.makeText(
+                        this, "Please enter last name", Toast.LENGTH_LONG
+                    ).show()
+                }
+                PasswordSignup.text.toString()!=PasswordSignupconferm.text.toString() ->{
+                    Toast.makeText(
+                        this, "Your password and confirm password are different", Toast.LENGTH_LONG
                     ).show()
                 }
                 else -> {
@@ -116,7 +136,7 @@ class RegisterActivity : AppCompatActivity() {
 
                                     FirebaseDatabase.getInstance("https://allin1-23085-default-rtdb.asia-southeast1.firebasedatabase.app").reference.child(
                                         "Users"
-                                    ).child(FirebaseAuth.getInstance().currentUser!!.uid).setValue(user(id=FirebaseAuth.getInstance().currentUser!!.uid,Email = FirebaseAuth.getInstance().currentUser!!.email!!,Image = R.drawable.img))
+                                    ).child(FirebaseAuth.getInstance().currentUser!!.uid).setValue(user(id=FirebaseAuth.getInstance().currentUser!!.uid,Email = FirebaseAuth.getInstance().currentUser!!.email!!,Firstname = firstnameSignup.text.toString(),Lastname = lastnameSignup.text.toString()))
 
                                     val firebaseuser: FirebaseUser = task.result!!.user!!
                                     Toast.makeText(
