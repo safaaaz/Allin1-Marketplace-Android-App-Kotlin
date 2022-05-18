@@ -3,9 +3,9 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="logout">logout</string>
-    <string name = "Editprof"> <u>Edit profile </u> </string>
-    <string name = "logou"> <u>Log out </u> </string>
-    <string name = "Addpro"> <u>Add product</u> </string>
+    <string name="Editprof"> <u>Edit profile </u> </string>
+    <string name="logou"> <u>Log out </u> </string>
+    <string name="Addpro"> <u>Add product</u> </string>
 
 
 </resources>

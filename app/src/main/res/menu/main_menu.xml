@@ -9,6 +9,7 @@
             <item
                 android:id="@+id/books"
                 android:title="books" />
+
             <item
                 android:id="@+id/nails"
                 android:title="nails" />
@@ -25,6 +26,7 @@
             </item>
         </menu>
     </item>
+
     <item
         android:id="@+id/cart"
         android:icon="@drawable/ic_baseline_shopping_cart_24"
@@ -45,9 +47,10 @@
         />
 
 
-
-
-
+    <item
+        android:id="@+id/favorites"
+        android:title="My favorites"
+        android:visible="true" />
     <item
         android:id="@+id/editprofile"
         android:title="edit profile" />

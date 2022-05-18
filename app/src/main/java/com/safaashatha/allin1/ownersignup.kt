@@ -33,8 +33,6 @@ class ownersignup : AppCompatActivity() {
     private lateinit var productsarrylistt:ArrayList<product>
     private lateinit var database: DatabaseReference
     private lateinit var binding: FragmentMystoreBinding
-    lateinit var file_uri:Uri
-    val REQUEST_CODE = 100
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -58,7 +56,6 @@ class ownersignup : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
                 super.onActivityResult(requestCode, resultCode, data)
                 if (resultCode == Activity.RESULT_OK && requestCode == 100){
-                println("2222222222222222222222222222222222222222222"+ data?.data!!.hashCode())
                 val fileUri=data?.data!!
                 putim.setImageURI(fileUri)
                     val filename=FirebaseAuth.getInstance().currentUser!!.uid.toString()
@@ -78,13 +75,11 @@ class ownersignup : AppCompatActivity() {
 
     fun logoutowner(view: View) {
                     FirebaseAuth.getInstance().signOut()
-
                     startActivity(Intent(this, LoginActivity::class.java))
                     finish()
                 }
 
     fun savestore(view: View) {
-                    //val layout2 = findViewById(R.id.layout) as LinearLayout
                     FirebaseDatabase.getInstance("https://allin1-23085-default-rtdb.asia-southeast1.firebasedatabase.app").reference.child(
                         "shops"
                     ).child(FirebaseAuth.getInstance().currentUser!!.uid).setValue(
@@ -95,18 +90,6 @@ class ownersignup : AppCompatActivity() {
                             phone.text.toString()
                         ), "products"
                     )
-                    //name.setText("")
-                   /* FirebaseDatabase.getInstance("https://allin1-23085-default-rtdb.asia-southeast1.firebasedatabase.app").reference.child(
-                        "shops"
-                    ).child(FirebaseAuth.getInstance().currentUser!!.uid + "/products").child("1")
-                        .setValue(
-                            product(
-                                "book", "for reading", "30"
-                            )
-                        )
-
-                    FirebaseDatabase.getInstance().reference.child("300").setValue("tt")*/
-
                     view.findNavController().navigate(R.id.action_storeAdd_to_mystore)
                 }
 
@@ -209,7 +192,6 @@ class ownersignup : AppCompatActivity() {
     }
 
     fun addstore(view: View) {
-
         view.findNavController().navigate(R.id.action_blankFragment3_to_storeAdd)
     }
 

@@ -35,8 +35,6 @@ class MainActivity : AppCompatActivity() {
             "users"
         ).child(FirebaseAuth.getInstance().currentUser!!.uid).get().addOnSuccessListener {
             usernameforwelcome=it.child("firstname").value.toString()+it.child("lastname").value.toString()
-            println("this is user name:            "+usernameforwelcome)
-            print("rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr"+it.key)
             shopsname.text="Welcome "
         }
         binding=ActivityMainBinding.inflate(layoutInflater)
@@ -86,6 +84,8 @@ class MainActivity : AppCompatActivity() {
         val search = menu!!.findItem(R.id.prodsearch)
         val searchView = search.actionView as SearchView
         searchView.queryHint = "Search"
+        val favprod = menu!!.findItem(R.id.favorites)
+        favprod.isVisible=true
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 return false
@@ -149,6 +149,14 @@ class MainActivity : AppCompatActivity() {
                 startActivity(intent)
                 true
             }
+            R.id.homepage->{
+                startActivity(Intent(this,MainActivity::class.java))
+                true
+            }
+            R.id.favorites->{
+                startActivity(Intent(this,userfavorites::class.java))
+                true
+            }
             else -> super.onOptionsItemSelected(item)
         }
 
@@ -161,11 +169,8 @@ class MainActivity : AppCompatActivity() {
         database =
             FirebaseDatabase.getInstance("https://allin1-23085-default-rtdb.asia-southeast1.firebasedatabase.app/")
                 .getReference("cart")
-        println("-######################################################################userid  "+ FirebaseAuth.getInstance()!!.uid)
-
         database.child(FirebaseAuth.getInstance()!!.uid!!).get().addOnSuccessListener {
             for (x in it.children)
-
                 if (x.exists()) {
                             val pr = product(
                                 x.child("name").value.toString(),
@@ -173,15 +178,11 @@ class MainActivity : AppCompatActivity() {
                                 x.child("category").value.toString(),
                             )
                             cartarraylist.add(pr)
-                            println("-######################################################################shatha  "+ cartarraylist.size)
                         }
-
-
         if(cartarraylist.size==0){
             nocart.text="There is no products in this category"
         }
 
-        //println("---------------------------------------------------------------------safa  "+ productsarrylist.size)
         val listVieww: ListView = findViewById(R.id.cartlist!!)
         listVieww.setAdapter(productadapter(this, cartarraylist))
         }}
@@ -215,7 +216,6 @@ class MainActivity : AppCompatActivity() {
                                 about = prod.child("about").value.toString()
                             )
                             productsarrylist.add(pr)
-                            println("-######################################################################shatha  "+ productsarrylist.size)
                         }
                     }
                     if(productsarrylist.size==0){
@@ -246,33 +246,22 @@ class MainActivity : AppCompatActivity() {
                                 prod.child("category").value.toString(),
                             )
                             productsarrylist.add(pr)
-                            println("-######################################################################shatha  "+ productsarrylist.size)
                         }
                     }
                     if(productsarrylist.size==0){
                         noprod.text="there is no products in this category"
                     }
                 }
-            //println("---------------------------------------------------------------------safa  "+ productsarrylist.size)
             val listView: GridView = findViewById(R.id.products)
             listView.setAdapter(productadapter(this, productsarrylist))
-
         }
     }
 
     fun buy(view: View){
         val intent = Intent(this, payment::class.java)
-
         intent.flags =
             Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         intent.putExtra("user_id", FirebaseAuth.getInstance()!!.uid)
-        //intent.putExtra("temp", "yes")
-
-        //intent.putExtra("email_id", email)
-
         startActivity(intent)
-        finish()
     }
-
-
 }
