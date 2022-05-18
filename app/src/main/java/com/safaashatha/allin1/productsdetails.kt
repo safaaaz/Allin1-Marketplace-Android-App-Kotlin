@@ -1,35 +1,28 @@
 package com.safaashatha.allin1
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.BitmapFactory
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.MotionEvent
-import android.view.View
+import android.view.*
 import android.widget.ListView
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
-import kotlinx.android.synthetic.main.commit_list.*
 import kotlinx.android.synthetic.main.productsdetails.*
 import java.io.File
-import android.widget.RatingBar
-
 import android.widget.RatingBar.OnRatingBarChangeListener
-import com.google.firebase.database.DatabaseReference
-import com.safaashatha.allin1.databinding.ActivityMainBinding
-import android.widget.LinearLayout
+
 
 
 
 
 
 class productsdetails : AppCompatActivity() {
-    private lateinit var database: DatabaseReference
-    private lateinit var binding: ActivityMainBinding
-    private lateinit var productsarrylist:ArrayList<product>
     lateinit var currentproduct:product
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.productsdetails)
@@ -39,8 +32,11 @@ class productsdetails : AppCompatActivity() {
         val prodprice = b.getString("price")
         val prodabout = b.getString("about")
         val prodowner = b.getString("owner")
+        val prodcat = b.getString("category")
+        val prodcount = b.getInt("count")
         val prodrate = b.getInt("rating",0)
         val prodraters = b.getInt("numraters",0)
+        currentproduct=product(prodname,prodowner,prodabout,prodprice.toString(),prodcat.toString(),0,prodcount,prodrate,prodraters)
         val storref = FirebaseStorage.getInstance().reference.child("productsimages/"+prodowner+"/"+prodname)
         val localfile = File.createTempFile("tempimage", "jpg")
         storref.getFile(localfile).addOnSuccessListener {
@@ -56,13 +52,13 @@ class productsdetails : AppCompatActivity() {
         productsname.text = prodname
         productsabout.text=prodabout
         productsprice.text = prodprice
-        if(prodraters!!.toInt()==0){
-            productsrate.setText("no rating")
+        if(prodraters.toInt()==0){
+            productsrate.text = "no rating"
         }
         else {
             rating(prodrate,prodraters)
         }
-        var database =
+        val database =
             FirebaseDatabase.getInstance("https://allin1-23085-default-rtdb.asia-southeast1.firebasedatabase.app/")
                 .getReference("shops").child(prodowner!!)
         database.get().addOnSuccessListener {
@@ -99,7 +95,7 @@ class productsdetails : AppCompatActivity() {
 
 
                 }
-        }
+
         more.setOnClickListener {
             val params: ViewGroup.LayoutParams =peoplecomments.layoutParams
             params.height = params.height+100
@@ -200,11 +196,11 @@ class productsdetails : AppCompatActivity() {
             }
 
             for(x in it.child("commits").children){
-               var commexplain= x.child("explain").value
-               var commuser=x.child("username").value
+               val commexplain= x.child("explain").value
+               val commuser=x.child("username").value
                 commitsarraylist.add(commit(commexplain.toString(),commuser.toString()))
             }
-            val listVieww: ListView = findViewById(R.id.peoplecomments!!)
+            val listVieww: ListView = findViewById(R.id.peoplecomments)
             listVieww.setAdapter(commitadapter(this, commitsarraylist))
              }
         }
