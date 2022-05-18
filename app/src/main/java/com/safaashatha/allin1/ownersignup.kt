@@ -45,6 +45,16 @@ class ownersignup : AppCompatActivity() {
             val view = findViewById<View>(R.id.Add_store)
             view.findNavController().navigate(R.id.action_blankFragment3_to_mystore)
         }
+
+        val actionbar = supportActionBar
+        actionbar!!.title = "Allin1"
+        actionbar.setDisplayHomeAsUpEnabled(true)
+        actionbar.setDisplayHomeAsUpEnabled(true)
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 
     private fun openGalleryForImage() {
@@ -78,6 +88,8 @@ class ownersignup : AppCompatActivity() {
                     startActivity(Intent(this, LoginActivity::class.java))
                     finish()
                 }
+
+
 
     fun savestore(view: View) {
                     FirebaseDatabase.getInstance("https://allin1-23085-default-rtdb.asia-southeast1.firebasedatabase.app").reference.child(

@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ownersignup">
+
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -49,7 +50,9 @@
             android:layout_marginBottom="8dp"
             app:cardCornerRadius="8dp"
             app:cardElevation="8dp">
-            -
+            -<ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
             <LinearLayout
                 android:layout_width="363dp"
                 android:layout_height="match_parent"
@@ -164,7 +167,7 @@
                 <ImageView
                     android:id="@+id/putim"
                     android:layout_width="match_parent"
-                    android:layout_height="150dp"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginStart="-50dp"
                     android:layout_marginLeft="-50dp"
@@ -203,6 +206,7 @@
 
 
             </LinearLayout>
+        </ScrollView>
         </androidx.cardview.widget.CardView>
         <LinearLayout
             android:layout_width="match_parent"
@@ -224,5 +228,8 @@
                 android:padding="8dp">
             </LinearLayout>
         </LinearLayout>
+
     </LinearLayout>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

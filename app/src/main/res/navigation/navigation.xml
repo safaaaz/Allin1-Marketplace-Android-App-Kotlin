@@ -100,4 +100,9 @@
         android:name="com.safaashatha.allin1.editprof"
         android:label="fragment_editprof"
         tools:layout="@layout/fragment_editprof" />
+    <activity
+        android:id="@+id/editopay"
+        android:name="com.safaashatha.allin1.editopay"
+        android:label="activity_editopay"
+        tools:layout="@layout/activity_editopay" />
 </navigation>

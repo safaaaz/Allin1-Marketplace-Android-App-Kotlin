@@ -4,8 +4,8 @@ import android.content.Intent
 import android.graphics.BitmapFactory
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.*
-import android.widget.GridView
+import android.view.MotionEvent
+import android.view.View
 import android.widget.ListView
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
@@ -35,23 +35,24 @@ class productsdetails : AppCompatActivity() {
         setContentView(R.layout.productsdetails)
 
         val b = intent.extras!!
-
         val prodname = b.getString("name")
         val prodprice = b.getString("price")
         val prodabout = b.getString("about")
         val prodowner = b.getString("owner")
-        val prodcat = b.getString("category")
-        val prodcount = b.getInt("count",0)
         val prodrate = b.getInt("rating",0)
         val prodraters = b.getInt("numraters",0)
-        currentproduct=product(prodname,prodowner,prodabout,prodprice!!,prodcat!!,0,prodcount!!.toInt(),prodrate,prodraters)
         val storref = FirebaseStorage.getInstance().reference.child("productsimages/"+prodowner+"/"+prodname)
         val localfile = File.createTempFile("tempimage", "jpg")
         storref.getFile(localfile).addOnSuccessListener {
             val bitmap = BitmapFactory.decodeFile(localfile.absolutePath)
             productsimg.setImageBitmap(bitmap)
         }
-
+        val actionbar = supportActionBar
+        //set actionbar title
+        actionbar!!.title = "New Activity"
+        //set back button
+        actionbar.setDisplayHomeAsUpEnabled(true)
+        actionbar.setDisplayHomeAsUpEnabled(true)
         productsname.text = prodname
         productsabout.text=prodabout
         productsprice.text = prodprice
@@ -93,6 +94,9 @@ class productsdetails : AppCompatActivity() {
             usercart.child(currentproduct.name!!).setValue(currentproduct)
                 .addOnSuccessListener {
                     Toast.makeText(this,"Success add to favorites", Toast.LENGTH_LONG).show()
+
+            }
+
 
                 }
         }
@@ -145,6 +149,10 @@ class productsdetails : AppCompatActivity() {
             else -> super.onOptionsItemSelected(item)
         }
 
+    }
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 
     fun addtocart(view: View) {
