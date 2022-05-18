@@ -40,7 +40,12 @@ class productsdetails : AppCompatActivity() {
             val bitmap = BitmapFactory.decodeFile(localfile.absolutePath)
             productsimg.setImageBitmap(bitmap)
         }
-
+        val actionbar = supportActionBar
+        //set actionbar title
+        actionbar!!.title = "New Activity"
+        //set back button
+        actionbar.setDisplayHomeAsUpEnabled(true)
+        actionbar.setDisplayHomeAsUpEnabled(true)
         productsname.text = prodname
         productsabout.text=prodabout
         productsprice.text = prodprice
@@ -74,7 +79,13 @@ class productsdetails : AppCompatActivity() {
                 database.child("numraters").setValue(intent.getIntExtra("numraters",0)+1)
 
             }
+
+
         }
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
+    }
 
     fun addtocart(view: View) {
         /* add product to the cart of the user */

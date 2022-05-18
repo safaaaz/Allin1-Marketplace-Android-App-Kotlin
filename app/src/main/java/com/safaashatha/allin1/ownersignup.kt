@@ -47,6 +47,16 @@ class ownersignup : AppCompatActivity() {
             val view = findViewById<View>(R.id.Add_store)
             view.findNavController().navigate(R.id.action_blankFragment3_to_mystore)
         }
+
+        val actionbar = supportActionBar
+        actionbar!!.title = "Allin1"
+        actionbar.setDisplayHomeAsUpEnabled(true)
+        actionbar.setDisplayHomeAsUpEnabled(true)
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 
     private fun openGalleryForImage() {
@@ -82,6 +92,8 @@ class ownersignup : AppCompatActivity() {
                     startActivity(Intent(this, LoginActivity::class.java))
                     finish()
                 }
+
+
 
     fun savestore(view: View) {
                     //val layout2 = findViewById(R.id.layout) as LinearLayout

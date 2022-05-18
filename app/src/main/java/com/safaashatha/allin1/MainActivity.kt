@@ -27,6 +27,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+
         userid=intent.getStringExtra("user_id")
         val emailid=intent.getStringExtra("email_id")
         //try to write user name after welcom in main page
@@ -35,8 +36,8 @@ class MainActivity : AppCompatActivity() {
             "users"
         ).child(FirebaseAuth.getInstance().currentUser!!.uid).get().addOnSuccessListener {
             usernameforwelcome=it.child("firstname").value.toString()+it.child("lastname").value.toString()
-            println("this is user name:            "+usernameforwelcome)
-            print("rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr"+it.key)
+            //println("this is user name:            "+usernameforwelcome)
+            //print("rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr"+it.key)
             shopsname.text="Welcome "
         }
         binding=ActivityMainBinding.inflate(layoutInflater)
@@ -161,7 +162,7 @@ class MainActivity : AppCompatActivity() {
         database =
             FirebaseDatabase.getInstance("https://allin1-23085-default-rtdb.asia-southeast1.firebasedatabase.app/")
                 .getReference("cart")
-        println("-######################################################################userid  "+ FirebaseAuth.getInstance()!!.uid)
+       // println("-######################################################################userid  "+ FirebaseAuth.getInstance()!!.uid)
 
         database.child(FirebaseAuth.getInstance()!!.uid!!).get().addOnSuccessListener {
             for (x in it.children)
@@ -261,11 +262,35 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun buy(view: View){
-        val intent = Intent(this, payment::class.java)
+        val intent = Intent(this, editopay::class.java)
 
         intent.flags =
             Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         intent.putExtra("user_id", FirebaseAuth.getInstance()!!.uid)
+        val namedata= FirebaseDatabase.getInstance("https://allin1-23085-default-rtdb.asia-southeast1.firebasedatabase.app").reference.child(
+            "users"
+        ).child(FirebaseAuth.getInstance().currentUser!!.uid).get().addOnSuccessListener {
+            val name=it.child("Firstname").getValue().toString()
+            print("\nllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\n "+it.child("Firstname").getValue().toString()+"\npppppppppppppppp\n")
+
+            val lastname=it.child("Lastname").getValue().toString()
+            val email=it.child("Email").getValue().toString()
+            val aaddress=it.child("Address").getValue().toString()
+            val phone=it.child("phone").getValue().toString()
+            intent.putExtra("name", name)
+
+            intent.putExtra("lastname", lastname)
+
+            intent.putExtra("email", email)
+
+            intent.putExtra("aaddress", aaddress)
+
+            intent.putExtra("phone", phone)
+
+
+
+        }
+
         //intent.putExtra("temp", "yes")
 
         //intent.putExtra("email_id", email)

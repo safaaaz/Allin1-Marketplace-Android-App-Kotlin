@@ -27,6 +27,17 @@ class productsowdetails : AppCompatActivity() {
         productspricee.setText(prodprice)
 
         productsimg.setImageResource(prodimg)
+        val actionbar = supportActionBar
+        //set actionbar title
+        actionbar!!.title = "allin1"
+        //set back button
+        actionbar.setDisplayHomeAsUpEnabled(true)
+        actionbar.setDisplayHomeAsUpEnabled(true)
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 
     fun delete_prod(view: View) {
