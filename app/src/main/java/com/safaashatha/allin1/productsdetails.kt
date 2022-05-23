@@ -23,6 +23,7 @@ import android.widget.RatingBar.OnRatingBarChangeListener
 class productsdetails : AppCompatActivity() {
     lateinit var currentproduct:product
     @SuppressLint("SetTextI18n")
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.productsdetails)
@@ -146,6 +147,7 @@ class productsdetails : AppCompatActivity() {
         }
 
     }
+
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()
         return true
@@ -213,7 +215,7 @@ class productsdetails : AppCompatActivity() {
         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         intent.putExtra("prodId", shopid)
         startActivity(intent)
-        finish()
+
     }
 
     fun readfavoritesprod() {

@@ -22,6 +22,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var database: DatabaseReference
     private lateinit var binding: ActivityMainBinding
     private lateinit var productsarrylist:ArrayList<product>
+    private lateinit var shopsarraylist:ArrayList<owner>
     var userid:String? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,9 +41,28 @@ class MainActivity : AppCompatActivity() {
             shopsname.text="Welcome "
         }
         binding=ActivityMainBinding.inflate(layoutInflater)
+        readshops()
         readData()
         val reference = FirebaseDatabase.getInstance("https://allin1-23085-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference().child("shops")
     }
+
+    fun readshops(){
+        shopsarraylist = ArrayList()
+        database =
+            FirebaseDatabase.getInstance("https://allin1-23085-default-rtdb.asia-southeast1.firebasedatabase.app/")
+                .getReference("shops")
+        database.get().addOnSuccessListener {
+            for (x in it.children)
+                if (x.exists()) {
+                    var shop=owner(x.child("name").value.toString(),x.child("about").value.toString(),x.child("address").value.toString(),
+                        x.child("category").value.toString(),x.child("phone").value.toString())
+                    shopsarraylist.add(shop)
+
+                    }
+                }
+            val listView: GridView = findViewById(R.id.shopslist)
+            listView.setAdapter(shopsadapter(this, shopsarraylist))
+        }
 
     fun readData() {
         productsarrylist = ArrayList()

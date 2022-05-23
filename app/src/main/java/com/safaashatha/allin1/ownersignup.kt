@@ -2,14 +2,18 @@ package com.safaashatha.allin1
 
 import android.app.Activity
 import android.content.Intent
-import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.view.View
+import android.widget.*
+import android.widget.LinearLayout
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import androidx.navigation.findNavController
 import com.google.firebase.auth.FirebaseAuth
-import android.widget.*
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
@@ -22,23 +26,23 @@ import kotlinx.android.synthetic.main.fragment_addprod.name1
 import kotlinx.android.synthetic.main.fragment_editprof.*
 import kotlinx.android.synthetic.main.fragment_mystore.*
 import kotlinx.android.synthetic.main.fragment_store_add.*
-import kotlinx.android.synthetic.main.fragment_store_add.Catagory
-import kotlinx.android.synthetic.main.fragment_store_add.name
 import kotlinx.android.synthetic.main.fragment_store_add.phone
 import kotlinx.android.synthetic.main.list_products.view.*
 import java.util.*
 import kotlin.collections.ArrayList
 
+
 class ownersignup : AppCompatActivity() {
     private lateinit var productsarrylistt:ArrayList<product>
-    private lateinit var database: DatabaseReference
     private lateinit var binding: FragmentMystoreBinding
+    private var piccount:Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_ownersignup)
         val userid=intent.getStringExtra("user_id")
         val tempp=intent.getStringExtra("temp")
+
         binding = FragmentMystoreBinding.inflate(layoutInflater)
         if(tempp.equals("yes")) {
             readData()
@@ -50,6 +54,29 @@ class ownersignup : AppCompatActivity() {
         actionbar!!.title = "Allin1"
         actionbar.setDisplayHomeAsUpEnabled(true)
         actionbar.setDisplayHomeAsUpEnabled(true)
+
+
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+
+        val inflater: MenuInflater = menuInflater
+        inflater.inflate(R.menu.menu_owner,menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when(item.itemId){
+
+            R.id.logout -> {
+                FirebaseAuth.getInstance().signOut()
+                startActivity(Intent(this, LoginActivity::class.java))
+                finish()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+
     }
 
     override fun onSupportNavigateUp(): Boolean {
@@ -67,9 +94,26 @@ class ownersignup : AppCompatActivity() {
                 super.onActivityResult(requestCode, resultCode, data)
                 if (resultCode == Activity.RESULT_OK && requestCode == 100){
                 val fileUri=data?.data!!
-                putim.setImageURI(fileUri)
+                piccount+=1
+                    //the layout on which you are working
+
+                    //the layout on which you are working
+                    val layout = findViewById<View>(R.id.productimages) as LinearLayout
+                    var prodimage = ImageView(this)
+                    //prodimage.getLayoutParams().height = 60;
+                    //set the properties for button
+                    /*val layoutParams: ViewGroup.LayoutParams = prodimage.getLayoutParams()
+                    layoutParams.width = WRAP_CONTENT
+                    layoutParams.height = WRAP_CONTENT
+                    prodimage.setLayoutParams(layoutParams)*/
+                    prodimage.setImageURI(fileUri)
+                    val layoutParams = LinearLayout.LayoutParams(500, 500)
+                    prodimage.setLayoutParams(layoutParams)
+                    prodimage.setPadding(4,4,4,4)
+                    layout.addView(prodimage)
+                //putim.setImageURI(fileUri)
                     val filename=FirebaseAuth.getInstance().currentUser!!.uid.toString()
-                    val storref= FirebaseStorage.getInstance().getReference("productsimages/$filename/${name1.text.toString()}")
+                    val storref= FirebaseStorage.getInstance().getReference("productsimages/$filename/${name1.text.toString()}/${piccount}")
                     storref.putFile(fileUri).
                     addOnSuccessListener {
                         Toast.makeText(this,"success",Toast.LENGTH_LONG)
@@ -77,7 +121,10 @@ class ownersignup : AppCompatActivity() {
                         Toast.makeText(this,"failed",Toast.LENGTH_LONG)
 
                     }
-                }}
+                }
+        //addbutton.isVisible=true
+        btn_choose_image.text="Choose another image"
+    }
 
     fun pickpic(view: View){
         openGalleryForImage()
@@ -88,8 +135,6 @@ class ownersignup : AppCompatActivity() {
                     startActivity(Intent(this, LoginActivity::class.java))
                     finish()
                 }
-
-
 
     fun savestore(view: View) {
                     FirebaseDatabase.getInstance("https://allin1-23085-default-rtdb.asia-southeast1.firebasedatabase.app").reference.child(
@@ -127,10 +172,11 @@ class ownersignup : AppCompatActivity() {
 }
 
     fun editprofile(view: View) {
-        view.findNavController().navigate(R.id.action_mystore_to_editprof2)
+        view.findNavController().navigate(R.id.action_mystore_to_editprof)
     }
 
     fun editpeoff(view: View){
+        print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
         if( !(TextUtils.isEmpty(name1.text.toString().trim { it <= ' ' })))
           {
               FirebaseDatabase.getInstance("https://allin1-23085-default-rtdb.asia-southeast1.firebasedatabase.app").reference.child(

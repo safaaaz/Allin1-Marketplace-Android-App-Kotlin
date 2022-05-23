@@ -126,5 +126,9 @@ class LoginActivity : AppCompatActivity() {
             }
 
         }
+
+        forgotpass.setOnClickListener {
+            startActivity(Intent(this, com.safaashatha.allin1.forgotpass::class.java))
+        }
     }
 }

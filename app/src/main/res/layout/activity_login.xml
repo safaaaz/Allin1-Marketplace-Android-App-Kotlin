@@ -160,10 +160,27 @@
                     android:padding="8dp">
 
                     <TextView
+                        android:layout_width="40pt"
+                        android:layout_height="wrap_content"
+                        android:text="Forgot password? "
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/forgotpass"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:paddingRight="10dp"
+                        android:text="Reset password"
+                        android:textColor="@color/plum"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="New User? "
-                        android:textSize="16sp" />
+                        android:textSize="14sp" />
 
                     <TextView
                         android:id="@+id/joinus"
@@ -172,7 +189,7 @@
                         android:background="?attr/selectableItemBackgroundBorderless"
                         android:text="Join Us"
                         android:textColor="@color/plum"
-                        android:textSize="16sp"
+                        android:textSize="14sp"
                         android:textStyle="bold" />
 
                 </LinearLayout>
