@@ -9,7 +9,7 @@
         <entry key="..\:/Users/safaa/AndroidStudioProjects/allin13/app/src/main/res/drawable/custom_dialog.xml" value="0.19583333333333333" />
         <entry key="..\:/Users/safaa/AndroidStudioProjects/allin13/app/src/main/res/layout/activity_editprofileuser.xml" value="0.4466666666666667" />
         <entry key="..\:/Users/safaa/AndroidStudioProjects/allin13/app/src/main/res/layout/activity_forgotpass.xml" value="0.1" />
-        <entry key="..\:/Users/safaa/AndroidStudioProjects/allin13/app/src/main/res/layout/activity_login.xml" value="0.23224568138195778" />
+        <entry key="..\:/Users/safaa/AndroidStudioProjects/allin13/app/src/main/res/layout/activity_login.xml" value="0.3333333333333333" />
         <entry key="..\:/Users/safaa/AndroidStudioProjects/allin13/app/src/main/res/layout/activity_main.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/safaa/AndroidStudioProjects/allin13/app/src/main/res/layout/activity_ownersignup.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/safaa/AndroidStudioProjects/allin13/app/src/main/res/layout/activity_productsofshop.xml" value="0.3333333333333333" />
@@ -20,9 +20,9 @@
         <entry key="..\:/Users/safaa/AndroidStudioProjects/allin13/app/src/main/res/layout/fragment_addprod.xml" value="0.22" />
         <entry key="..\:/Users/safaa/AndroidStudioProjects/allin13/app/src/main/res/layout/fragment_blank.xml" value="0.13229166666666667" />
         <entry key="..\:/Users/safaa/AndroidStudioProjects/allin13/app/src/main/res/layout/fragment_editprof.xml" value="0.1796875" />
-        <entry key="..\:/Users/safaa/AndroidStudioProjects/allin13/app/src/main/res/layout/fragment_mystore.xml" value="0.22" />
+        <entry key="..\:/Users/safaa/AndroidStudioProjects/allin13/app/src/main/res/layout/fragment_mystore.xml" value="0.5" />
         <entry key="..\:/Users/safaa/AndroidStudioProjects/allin13/app/src/main/res/layout/fragment_serviceadd.xml" value="0.1796875" />
-        <entry key="..\:/Users/safaa/AndroidStudioProjects/allin13/app/src/main/res/layout/fragment_store_add.xml" value="0.16666666666666666" />
+        <entry key="..\:/Users/safaa/AndroidStudioProjects/allin13/app/src/main/res/layout/fragment_store_add.xml" value="0.4466666666666667" />
         <entry key="..\:/Users/safaa/AndroidStudioProjects/allin13/app/src/main/res/layout/list_products.xml" value="0.22" />
         <entry key="..\:/Users/safaa/AndroidStudioProjects/allin13/app/src/main/res/layout/list_productsowner.xml" value="0.12" />
         <entry key="..\:/Users/safaa/AndroidStudioProjects/allin13/app/src/main/res/layout/list_shops.xml" value="0.15625" />
