@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".productsowdetails">
+    tools:context=".customersdetails">
 
     <LinearLayout
         android:layout_width="0dp"
@@ -19,25 +19,16 @@
         app:layout_constraintTop_toTopOf="parent">
 
 
-        <ImageView
-            android:id="@+id/productsimg"
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginStart="-50dp"
-            android:layout_marginLeft="-50dp"
-            android:layout_marginEnd="-50dp"
-            android:layout_marginRight="-50dp"
-            />
+
 
         <TextView
-            android:id="@+id/editting_prod"
+            android:id="@+id/cust"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:gravity="center"
             android:padding="8dp"
-            android:text="Edit Product"
+            android:text="show customer"
             android:textColor="@color/purple_200"
             android:textSize="24sp"
             android:textStyle="bold" />
@@ -66,13 +57,13 @@
                     android:id="@+id/nameee"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Product name"
+                    android:text="customer name"
                     android:textColor="@color/purple_200"
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
                 <EditText
-                    android:id="@+id/productsnamee"
+                    android:id="@+id/username"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="15"
@@ -80,17 +71,36 @@
                     android:textSize="16sp" />
 
                 <TextView
-                    android:id="@+id/productsprice"
+                    android:id="@+id/phonee"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
-                    android:text="Price"
+                    android:text="phone"
                     android:textColor="@color/purple_200"
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
                 <EditText
-                    android:id="@+id/productspricee"
+                    android:id="@+id/userphone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="15"
+                    android:inputType="text"
+                    android:padding="8dp"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/addresss"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:text="address"
+                    android:textColor="@color/purple_200"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/useraddress"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="15"
@@ -105,7 +115,7 @@
                     android:layout_width="309dp"
                     android:layout_height="51dp"
                     android:textColor="#FF33F3"
-                    android:onClick="delete_prod"
+                    android:onClick="delete_cust"
                     android:text="Delete"
                     android:background="@drawable/custom_dialog"
 
@@ -115,16 +125,7 @@
 
 
 
-                <Button
-                    android:id="@+id/edit_pro"
-                    android:layout_width="309dp"
-                    android:layout_height="51dp"
-                    android:textColor="#FF33F3"
-                    android:onClick="edit_pro"
-                    android:text="Edit"
-                    android:background="@drawable/custom_dialog"
 
-                    />
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
@@ -163,7 +164,5 @@
 
     </LinearLayout>
 
+
 </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-

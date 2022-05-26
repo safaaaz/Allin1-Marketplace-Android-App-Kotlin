@@ -118,7 +118,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
-                    android:text="Price"
+                    android:text="About"
                     android:textColor="#FF33F3"
                     android:textSize="16sp"
                     android:textStyle="bold" />
@@ -132,6 +132,26 @@
                     android:padding="8dp"
                     android:textSize="16sp" />
 
+<!--                <TextView
+                    android:id="@+id/counttt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:text="About"
+
+                    android:textColor="#FF33F3"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/countt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="15"
+                    android:inputType="text"
+                    android:padding="8dp"
+                    android:textSize="16sp" />-->
+
 
 
              <!--   <Button
@@ -143,14 +163,7 @@
                     />-->
 
 
-                <!--                <Button-->
-                <!--                    android:id="@+id/cancel_button"-->
-                <!--                    android:layout_width="309dp"-->
-                <!--                    android:layout_height="51dp"-->
-                <!--                    android:onClick="Cancel"-->
-                <!--                    android:text="Cancel"-->
 
-                <!--                   />-->
 
 <!--                <Button-->
                 <!--    <Button
@@ -199,6 +212,21 @@
                     android:background="@drawable/custom_dialog"
                     android:textSize="16sp"
                     android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/cancel_button"
+                    android:layout_width="309dp"
+                    android:layout_height="51dp"
+                    android:ems="15"
+                    android:onClick="Cancel"
+                    android:text="Cancel"
+                    android:textAllCaps="false"
+                    android:textColor="#FF33F3"
+                    android:background="@drawable/custom_dialog"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+
 
 
 

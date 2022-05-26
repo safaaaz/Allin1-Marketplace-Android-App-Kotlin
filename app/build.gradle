@@ -62,6 +62,7 @@ dependencies {
     implementation 'com.braintreepayments:card-form:3.2.0'
     testImplementation "androidx.arch.core:core-testing:2.1.0"
     testImplementation 'org.mockito:mockito-core:3.10.0'
+
     androidTestImplementation 'org.mockito:mockito-android:3.10.0'
     // Espresso
     // Core library
@@ -72,6 +73,8 @@ dependencies {
     androidTestImplementation 'androidx.test:core:1.2.0'
     testImplementation 'androidx.test.ext:truth:1.2.0'
     testImplementation 'com.google.truth:truth:0.44'
+    implementation 'com.razorpay:checkout:1.6.19'
+    //implementation  'com.stripe:stripe-android:5.1.0'
 
 
 }

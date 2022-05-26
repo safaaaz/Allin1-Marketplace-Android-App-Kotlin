@@ -12,7 +12,7 @@ data class product (
     var price:String="",
     var category:String="",
     var image:Int?=null,
-    var count:Int=0,
+    //var count:Int=0,
     var rating:Int=0,
     var numraters:Int=0
 

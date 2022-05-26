@@ -30,19 +30,22 @@ import java.util.*
 import kotlin.collections.ArrayList
 
 class ownersignup : AppCompatActivity() {
-    private lateinit var productsarrylistt:ArrayList<product>
+    private lateinit var productsarrylistt: ArrayList<product>
+
     private lateinit var database: DatabaseReference
     private lateinit var binding: FragmentMystoreBinding
-    lateinit var file_uri:Uri
+    lateinit var file_uri: Uri
     val REQUEST_CODE = 100
+
+    //myRef.setValue("shops")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_ownersignup)
-        val userid=intent.getStringExtra("user_id")
-        val tempp=intent.getStringExtra("temp")
+        val userid = intent.getStringExtra("user_id")
+        val tempp = intent.getStringExtra("temp")
         binding = FragmentMystoreBinding.inflate(layoutInflater)
-        if(tempp.equals("yes")) {
+        if (tempp.equals("yes")) {
             readData()
             val view = findViewById<View>(R.id.Add_store)
             view.findNavController().navigate(R.id.action_blankFragment3_to_mystore)
@@ -66,49 +69,49 @@ class ownersignup : AppCompatActivity() {
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-                super.onActivityResult(requestCode, resultCode, data)
-                if (resultCode == Activity.RESULT_OK && requestCode == 100){
-                println("2222222222222222222222222222222222222222222"+ data?.data!!.hashCode())
-                val fileUri=data?.data!!
-                putim.setImageURI(fileUri)
-                    val filename=FirebaseAuth.getInstance().currentUser!!.uid.toString()
-                    val storref= FirebaseStorage.getInstance().getReference("productsimages/$filename/${name1.text.toString()}")
-                    storref.putFile(fileUri).
-                    addOnSuccessListener {
-                        Toast.makeText(this,"success",Toast.LENGTH_LONG)
-                    }.addOnFailureListener{
-                        Toast.makeText(this,"failed",Toast.LENGTH_LONG)
+        super.onActivityResult(requestCode, resultCode, data)
+        if (resultCode == Activity.RESULT_OK && requestCode == 100) {
+            println("2222222222222222222222222222222222222222222" + data?.data!!.hashCode())
+            val fileUri = data?.data!!
+            putim.setImageURI(fileUri)
+            val filename = FirebaseAuth.getInstance().currentUser!!.uid.toString()
+            val storref = FirebaseStorage.getInstance()
+                .getReference("productsimages/$filename/${name1.text.toString()}")
+            storref.putFile(fileUri).addOnSuccessListener {
+                Toast.makeText(this, "success", Toast.LENGTH_LONG)
+            }.addOnFailureListener {
+                Toast.makeText(this, "failed", Toast.LENGTH_LONG)
 
-                    }
-                }}
+            }
+        }
+    }
 
-    fun pickpic(view: View){
+    fun pickpic(view: View) {
         openGalleryForImage()
     }
 
     fun logoutowner(view: View) {
-                    FirebaseAuth.getInstance().signOut()
+        FirebaseAuth.getInstance().signOut()
 
-                    startActivity(Intent(this, LoginActivity::class.java))
-                    finish()
-                }
-
+        startActivity(Intent(this, LoginActivity::class.java))
+        finish()
+    }
 
 
     fun savestore(view: View) {
-                    //val layout2 = findViewById(R.id.layout) as LinearLayout
-                    FirebaseDatabase.getInstance("https://allin1-23085-default-rtdb.asia-southeast1.firebasedatabase.app").reference.child(
-                        "shops"
-                    ).child(FirebaseAuth.getInstance().currentUser!!.uid).setValue(
-                        owner(
-                            name.text.toString(),
-                            Address.text.toString(),
-                            Catagory.text.toString(),
-                            phone.text.toString()
-                        ), "products"
-                    )
-                    //name.setText("")
-                   /* FirebaseDatabase.getInstance("https://allin1-23085-default-rtdb.asia-southeast1.firebasedatabase.app").reference.child(
+        //val layout2 = findViewById(R.id.layout) as LinearLayout
+        FirebaseDatabase.getInstance("https://allin1-23085-default-rtdb.asia-southeast1.firebasedatabase.app").reference.child(
+            "shops"
+        ).child(FirebaseAuth.getInstance().currentUser!!.uid).setValue(
+            owner(
+                name.text.toString(),
+                Address.text.toString(),
+                Catagory.text.toString(),
+                phone.text.toString()
+            ), "products","customers"
+        )
+        //name.setText("")
+        /* FirebaseDatabase.getInstance("https://allin1-23085-default-rtdb.asia-southeast1.firebasedatabase.app").reference.child(
                         "shops"
                     ).child(FirebaseAuth.getInstance().currentUser!!.uid + "/products").child("1")
                         .setValue(
@@ -119,56 +122,62 @@ class ownersignup : AppCompatActivity() {
 
                     FirebaseDatabase.getInstance().reference.child("300").setValue("tt")*/
 
-                    view.findNavController().navigate(R.id.action_storeAdd_to_mystore)
-                }
+        view.findNavController().navigate(R.id.action_storeAdd_to_mystore)
+    }
 
     fun addproduct(view: View) {
-                    view.findNavController().navigate(R.id.action_mystore_to_addprod)
-                }
+        view.findNavController().navigate(R.id.action_mystore_to_addprod)
+    }
 
     fun addprod(view: View) {
-                    FirebaseDatabase.getInstance("https://allin1-23085-default-rtdb.asia-southeast1.firebasedatabase.app").reference.child(
-                        "shops"
-                    ).child(FirebaseAuth.getInstance().currentUser!!.uid + "/products")
-                        .child(name1.text.toString()).setValue(
-                        product(
-                            name1.text.toString(),FirebaseAuth.getInstance().currentUser!!.uid,about1.text.toString(), price1.text.toString(),  Catagory1.text.toString()
-                        )
-                    )
-                    Toast.makeText(this@ownersignup, "The product is add", Toast.LENGTH_LONG).show()
-                    startActivity(this.intent)
+        FirebaseDatabase.getInstance("https://allin1-23085-default-rtdb.asia-southeast1.firebasedatabase.app").reference.child(
+            "shops"
+        ).child(FirebaseAuth.getInstance().currentUser!!.uid + "/products")
+            .child(name1.text.toString()).setValue(
+                product(
+                    name1.text.toString(),
+                    FirebaseAuth.getInstance().currentUser!!.uid,
+                    about1.text.toString(),
+                    price1.text.toString(),
+                    Catagory1.text.toString(),
+                    //Integer.parseInt(countt.text.toString())
+                )
+            )
+        Toast.makeText(this@ownersignup, "The product is add", Toast.LENGTH_LONG).show()
+        startActivity(this.intent)
     }
 
     fun Cancel(view: View) {
-                    view.findNavController().navigate(R.id.action_addprod_to_mystore)
-}
-
-    fun editprofile(view: View) {
-        view.findNavController().navigate(R.id.action_mystore_to_editprof2)
+        view.findNavController().navigate(R.id.action_addprod_to_mystore)
     }
 
-    fun editpeoff(view: View){
-        if( !(TextUtils.isEmpty(name1.text.toString().trim { it <= ' ' })))
-          {
-              FirebaseDatabase.getInstance("https://allin1-23085-default-rtdb.asia-southeast1.firebasedatabase.app").reference.child(
-                  "shops"
-              ).child(FirebaseAuth.getInstance().currentUser!!.uid).child("name").setValue(name1.text.toString())
+    fun editprofile(view: View) {
+        // view.findNavController().navigate(R.id.action_mystore_to_editprof2)
+    }
 
-          }
 
-        if( !(TextUtils.isEmpty(addresss.text.toString().trim { it <= ' ' })))
-        {
+    fun editpeoff(view: View) {
+        if (!(TextUtils.isEmpty(name1.text.toString().trim { it <= ' ' }))) {
             FirebaseDatabase.getInstance("https://allin1-23085-default-rtdb.asia-southeast1.firebasedatabase.app").reference.child(
                 "shops"
-            ).child(FirebaseAuth.getInstance().currentUser!!.uid).child("address").setValue(addresss.text.toString())
+            ).child(FirebaseAuth.getInstance().currentUser!!.uid).child("name")
+                .setValue(name1.text.toString())
 
         }
 
-        if( !(TextUtils.isEmpty(phone.text.toString().trim { it <= ' ' })))
-        {
+        if (!(TextUtils.isEmpty(addresss.text.toString().trim { it <= ' ' }))) {
             FirebaseDatabase.getInstance("https://allin1-23085-default-rtdb.asia-southeast1.firebasedatabase.app").reference.child(
                 "shops"
-            ).child(FirebaseAuth.getInstance().currentUser!!.uid).child("phone").setValue(phone.text.toString())
+            ).child(FirebaseAuth.getInstance().currentUser!!.uid).child("address")
+                .setValue(addresss.text.toString())
+
+        }
+
+        if (!(TextUtils.isEmpty(phone.text.toString().trim { it <= ' ' }))) {
+            FirebaseDatabase.getInstance("https://allin1-23085-default-rtdb.asia-southeast1.firebasedatabase.app").reference.child(
+                "shops"
+            ).child(FirebaseAuth.getInstance().currentUser!!.uid).child("phone")
+                .setValue(phone.text.toString())
 
         }
 
@@ -181,40 +190,40 @@ class ownersignup : AppCompatActivity() {
 
     fun readData() {
         productsarrylistt = ArrayList()
-        val userid=intent.getStringExtra("user_id")
-        val emailid=intent.getStringExtra("email_id")
+        val userid = intent.getStringExtra("user_id")
+        val emailid = intent.getStringExtra("email_id")
 
 
-                    val databasee =
-                        FirebaseDatabase.getInstance("https://allin1-23085-default-rtdb.asia-southeast1.firebasedatabase.app/")
-                            .getReference("shops")
-                    databasee.get().addOnSuccessListener {
+        val databasee =
+            FirebaseDatabase.getInstance("https://allin1-23085-default-rtdb.asia-southeast1.firebasedatabase.app/")
+                .getReference("shops")
+        databasee.get().addOnSuccessListener {
 
-                        for (x in it.children)
+            for (x in it.children)
 
-                            if (x.exists()) {
-                                print("\n------------------------------------------------------lakahhhhhh-----------------\n"+userid.toString())
-                                if (x.key == userid) {
-                                    print("\n------------------------------------------------------lakah-----------------\n")
-                                    for (prod in x.child("products").children) {
-                                        val pr = product(
-                                            prod.child("name").value.toString(),
-                                            prod.child("price").value.toString(),
-                                            prod.child("category").value.toString(),
-                                        )
-                                        productsarrylistt.add(pr)
-                                    }
+                if (x.exists()) {
+                    //print("\n------------------------------------------------------lakahhhhhh-----------------\n"+userid.toString())
+                    if (x.key == userid) {
+                        //print("\n------------------------------------------------------lakah-----------------\n")
+                        for (prod in x.child("products").children) {
+                            val pr = product(
+                                prod.child("name").value.toString(),
+                                prod.child("price").value.toString(),
+                                prod.child("category").value.toString(),
+                            )
+                            productsarrylistt.add(pr)
+                        }
 
-                                }
-                            }
-
-                        val listView: GridView = findViewById(R.id.productss)
-                        print("\n---------------------------------------ssaass----------------\n"+productsarrylistt.size)
-                        listView.setAdapter(productowadapter(this, productsarrylistt))
                     }
-
-
                 }
+
+            val listView: GridView = findViewById(R.id.productss)
+            print("\n---------------------------------------ssaass----------------\n" + productsarrylistt.size)
+            listView.setAdapter(productowadapter(this, productsarrylistt))
+        }
+
+
+    }
 
     fun buy(view: View) {
         view.findNavController().navigate(R.id.action_mystore_to_editprof)
@@ -225,8 +234,22 @@ class ownersignup : AppCompatActivity() {
         view.findNavController().navigate(R.id.action_blankFragment3_to_storeAdd)
     }
 
+    fun customers(view: View) {
+
+        val intent = Intent(this, showcustomer::class.java)
+        intent.flags =
+            Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        intent.putExtra("user_id", FirebaseAuth.getInstance()!!.uid)
+        //intent.putExtra("temp", "yes")
+
+        startActivity(intent)
+        finish()
+    }
+
 }
 
+private fun DatabaseReference.setValue(owner: owner, s: String, s1: String) {
 
+}
 
 

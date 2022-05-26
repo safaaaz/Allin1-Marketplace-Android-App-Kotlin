@@ -15,6 +15,7 @@ import android.widget.*
 import androidx.navigation.findNavController
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.fragment_blank.*
+import kotlinx.android.synthetic.main.fragment_store_add.*
 import kotlinx.android.synthetic.main.showcart.*
 
 
@@ -172,9 +173,10 @@ class MainActivity : AppCompatActivity() {
                                 x.child("name").value.toString(),
                                 x.child("price").value.toString(),
                                 x.child("category").value.toString(),
+                                //x.child("owner").value.toString()
                             )
                             cartarraylist.add(pr)
-                            println("-######################################################################shatha  "+ cartarraylist.size)
+//                            println("-######################################################################shatha  "+ cartarraylist.size)
                         }
 
 
@@ -216,7 +218,7 @@ class MainActivity : AppCompatActivity() {
                                 about = prod.child("about").value.toString()
                             )
                             productsarrylist.add(pr)
-                            println("-######################################################################shatha  "+ productsarrylist.size)
+//                            println("-######################################################################shatha  "+ productsarrylist.size)
                         }
                     }
                     if(productsarrylist.size==0){
@@ -262,42 +264,50 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun buy(view: View){
-        val intent = Intent(this, editopay::class.java)
 
-        intent.flags =
-            Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-        intent.putExtra("user_id", FirebaseAuth.getInstance()!!.uid)
+
         val namedata= FirebaseDatabase.getInstance("https://allin1-23085-default-rtdb.asia-southeast1.firebasedatabase.app").reference.child(
-            "users"
-        ).child(FirebaseAuth.getInstance().currentUser!!.uid).get().addOnSuccessListener {
-            val name=it.child("Firstname").getValue().toString()
-            print("\nllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\n "+it.child("Firstname").getValue().toString()+"\npppppppppppppppp\n")
+            "Users"
+        )
+        namedata.get().addOnSuccessListener {
+            for (x in it.children) {
+                //print("shaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+                if (x.exists()) {
+                    if (x.key == FirebaseAuth.getInstance().currentUser!!.uid) {
+                        print("\n------------------------------------------------------lakahhhhhh-----------------\n" +x.key)
 
-            val lastname=it.child("Lastname").getValue().toString()
-            val email=it.child("Email").getValue().toString()
-            val aaddress=it.child("Address").getValue().toString()
-            val phone=it.child("phone").getValue().toString()
-            intent.putExtra("name", name)
+                        val name = x.child("firstname").getValue().toString()
+                        val owner=x.child("owner").getValue().toString()
+                        val lastname = x.child("lastname").getValue().toString()
+                        val email = x.child("email").getValue().toString()
+                        val aaddress = x.child("address").getValue().toString()
+                        val phone = x.child("phone").getValue().toString()
+                        print("\nsssssssssssssssssssssssssss\n"+name+email+aaddress+phone+lastname+"\nsssssssssssssssss\n")
 
-            intent.putExtra("lastname", lastname)
+                        val intent = Intent(this, editopay::class.java)
+                        intent.flags =
+                            Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                        intent.putExtra("user_id", FirebaseAuth.getInstance()!!.uid)
+                        intent.putExtra("name", name)
+                        intent.putExtra("owner", owner)
 
-            intent.putExtra("email", email)
+                        intent.putExtra("lastname", lastname)
 
-            intent.putExtra("aaddress", aaddress)
+                        intent.putExtra("email", email)
 
-            intent.putExtra("phone", phone)
+                        intent.putExtra("aaddress", aaddress)
 
+                        intent.putExtra("phone", phone)
+                        startActivity(intent)
+                        finish()
+                        //print("\nhhhhhhhhhhhhhhhhhhhhhhhhhhhhh\n" + name + "\nnhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh\n")
 
+                    }
+                }
+            }
 
         }
 
-        //intent.putExtra("temp", "yes")
-
-        //intent.putExtra("email_id", email)
-
-        startActivity(intent)
-        finish()
     }
-
-
 }
+

@@ -54,7 +54,9 @@ class editprofileuser : AppCompatActivity() {
                 passwordinput.text.toString(),
                 birthdayinput.text.toString(),
                 addressinput.text.toString(),
-                phoneinput.text.toString()
+                phoneinput.text.toString(),
+
+
             ))
             Toast.makeText(this,"Your information has been saved successfully ",Toast.LENGTH_LONG).show()
         }

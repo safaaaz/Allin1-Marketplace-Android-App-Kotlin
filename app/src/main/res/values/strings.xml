@@ -6,6 +6,7 @@
     <string name="Editprof"> <u>Edit profile </u> </string>
     <string name="logou"> <u>Log out </u> </string>
     <string name="Addpro"> <u>Add product</u> </string>
+    <string name="customer"> <u>My customers</u> </string>
 
 
 </resources>

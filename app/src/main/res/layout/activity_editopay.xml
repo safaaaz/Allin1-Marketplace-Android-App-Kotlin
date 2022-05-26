@@ -130,18 +130,29 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
+            android:maxLength="10"
             android:inputType="number"
             />
     </LinearLayout>
 
+<!--    <Button-->
+<!--        android:id="@+id/saveprofile"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_gravity="center"-->
+<!--        android:text="save"-->
+<!--        android:textColorHighlight="@color/plum"-->
+<!--        android:textColorLink="@color/plum"-->
+<!--        app:rippleColor="@color/plum" />-->
+
     <Button
         android:id="@+id/saveprofile"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="save"
-        android:textColorHighlight="@color/plum"
-        android:textColorLink="@color/plum"
-        app:rippleColor="@color/plum" />
+        android:layout_width="309dp"
+        android:layout_height="51dp"
+        android:textColor="#FF33F3"
+        android:text="Save"
+        android:background="@drawable/custom_dialog"
+
+        />
 
 </LinearLayout>
