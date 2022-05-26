@@ -28,7 +28,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
         userid=intent.getStringExtra("user_id")
         val emailid=intent.getStringExtra("email_id")
         //try to write user name after welcom in main page
@@ -37,8 +36,8 @@ class MainActivity : AppCompatActivity() {
             "users"
         ).child(FirebaseAuth.getInstance().currentUser!!.uid).get().addOnSuccessListener {
             usernameforwelcome=it.child("firstname").value.toString()+it.child("lastname").value.toString()
-            //println("this is user name:            "+usernameforwelcome)
-            //print("rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr"+it.key)
+            println("this is user name:            "+usernameforwelcome)
+            print("rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr"+it.key)
             shopsname.text="Welcome "
         }
         binding=ActivityMainBinding.inflate(layoutInflater)
@@ -88,6 +87,8 @@ class MainActivity : AppCompatActivity() {
         val search = menu!!.findItem(R.id.prodsearch)
         val searchView = search.actionView as SearchView
         searchView.queryHint = "Search"
+        val favprod = menu!!.findItem(R.id.favorites)
+        favprod.isVisible=true
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 return false
@@ -151,6 +152,14 @@ class MainActivity : AppCompatActivity() {
                 startActivity(intent)
                 true
             }
+            R.id.homepage->{
+                startActivity(Intent(this,MainActivity::class.java))
+                true
+            }
+            R.id.favorites->{
+                startActivity(Intent(this,userfavorites::class.java))
+                true
+            }
             else -> super.onOptionsItemSelected(item)
         }
 
@@ -163,7 +172,7 @@ class MainActivity : AppCompatActivity() {
         database =
             FirebaseDatabase.getInstance("https://allin1-23085-default-rtdb.asia-southeast1.firebasedatabase.app/")
                 .getReference("cart")
-       // println("-######################################################################userid  "+ FirebaseAuth.getInstance()!!.uid)
+        println("-######################################################################userid  "+ FirebaseAuth.getInstance()!!.uid)
 
         database.child(FirebaseAuth.getInstance()!!.uid!!).get().addOnSuccessListener {
             for (x in it.children)
@@ -178,13 +187,10 @@ class MainActivity : AppCompatActivity() {
                             cartarraylist.add(pr)
 //                            println("-######################################################################shatha  "+ cartarraylist.size)
                         }
-
-
         if(cartarraylist.size==0){
             nocart.text="There is no products in this category"
         }
 
-        //println("---------------------------------------------------------------------safa  "+ productsarrylist.size)
         val listVieww: ListView = findViewById(R.id.cartlist!!)
         listVieww.setAdapter(productadapter(this, cartarraylist))
         }}
@@ -218,7 +224,6 @@ class MainActivity : AppCompatActivity() {
                                 about = prod.child("about").value.toString()
                             )
                             productsarrylist.add(pr)
-//                            println("-######################################################################shatha  "+ productsarrylist.size)
                         }
                     }
                     if(productsarrylist.size==0){

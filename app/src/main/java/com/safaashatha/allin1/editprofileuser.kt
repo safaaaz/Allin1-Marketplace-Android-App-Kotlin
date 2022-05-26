@@ -35,7 +35,9 @@ import java.util.*
 
 
 class editprofileuser : AppCompatActivity() {
+
     lateinit var uriimage : Uri
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -60,28 +62,35 @@ class editprofileuser : AppCompatActivity() {
             ))
             Toast.makeText(this,"Your information has been saved successfully ",Toast.LENGTH_LONG).show()
         }
-        image.setImageResource(R.drawable.googleg_standard_color_18)
+
         val userid=intent.getStringExtra("user_id")
         val firstname= FirebaseDatabase.getInstance("https://allin1-23085-default-rtdb.asia-southeast1.firebasedatabase.app").reference.child(
             "Users"
         ).child(FirebaseAuth.getInstance().currentUser!!.uid).get().addOnSuccessListener {
 
             val k = it.getValue(user::class.java)
-            //image.setImageResource(k!!.Image)
             val filename = FirebaseAuth.getInstance().currentUser!!.uid.toString()
             val storref = FirebaseStorage.getInstance().reference.child("profileimages/$filename")
             val localfile = File.createTempFile("tempimage", "jpg")
             storref.getFile(localfile).addOnSuccessListener {
                 val bitmap = BitmapFactory.decodeFile(localfile.absolutePath)
-                image.setImageBitmap(bitmap)
+
+                if(bitmap==null){
+                    print("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx")
+                }else{
+                    image.setImageBitmap(bitmap)
+                }
+
             }
-            firstnameinput.setText(k!!.Firstname)
-            lastnameinput.setText(k!!.Lastname)
-            emailinput.setText(k!!.Email)
-            passwordinput.setText(k!!.Password.toString())
-            birthdayinput.setText(k!!.Birthday.toString())
-            addressinput.setText(k!!.Address)
-            phoneinput.setText(k!!.phone)
+            if(k!=null) {
+                firstnameinput.setText(k!!.Firstname)
+                lastnameinput.setText(k!!.Lastname)
+                emailinput.setText(k!!.Email)
+                passwordinput.setText(k!!.Password.toString())
+                birthdayinput.setText(k!!.Birthday.toString())
+                addressinput.setText(k!!.Address)
+                phoneinput.setText(k!!.phone)
+            }
         }
     }
 
@@ -96,7 +105,6 @@ class editprofileuser : AppCompatActivity() {
         cat.isVisible=false
         return true
     }
-
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when(item.itemId){
@@ -127,7 +135,6 @@ class editprofileuser : AppCompatActivity() {
         if (resultCode == Activity.RESULT_OK && requestCode == 100){
             println("2222222222222222222222222222222222222222222"+ data?.data!!.hashCode())
             uriimage=data?.data!!
-            image.setImageURI(uriimage)
             val progressgialog=ProgressDialog(this)
             progressgialog.setMessage("uploading file...")
             progressgialog.setCancelable(false)
@@ -136,7 +143,6 @@ class editprofileuser : AppCompatActivity() {
             val storref=FirebaseStorage.getInstance().getReference("profileimages/$filename")
             storref.putFile(uriimage).
             addOnSuccessListener {
-                image.setImageURI(null)
                 Toast.makeText(this,"success",Toast.LENGTH_LONG)
                 if(progressgialog.isShowing) progressgialog.dismiss()
             }.addOnFailureListener{

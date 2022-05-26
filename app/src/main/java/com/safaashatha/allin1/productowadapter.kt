@@ -20,6 +20,7 @@ import java.io.File
 
 class productowadapter(private val context: Activity,private val arrayList: ArrayList<product>):ArrayAdapter<product>(context,
     R.layout.list_productsowner,arrayList) {
+
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
         print("\n -----------------------------------------shathaaaaa----------------------------------\n")
         val inflater:LayoutInflater= LayoutInflater.from(context)

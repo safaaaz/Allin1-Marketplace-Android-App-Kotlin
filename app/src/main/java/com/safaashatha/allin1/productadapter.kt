@@ -17,6 +17,7 @@ import java.io.File
 
 class productadapter(private val context: Activity, private val arrayList: ArrayList<product>):ArrayAdapter<product>(context,
 R.layout.list_products,arrayList) {
+
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
         val inflater:LayoutInflater= LayoutInflater.from(context)
         val view:View=inflater.inflate(R.layout.list_products,parent,false);
@@ -50,7 +51,8 @@ R.layout.list_products,arrayList) {
                 intent.putExtra("user_id", FirebaseAuth.getInstance()!!.uid)
                 intent.putExtra("rating",product.rating!!)
                 intent.putExtra("numraters",product.numraters!!)
-
+                intent.putExtra("category",product.category!!)
+                intent.putExtra("count",product.count!!)
             context!!.startActivity(intent)
 
             }

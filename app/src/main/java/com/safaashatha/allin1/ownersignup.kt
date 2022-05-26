@@ -69,18 +69,17 @@ class ownersignup : AppCompatActivity() {
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (resultCode == Activity.RESULT_OK && requestCode == 100) {
-            println("2222222222222222222222222222222222222222222" + data?.data!!.hashCode())
-            val fileUri = data?.data!!
-            putim.setImageURI(fileUri)
-            val filename = FirebaseAuth.getInstance().currentUser!!.uid.toString()
-            val storref = FirebaseStorage.getInstance()
-                .getReference("productsimages/$filename/${name1.text.toString()}")
-            storref.putFile(fileUri).addOnSuccessListener {
-                Toast.makeText(this, "success", Toast.LENGTH_LONG)
-            }.addOnFailureListener {
-                Toast.makeText(this, "failed", Toast.LENGTH_LONG)
+                super.onActivityResult(requestCode, resultCode, data)
+                if (resultCode == Activity.RESULT_OK && requestCode == 100){
+                val fileUri=data?.data!!
+                putim.setImageURI(fileUri)
+                    val filename=FirebaseAuth.getInstance().currentUser!!.uid.toString()
+                    val storref= FirebaseStorage.getInstance().getReference("productsimages/$filename/${name1.text.toString()}")
+                    storref.putFile(fileUri).
+                    addOnSuccessListener {
+                        Toast.makeText(this,"success",Toast.LENGTH_LONG)
+                    }.addOnFailureListener{
+                        Toast.makeText(this,"failed",Toast.LENGTH_LONG)
 
             }
         }
@@ -91,11 +90,10 @@ class ownersignup : AppCompatActivity() {
     }
 
     fun logoutowner(view: View) {
-        FirebaseAuth.getInstance().signOut()
-
-        startActivity(Intent(this, LoginActivity::class.java))
-        finish()
-    }
+                    FirebaseAuth.getInstance().signOut()
+                    startActivity(Intent(this, LoginActivity::class.java))
+                    finish()
+                }
 
 
     fun savestore(view: View) {
