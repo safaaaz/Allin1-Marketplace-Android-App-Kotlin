@@ -34,6 +34,15 @@ class payment : AppCompatActivity() {
         val phone=b.getString("phone")
         val address=b.getString("address")
 
+        val actionbar = supportActionBar
+        actionbar!!.title = "Allin1"
+        actionbar.setDisplayHomeAsUpEnabled(true)
+        actionbar.setDisplayHomeAsUpEnabled(true)
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
 
     }
     fun addcust() {

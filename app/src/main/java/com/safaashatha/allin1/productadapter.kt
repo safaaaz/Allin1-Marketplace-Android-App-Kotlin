@@ -52,7 +52,7 @@ R.layout.list_products,arrayList) {
                 intent.putExtra("rating",product.rating!!)
                 intent.putExtra("numraters",product.numraters!!)
                 intent.putExtra("category",product.category!!)
-                intent.putExtra("count",product.count!!)
+                //intent.putExtra("count",product.count!!)
             context!!.startActivity(intent)
 
             }

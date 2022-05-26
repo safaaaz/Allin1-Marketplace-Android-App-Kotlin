@@ -3,6 +3,7 @@ package com.safaashatha.allin1
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.GridView
+import android.widget.ListView
 import com.google.firebase.database.FirebaseDatabase
 
 class showcustomer : AppCompatActivity() {
@@ -14,7 +15,18 @@ class showcustomer : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_showcustomer)
         readData()
+        val actionbar = supportActionBar
+        actionbar!!.title = "Allin1"
+        actionbar.setDisplayHomeAsUpEnabled(true)
+        actionbar.setDisplayHomeAsUpEnabled(true)
     }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
+
+    }
+
     fun readData() {
         customersarrylistt = ArrayList()
         val userid = intent.getStringExtra("user_id")
@@ -33,9 +45,9 @@ class showcustomer : AppCompatActivity() {
                         //print("\n------------------------------------------------------lakah-----------------\n")
                         for (user1 in x.child("customers").children) {
                             val us = user(
-                                user1.child("Firstname").value.toString(),
-                                user1.child("Address").value.toString(),
-                                user1.child("phone").value.toString(),
+                                Firstname = user1.child("firstname").value.toString(),
+                                Address = user1.child("address").value.toString(),
+                                phone=user1.child("phone").value.toString(),
                             )
                             customersarrylistt.add(us)
                         }
@@ -43,8 +55,8 @@ class showcustomer : AppCompatActivity() {
                     }
                 }
 
-            val listView: GridView = findViewById(R.id.customers)
-            print("\n---------------------------------------ssaass----------------\n" + customersarrylistt.size)
+            val listView: ListView = findViewById(R.id.customers)
+            print("\n---------------------------------------mmmmmmmmmm----------------\n" + customersarrylistt.size)
             listView.setAdapter(useradapter(this, customersarrylistt))
         }
     }

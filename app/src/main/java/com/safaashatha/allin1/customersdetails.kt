@@ -11,11 +11,11 @@ class customersdetails : AppCompatActivity() {
         val b = intent.extras!!
         val usname = b.getString("name")
         val usphone = b.getString("phone")
-        val usaddress = b.getInt("address")
+        val usaddress = b.getString("address")
 
-        username.setText(usname)
-        userphone.setText(usphone)
-        useraddress.setText(usaddress)
+        usernam.text=usname
+        userphone.text=usphone
+        usadder.text=usaddress
 
 
         val actionbar = supportActionBar

@@ -62,13 +62,14 @@
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
-                <EditText
-                    android:id="@+id/username"
+                <TextView
+                    android:id="@+id/usernam"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:ems="15"
-                    android:inputType="text"
+                    android:padding="8dp"
                     android:textSize="16sp" />
+
+
 
                 <TextView
                     android:id="@+id/phonee"
@@ -80,14 +81,13 @@
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
-                <EditText
+                <TextView
                     android:id="@+id/userphone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:ems="15"
-                    android:inputType="text"
                     android:padding="8dp"
                     android:textSize="16sp" />
+
 
                 <TextView
                     android:id="@+id/addresss"
@@ -99,27 +99,16 @@
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
-                <EditText
-                    android:id="@+id/useraddress"
+                <TextView
+                    android:id="@+id/usadder"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:ems="15"
-                    android:inputType="text"
                     android:padding="8dp"
                     android:textSize="16sp" />
 
 
 
-                <Button
-                    android:id="@+id/delete_pro"
-                    android:layout_width="309dp"
-                    android:layout_height="51dp"
-                    android:textColor="#FF33F3"
-                    android:onClick="delete_cust"
-                    android:text="Delete"
-                    android:background="@drawable/custom_dialog"
 
-                    />
 
 
 

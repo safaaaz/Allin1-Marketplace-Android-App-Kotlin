@@ -21,19 +21,19 @@
             android:gravity="center"
             android:text="TextView" />
 
-        <TextView
-            android:id="@+id/useraddress"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="TextView" />
+<!--        <TextView-->
+<!--            android:id="@+id/useraddress"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:gravity="center"-->
+<!--            android:text="TextView" />-->
 
-        <TextView
-            android:id="@+id/userphone"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="TextView" />
+<!--        <TextView-->
+<!--            android:id="@+id/userphone"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:gravity="center"-->
+<!--            android:text="TextView" />-->
 
 
     </LinearLayout>
