@@ -76,11 +76,10 @@
 
                     <EditText
                         android:id="@+id/username"
+                        style="@style/Widget.AppCompat.AutoCompleteTextView"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="textEmailAddress"
-                        android:textColorHighlight="@color/soft2brown"
-                        android:textColorLink="@color/soft2brown"
                         android:textSize="16sp" />
 
                     <TextView
