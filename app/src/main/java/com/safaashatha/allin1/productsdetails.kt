@@ -155,9 +155,11 @@ class productsdetails : AppCompatActivity() {
 
     fun addtocart(view: View) {
         /* add product to the cart of the user */
+        val b = intent.extras!!
+        val prodowner = b.getString("owner")
         val usercart = FirebaseDatabase.getInstance().getReference("cart")
             .child(intent.getStringExtra("user_id").toString())
-        usercart.child("1").setValue(product(productsname.text.toString(),productsprice.text.toString(),"vv"))
+        usercart.child(productsname.text.toString()).setValue(product(name=productsname.text.toString(),price=productsprice.text.toString(),about=productsabout.text.toString(),owner=prodowner.toString()))
             .addOnSuccessListener {
                 Toast.makeText(this,"Success add to cart", Toast.LENGTH_LONG).show()
 

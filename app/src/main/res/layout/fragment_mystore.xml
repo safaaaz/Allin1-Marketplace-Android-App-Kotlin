@@ -71,6 +71,20 @@
             android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/customer"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_toRightOf="@+id/textView1"
+            android:onClick="customers"
+            android:paddingStart="0pt"
+            android:paddingTop="0pt"
+            android:paddingEnd="3pt"
+            android:paddingRight="0pt"
+            android:text="@string/customer"
+            android:textColor="@color/pink"
+            android:textStyle="bold" />
+
+        <TextView
             android:id="@+id/logoutowner"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

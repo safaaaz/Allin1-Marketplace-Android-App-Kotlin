@@ -28,7 +28,6 @@
             android:layout_marginEnd="-50dp"
             android:layout_marginRight="-50dp"
             android:src="@drawable/img" />
-
         <TextView
             android:id="@+id/Adding_prod"
             android:layout_width="wrap_content"
@@ -123,7 +122,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
-                    android:text="Price"
+                    android:text="About"
                     android:textColor="@color/black"
                     android:textSize="16sp"
                     android:textStyle="bold" />
@@ -137,6 +136,26 @@
                     android:padding="8dp"
                     android:textSize="16sp" />
 
+<!--                <TextView
+                    android:id="@+id/counttt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:text="About"
+
+                    android:textColor="#FF33F3"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/countt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="15"
+                    android:inputType="text"
+                    android:padding="8dp"
+                    android:textSize="16sp" />-->
+
 
 
              <!--   <Button
@@ -148,14 +167,7 @@
                     />-->
 
 
-                <!--                <Button-->
-                <!--                    android:id="@+id/cancel_button"-->
-                <!--                    android:layout_width="309dp"-->
-                <!--                    android:layout_height="51dp"-->
-                <!--                    android:onClick="Cancel"-->
-                <!--                    android:text="Cancel"-->
 
-                <!--                   />-->
 
 <!--                <Button-->
                 <!--    <Button
@@ -169,28 +181,20 @@
                         />
                         />-->
 
-                <LinearLayout
-                    android:id="@+id/productimages"
-                    android:layout_width="wrap_content"
+                <ImageView
+                    android:id="@+id/putim"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-                    <ImageButton
-                        android:id="@+id/addbutton"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:visibility="invisible"
-                        app:srcCompat="@android:drawable/ic_input_add" />
-                </LinearLayout>
-
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginStart="-50dp"
+                    android:layout_marginLeft="-50dp"
+                    android:layout_marginEnd="-50dp"
+                    android:layout_marginRight="-50dp"
+                    />
                 <Button
                     android:id="@+id/btn_choose_image"
                     android:layout_width="309dp"
                     android:layout_height="51dp"
-                    android:background="@drawable/custom_dialog"
                     android:ems="15"
                     android:onClick="pickpic"
                     android:text="Choose image"
@@ -203,7 +207,6 @@
                     android:id="@+id/Add_button"
                     android:layout_width="309dp"
                     android:layout_height="51dp"
-                    android:background="@drawable/custom_dialog"
                     android:ems="15"
                     android:onClick="addprod"
                     android:text="ADD"
@@ -211,6 +214,21 @@
                     android:textColor="@color/black"
                     android:textSize="16sp"
                     android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/cancel_button"
+                    android:layout_width="309dp"
+                    android:layout_height="51dp"
+                    android:ems="15"
+                    android:onClick="Cancel"
+                    android:text="Cancel"
+                    android:textAllCaps="false"
+                    android:textColor="#FF33F3"
+                    android:background="@drawable/custom_dialog"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+
 
 
 

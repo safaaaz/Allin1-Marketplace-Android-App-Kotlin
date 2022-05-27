@@ -92,6 +92,7 @@ class LoginActivity : AppCompatActivity() {
                                             }
                                         print("8888888888888888888888888888888888888888888888")
                                         if(itsowner==1){
+
                                             val intent = Intent(this, ownersignup::class.java)
                                             intent.flags =
                                                 Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK

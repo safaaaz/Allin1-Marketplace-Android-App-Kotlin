@@ -2,6 +2,8 @@ package com.safaashatha.allin1
 
 import android.app.Activity
 import android.content.Intent
+import android.net.Uri
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
 import android.view.Menu
@@ -14,6 +16,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.navigation.findNavController
 import com.google.firebase.auth.FirebaseAuth
+import android.widget.*
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
@@ -26,23 +29,26 @@ import kotlinx.android.synthetic.main.fragment_addprod.name1
 import kotlinx.android.synthetic.main.fragment_editprof.*
 import kotlinx.android.synthetic.main.fragment_mystore.*
 import kotlinx.android.synthetic.main.fragment_store_add.*
+import kotlinx.android.synthetic.main.fragment_store_add.Catagory
+import kotlinx.android.synthetic.main.fragment_store_add.name
 import kotlinx.android.synthetic.main.fragment_store_add.phone
 import kotlinx.android.synthetic.main.list_products.view.*
 import java.util.*
 import kotlin.collections.ArrayList
 
-
 class ownersignup : AppCompatActivity() {
     private lateinit var productsarrylistt:ArrayList<product>
+    private lateinit var productsarrylistt: ArrayList<product>
+
+    private lateinit var database: DatabaseReference
     private lateinit var binding: FragmentMystoreBinding
     private var piccount:Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_ownersignup)
-        val userid=intent.getStringExtra("user_id")
-        val tempp=intent.getStringExtra("temp")
-
+        val userid = intent.getStringExtra("user_id")
+        val tempp = intent.getStringExtra("temp")
         binding = FragmentMystoreBinding.inflate(layoutInflater)
         if(tempp.equals("yes")) {
             readData()
@@ -136,40 +142,60 @@ class ownersignup : AppCompatActivity() {
                     finish()
                 }
 
+
+
     fun savestore(view: View) {
-                    FirebaseDatabase.getInstance("https://allin1-23085-default-rtdb.asia-southeast1.firebasedatabase.app").reference.child(
+        //val layout2 = findViewById(R.id.layout) as LinearLayout
+        FirebaseDatabase.getInstance("https://allin1-23085-default-rtdb.asia-southeast1.firebasedatabase.app").reference.child(
+            "shops"
+        ).child(FirebaseAuth.getInstance().currentUser!!.uid).setValue(
+            owner(
+                name.text.toString(),
+                Address.text.toString(),
+                Catagory.text.toString(),
+                phone.text.toString()
+            ), "products","customers"
+        )
+        //name.setText("")
+        /* FirebaseDatabase.getInstance("https://allin1-23085-default-rtdb.asia-southeast1.firebasedatabase.app").reference.child(
                         "shops"
-                    ).child(FirebaseAuth.getInstance().currentUser!!.uid).setValue(
-                        owner(
-                            name.text.toString(),
-                            Address.text.toString(),
-                            Catagory.text.toString(),
-                            phone.text.toString()
-                        ), "products"
-                    )
-                    view.findNavController().navigate(R.id.action_storeAdd_to_mystore)
-                }
+                    ).child(FirebaseAuth.getInstance().currentUser!!.uid + "/products").child("1")
+                        .setValue(
+                            product(
+                                "book", "for reading", "30"
+                            )
+                        )
+
+                    FirebaseDatabase.getInstance().reference.child("300").setValue("tt")*/
+
+        view.findNavController().navigate(R.id.action_storeAdd_to_mystore)
+    }
 
     fun addproduct(view: View) {
-                    view.findNavController().navigate(R.id.action_mystore_to_addprod)
-                }
+        view.findNavController().navigate(R.id.action_mystore_to_addprod)
+    }
 
     fun addprod(view: View) {
-                    FirebaseDatabase.getInstance("https://allin1-23085-default-rtdb.asia-southeast1.firebasedatabase.app").reference.child(
-                        "shops"
-                    ).child(FirebaseAuth.getInstance().currentUser!!.uid + "/products")
-                        .child(name1.text.toString()).setValue(
-                        product(
-                            name1.text.toString(),FirebaseAuth.getInstance().currentUser!!.uid,about1.text.toString(), price1.text.toString(),  Catagory1.text.toString()
-                        )
-                    )
-                    Toast.makeText(this@ownersignup, "The product is add", Toast.LENGTH_LONG).show()
-                    startActivity(this.intent)
+        FirebaseDatabase.getInstance("https://allin1-23085-default-rtdb.asia-southeast1.firebasedatabase.app").reference.child(
+            "shops"
+        ).child(FirebaseAuth.getInstance().currentUser!!.uid + "/products")
+            .child(name1.text.toString()).setValue(
+                product(
+                    name1.text.toString(),
+                    FirebaseAuth.getInstance().currentUser!!.uid,
+                    about1.text.toString(),
+                    price1.text.toString(),
+                    Catagory1.text.toString(),
+                    //Integer.parseInt(countt.text.toString())
+                )
+            )
+        Toast.makeText(this@ownersignup, "The product is add", Toast.LENGTH_LONG).show()
+        startActivity(this.intent)
     }
 
     fun Cancel(view: View) {
-                    view.findNavController().navigate(R.id.action_addprod_to_mystore)
-}
+        view.findNavController().navigate(R.id.action_addprod_to_mystore)
+    }
 
     fun editprofile(view: View) {
         view.findNavController().navigate(R.id.action_mystore_to_editprof)
@@ -253,8 +279,22 @@ class ownersignup : AppCompatActivity() {
         view.findNavController().navigate(R.id.action_blankFragment3_to_storeAdd)
     }
 
+    fun customers(view: View) {
+
+        val intent = Intent(this, showcustomer::class.java)
+        intent.flags =
+            Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        intent.putExtra("user_id", FirebaseAuth.getInstance()!!.uid)
+        //intent.putExtra("temp", "yes")
+
+        startActivity(intent)
+        finish()
+    }
+
 }
 
+private fun DatabaseReference.setValue(owner: owner, s: String, s1: String) {
 
+}
 
 

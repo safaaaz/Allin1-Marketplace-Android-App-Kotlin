@@ -102,4 +102,9 @@
         android:name="com.safaashatha.allin1.editopay"
         android:label="activity_editopay"
         tools:layout="@layout/activity_editopay" />
+    <activity
+        android:id="@+id/payment"
+        android:name="com.safaashatha.allin1.payment"
+        android:label="activity_payment"
+        tools:layout="@layout/activity_payment" />
 </navigation>
