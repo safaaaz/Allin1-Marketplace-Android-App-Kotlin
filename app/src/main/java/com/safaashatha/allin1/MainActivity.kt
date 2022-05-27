@@ -36,8 +36,6 @@ class MainActivity : AppCompatActivity() {
             "users"
         ).child(FirebaseAuth.getInstance().currentUser!!.uid).get().addOnSuccessListener {
             usernameforwelcome=it.child("firstname").value.toString()+it.child("lastname").value.toString()
-            println("this is user name:            "+usernameforwelcome)
-            print("rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr"+it.key)
             shopsname.text="Welcome "
         }
         binding=ActivityMainBinding.inflate(layoutInflater)
@@ -205,7 +203,7 @@ class MainActivity : AppCompatActivity() {
                             cartarraylist.add(pr)
                         }
         if(cartarraylist.size==0){
-            nocart.text="There is no products in this category"
+            nocart.text="There is no products in the cart"
         }
 
         val listVieww: ListView = findViewById(R.id.cartlist!!)
@@ -307,15 +305,7 @@ class MainActivity : AppCompatActivity() {
             intent.putExtra("aaddress", aaddress)
 
             intent.putExtra("phone", phone)
-
-
-
         }
-
-        //intent.putExtra("temp", "yes")
-
-        //intent.putExtra("email_id", email)
-
         startActivity(intent)
     }
 }

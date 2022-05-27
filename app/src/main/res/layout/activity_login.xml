@@ -76,11 +76,16 @@
 
                     <EditText
                         android:id="@+id/username"
-                        style="@style/Widget.AppCompat.AutoCompleteTextView"
+                        style="@style/Widget.AppCompat.Light.AutoCompleteTextView"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:filterTouchesWhenObscured="true"
+                        android:foregroundTint="@color/brown"
                         android:inputType="textEmailAddress"
-                        android:textSize="16sp" />
+                        android:textColorHighlight="@color/brown"
+                        android:textColorLink="@color/brown"
+                        android:textSize="16sp"
+                        android:theme="@style/AppTheme.textinpout" />
 
                     <TextView
                         android:id="@+id/password_text"
@@ -101,7 +106,8 @@
                         android:padding="8dp"
                         android:textColorHighlight="@color/soft2brown"
                         android:textColorLink="@color/soft2brown"
-                        android:textSize="16sp" />
+                        android:textSize="16sp"
+                        android:theme="@style/AppTheme.textinpout" />
 
 
                     -

@@ -14,8 +14,7 @@
         android:gravity="center"
         android:text="edit profile"
         android:textAppearance="@style/TextAppearance.AppCompat.Display2"
-        android:textColor="@color/purple_200"
-        android:textColorLink="@color/orchid"
+        android:textColor="@color/brown2"
         android:textStyle="bold" />
 
 

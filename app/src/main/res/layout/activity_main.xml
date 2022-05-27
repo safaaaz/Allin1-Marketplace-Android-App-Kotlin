@@ -8,21 +8,6 @@
     app:layoutDescription="@xml/activity_main_scene"
     tools:context=".MainActivity">
 
-    <GridView
-        android:id="@+id/products"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:columnWidth="90dp"
-        android:gravity="center"
-        android:horizontalSpacing="10dp"
-        android:numColumns="2"
-        android:stretchMode="columnWidth"
-        android:verticalSpacing="10dp"
-
-        tools:listitem="@layout/list_products" >
-
-    </GridView>
-
     <TextView
         android:id="@+id/shopsname"
         android:layout_width="match_parent"
@@ -31,7 +16,7 @@
 
         android:text="well"
         android:textAppearance="@style/TextAppearance.AppCompat.Display2"
-        android:textColor="#FF33F3"
+        android:textColor="@color/brown2"
         android:textColorLink="@color/orchid"
         android:textSize="15pt"
         android:textStyle="bold" />
@@ -40,18 +25,17 @@
         android:id="@+id/shopslist"
         android:layout_width="wrap_content"
         android:layout_height="100pt"
-        android:backgroundTint="@color/plum"
+        android:backgroundTint="@color/softbrown"
         android:clipToPadding="false"
-        tools:ignore="NotSibling"
+        android:columnWidth="90dp"
+        android:gravity="center"
+        android:horizontalSpacing="10dp"
         android:numColumns="1"
+        android:paddingTop="30pt"
+        android:stretchMode="columnWidth"
+
+        android:verticalSpacing="10dp"
         tools:listitem="@layout/list_shops" />
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-
-    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -67,7 +51,7 @@
             android:gravity="center"
 
             android:textAppearance="@style/TextAppearance.AppCompat.Display2"
-            android:textColor="#FF33F3"
+            android:textColor="@color/brown2"
             android:textColorLink="@color/orchid"
             android:textSize="15pt"
             android:textStyle="bold" />
@@ -78,7 +62,21 @@
             android:layout_height="wrap_content"
             android:gravity="center" />
 
+        <GridView
+            android:id="@+id/products"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnWidth="90dp"
+            android:gravity="center"
+            android:horizontalSpacing="10dp"
+            android:numColumns="2"
+            android:paddingTop="200dp"
+            android:stretchMode="columnWidth"
 
+            android:verticalSpacing="10dp"
+            tools:listitem="@layout/list_products">
+
+        </GridView>
 
 
     </LinearLayout>

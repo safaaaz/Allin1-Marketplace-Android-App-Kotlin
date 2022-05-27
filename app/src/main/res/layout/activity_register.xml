@@ -20,7 +20,6 @@
         app:layout_constraintTop_toTopOf="parent">
 
 
-
         <TextView
             android:id="@+id/signup_text"
             android:layout_width="wrap_content"
@@ -29,7 +28,7 @@
             android:gravity="center"
             android:padding="3dp"
             android:text="Sign Up"
-            android:textColor="#FF33F3"
+            android:textColor="@color/brown2"
             android:textSize="34sp"
             android:textStyle="bold" />
 
@@ -58,7 +57,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Email"
-                    android:textColor="#FF33F3"
+                    android:textColor="@color/black"
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
@@ -76,7 +75,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
                     android:text="Password"
-                    android:textColor="#FF33F3"
+                    android:textColor="@color/black"
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
@@ -95,7 +94,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
                     android:text="conferm password"
-                    android:textColor="#FF33F3"
+                    android:textColor="@color/black"
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
@@ -114,7 +113,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
                     android:text="First name"
-                    android:textColor="#FF33F3"
+                    android:textColor="@color/black"
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
@@ -133,7 +132,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
                     android:text="Last name"
-                    android:textColor="#FF33F3"
+                    android:textColor="@color/black"
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
@@ -155,16 +154,15 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:layout_margin="16dp"
-                    app:cardBackgroundColor="@color/plum"
                     app:cardCornerRadius="24dp"
                     app:cardElevation="8dp">
 
 
                     <Button
                         android:id="@+id/Register_button"
+                        style="@style/AppTheme.Button"
                         android:layout_width="309dp"
                         android:layout_height="51dp"
-                        android:backgroundTint="@color/plum"
                         android:ems="15"
                         android:text="Register"
                         android:textAllCaps="false"
@@ -214,7 +212,7 @@
                     android:layout_height="wrap_content"
                     android:background="?attr/selectableItemBackgroundBorderless"
                     android:text="Login"
-                    android:textColor="@color/plum"
+                    android:textColor="@color/brown"
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
@@ -230,7 +228,7 @@
             android:ems="15"
             android:text="Business Account"
             android:textAllCaps="false"
-            android:textColor="#FF33F3"
+            android:textColor="@color/black"
             android:textSize="16sp"
             android:textStyle="bold" />
        <!-- <Button

@@ -19,7 +19,7 @@
         android:id="@+id/cartlist"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:listitem="@layout/list_products"/>
+        tools:listitem="@layout/list_products" />
 
 
     <Button

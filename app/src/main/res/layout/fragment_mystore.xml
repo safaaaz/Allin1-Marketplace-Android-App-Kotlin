@@ -67,7 +67,7 @@
             android:paddingEnd="3pt"
             android:paddingRight="0pt"
             android:text="@string/Editprof"
-            android:textColor="@color/pink"
+            android:textColor="@color/brown2"
             android:textStyle="bold" />
 
         <TextView
@@ -80,7 +80,7 @@
             android:paddingTop="0pt"
             android:paddingRight="3pt"
             android:text="@string/logou"
-            android:textColor="@color/pink"
+            android:textColor="@color/brown2"
             android:textStyle="bold" />
 
         <TextView
@@ -95,7 +95,7 @@
             android:paddingTop="0pt"
             android:paddingRight="3pt"
             android:text="@string/Addpro"
-            android:textColor="@color/pink"
+            android:textColor="@color/brown2"
             android:textStyle="bold" />
     </LinearLayout>
 
