@@ -23,6 +23,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var database: DatabaseReference
     private lateinit var binding: ActivityMainBinding
     private lateinit var productsarrylist:ArrayList<product>
+    private lateinit var shopsarraylist:ArrayList<owner>
     var userid:String? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,6 +42,7 @@ class MainActivity : AppCompatActivity() {
             shopsname.text="Welcome "
         }
         binding=ActivityMainBinding.inflate(layoutInflater)
+        readshops()
         readData()
         val reference = FirebaseDatabase.getInstance("https://allin1-23085-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference().child("shops")
         val actionbar = supportActionBar
@@ -55,6 +57,24 @@ class MainActivity : AppCompatActivity() {
 
 
     }
+
+    fun readshops(){
+        shopsarraylist = ArrayList()
+        database =
+            FirebaseDatabase.getInstance("https://allin1-23085-default-rtdb.asia-southeast1.firebasedatabase.app/")
+                .getReference("shops")
+        database.get().addOnSuccessListener {
+            for (x in it.children)
+                if (x.exists()) {
+                    var shop=owner(x.child("name").value.toString(),x.child("about").value.toString(),x.child("address").value.toString(),
+                        x.child("category").value.toString(),x.child("phone").value.toString())
+                    shopsarraylist.add(shop)
+
+                    }
+                }
+            val listView: GridView = findViewById(R.id.shopslist)
+            listView.setAdapter(shopsadapter(this, shopsarraylist))
+        }
 
     fun readData() {
         productsarrylist = ArrayList()
@@ -193,13 +213,11 @@ class MainActivity : AppCompatActivity() {
                                 x.child("name").value.toString(),
                                 x.child("price").value.toString(),
                                 x.child("category").value.toString(),
-                                //x.child("owner").value.toString()
                             )
                             cartarraylist.add(pr)
-//                            println("-######################################################################shatha  "+ cartarraylist.size)
                         }
         if(cartarraylist.size==0){
-            nocart.text="There is no products in this category"
+            nocart.text="There is no products in the cart"
         }
 
         val listVieww: ListView = findViewById(R.id.cartlist!!)
@@ -313,17 +331,8 @@ class MainActivity : AppCompatActivity() {
 
                         intent.putExtra("aaddress", aaddress)
 
-                        intent.putExtra("phone", phone)
-                        startActivity(intent)
-                        finish()
-                        //print("\nhhhhhhhhhhhhhhhhhhhhhhhhhhhhh\n" + name + "\nnhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh\n")
-
-                    }
-                }
-            }
-
+            intent.putExtra("phone", phone)
         }
-
+        startActivity(intent)
     }
 }
-

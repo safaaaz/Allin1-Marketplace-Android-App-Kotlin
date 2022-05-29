@@ -14,6 +14,14 @@
     <color name="colorAccent">#4CAF50</color>
     <color name="softpink">#fff3f5</color>
     <color name="pink">#FF33F3</color>
+    <color name="brown">#cfb39f</color>
+    <color name="softbrown">#f8f4f1</color>
+    <color name="soft2brown">#e8dad0</color>
+    <color name="brown2">#ba9073</color>
+    <color name="light_blue_50">#FFE1F5FE</color>
+    <color name="light_blue_200">#FF81D4FA</color>
+    <color name="light_blue_600">#FF039BE5</color>
+    <color name="light_blue_900">#FF01579B</color>
 
 
 </resources>

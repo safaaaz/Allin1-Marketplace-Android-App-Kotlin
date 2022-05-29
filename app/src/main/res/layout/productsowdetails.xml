@@ -38,7 +38,7 @@
             android:gravity="center"
             android:padding="8dp"
             android:text="Edit Product"
-            android:textColor="@color/purple_200"
+            android:textColor="@color/brown2"
             android:textSize="24sp"
             android:textStyle="bold" />
 
@@ -67,7 +67,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Product name"
-                    android:textColor="@color/purple_200"
+                    android:textColor="@color/black"
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
@@ -85,7 +85,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
                     android:text="Price"
-                    android:textColor="@color/purple_200"
+                    android:textColor="@color/black"
                     android:textSize="16sp"
                     android:textStyle="bold" />
 

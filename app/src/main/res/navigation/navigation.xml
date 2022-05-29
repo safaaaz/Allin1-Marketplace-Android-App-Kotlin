@@ -64,9 +64,6 @@
         <action
             android:id="@+id/action_mystore_to_editprof"
             app:destination="@id/editprof" />
-        <action
-            android:id="@+id/action_mystore_to_editprof2"
-            app:destination="@id/editprof" />
     </fragment>
     <fragment
         android:id="@+id/addprod"

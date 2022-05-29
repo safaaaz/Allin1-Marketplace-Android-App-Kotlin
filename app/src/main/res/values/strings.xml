@@ -7,6 +7,9 @@
     <string name="logou"> <u>Log out </u> </string>
     <string name="Addpro"> <u>Add product</u> </string>
     <string name="customer"> <u>My customers</u> </string>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="add_widget">Add widget</string>
+    <string name="app_widget_description">This is an app widget description</string>
 
 
 </resources>

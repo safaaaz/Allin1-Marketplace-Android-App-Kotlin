@@ -4,7 +4,6 @@
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -12,12 +11,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Allin1">
-        <activity
-            android:name=".showcustomer"
-            android:exported="false" />
-        <activity
-            android:name=".customersdetails"
-            android:exported="false" />
         <activity
             android:name=".editopay"
             android:exported="false">
@@ -31,6 +24,9 @@
         <activity
             android:name=".payment"
             android:exported="false" />
+        <activity
+            android:name=".forgotpass"
+            android:exported="true" />
         <activity
             android:name=".productsofshop"
             android:exported="true" />

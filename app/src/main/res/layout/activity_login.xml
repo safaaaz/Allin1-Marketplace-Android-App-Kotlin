@@ -40,7 +40,7 @@
                 android:gravity="center"
                 android:padding="8dp"
                 android:text="LOG IN"
-                android:textColor="#FF33F3"
+                android:textColor="@color/brown2"
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
@@ -69,18 +69,23 @@
                         android:layout_width="67dp"
                         android:layout_height="wrap_content"
                         android:text="E-mail"
-                        android:textColor="#FF33F3"
+                        android:textColor="@color/black"
 
                         android:textSize="16sp"
                         android:textStyle="bold" />
 
                     <EditText
                         android:id="@+id/username"
+                        style="@style/Widget.AppCompat.Light.AutoCompleteTextView"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:ems="15"
+                        android:filterTouchesWhenObscured="true"
+                        android:foregroundTint="@color/brown"
                         android:inputType="textEmailAddress"
-                        android:textSize="16sp" />
+                        android:textColorHighlight="@color/brown"
+                        android:textColorLink="@color/brown"
+                        android:textSize="16sp"
+                        android:theme="@style/AppTheme.textinpout" />
 
                     <TextView
                         android:id="@+id/password_text"
@@ -88,7 +93,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="left"
                         android:text="Password"
-                        android:textColor="#FF33F3"
+                        android:textColor="@color/black"
                         android:textSize="16sp"
                         android:textStyle="bold" />
 
@@ -99,37 +104,20 @@
                         android:ems="15"
                         android:inputType="textPassword"
                         android:padding="8dp"
-                        android:textSize="16sp" />
+                        android:textColorHighlight="@color/soft2brown"
+                        android:textColorLink="@color/soft2brown"
+                        android:textSize="16sp"
+                        android:theme="@style/AppTheme.textinpout" />
 
 
                     -
 
-                    <androidx.cardview.widget.CardView
-                        android:id="@+id/login_card"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_margin="16dp"
-                        app:cardBackgroundColor="@color/plum"
-                        app:cardCornerRadius="24dp"
-                        app:cardElevation="8dp">
-
-                        <Button
-                            android:id="@+id/login_button"
-                            android:layout_width="309dp"
-                            android:layout_height="51dp"
-                            android:background="@drawable/img"
-                            android:ems="15"
-
-                            android:text="Login"
-                            android:textAllCaps="false"
-                            android:textColor="@color/white"
-                            android:textSize="16sp"
-                            android:textStyle="bold" />
-
-
-
-                    </androidx.cardview.widget.CardView>
+                    <Button
+                        android:id="@+id/login_button"
+                        style="@style/AppTheme.Button"
+                        android:layout_width="309dp"
+                        android:layout_height="51dp"
+                        android:text="Login" />
 
                 </LinearLayout>
 
@@ -160,10 +148,22 @@
                     android:padding="8dp">
 
                     <TextView
+                        android:id="@+id/forgotpass"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:paddingRight="90dp"
+                        android:text="Forgot password? "
+                        android:textColor="@color/brown"
+                        android:textColorLink="@color/soft2brown"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="New User? "
-                        android:textSize="16sp" />
+                        android:textSize="14sp" />
 
                     <TextView
                         android:id="@+id/joinus"
@@ -171,8 +171,9 @@
                         android:layout_height="wrap_content"
                         android:background="?attr/selectableItemBackgroundBorderless"
                         android:text="Join Us"
-                        android:textColor="@color/plum"
-                        android:textSize="16sp"
+                        android:textColor="@color/brown"
+                        android:textColorLink="@color/soft2brown"
+                        android:textSize="14sp"
                         android:textStyle="bold" />
 
                 </LinearLayout>
