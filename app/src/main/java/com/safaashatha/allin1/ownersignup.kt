@@ -2,6 +2,8 @@ package com.safaashatha.allin1
 
 import android.app.Activity
 import android.content.Intent
+import android.net.Uri
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
 import android.view.Menu
@@ -10,10 +12,11 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.*
 import android.widget.LinearLayout
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import androidx.navigation.findNavController
 import com.google.firebase.auth.FirebaseAuth
 import android.widget.*
-import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
@@ -34,8 +37,7 @@ import java.util.*
 import kotlin.collections.ArrayList
 
 class ownersignup : AppCompatActivity() {
-    private lateinit var productsarrylistt:ArrayList<product>
-   // private lateinit var productsarrylistt: ArrayList<product>
+    private lateinit var productsarrylistt: ArrayList<product>
 
     private lateinit var database: DatabaseReference
     private lateinit var binding: FragmentMystoreBinding
@@ -91,6 +93,8 @@ class ownersignup : AppCompatActivity() {
         val intent = Intent(Intent.ACTION_PICK)
         intent.type = "image/*"
         startActivityForResult(intent, 100)
+        finish()
+
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -116,7 +120,7 @@ class ownersignup : AppCompatActivity() {
                     layout.addView(prodimage)
                 //putim.setImageURI(fileUri)
                     val filename=FirebaseAuth.getInstance().currentUser!!.uid.toString()
-                    val storref= FirebaseStorage.getInstance().getReference("productsimages/$filename/${name1.text.toString()}/${piccount}")
+                    val storref= FirebaseStorage.getInstance().getReference("productsimages/$filename/${name1.text.toString()}")
                     storref.putFile(fileUri).
                     addOnSuccessListener {
                         Toast.makeText(this,"success",Toast.LENGTH_LONG)
@@ -138,6 +142,8 @@ class ownersignup : AppCompatActivity() {
                     startActivity(Intent(this, LoginActivity::class.java))
                     finish()
                 }
+
+
 
     fun savestore(view: View) {
         //val layout2 = findViewById(R.id.layout) as LinearLayout
@@ -183,6 +189,7 @@ class ownersignup : AppCompatActivity() {
     fun editprofile(view: View) {
         view.findNavController().navigate(R.id.action_mystore_to_editprof)
     }
+
 
     fun editpeoff(view: View){
         print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
@@ -272,6 +279,9 @@ class ownersignup : AppCompatActivity() {
 
         startActivity(intent)
         finish()
+
+
+
     }
 
 }

@@ -92,6 +92,17 @@ class editprofileuser : AppCompatActivity() {
                 phoneinput.setText(k!!.phone)
             }
         }
+        val actionbar = supportActionBar
+        actionbar!!.title = "Allin1"
+        actionbar.setDisplayHomeAsUpEnabled(true)
+        actionbar.setDisplayHomeAsUpEnabled(true)
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
+
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

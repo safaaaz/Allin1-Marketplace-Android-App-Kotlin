@@ -73,6 +73,7 @@ class payment : AppCompatActivity() {
                         x.child("owner").value.toString()
                     )
                     var owner = x.child("owner").value.toString()
+                    var prod= x.child("name").value.toString()
                     database2 =
                         FirebaseDatabase.getInstance("https://allin1-23085-default-rtdb.asia-southeast1.firebasedatabase.app/")
                             .getReference("shops")
@@ -80,7 +81,8 @@ class payment : AppCompatActivity() {
                         user(
                             Firstname = namee.toString(),
                             Lastname = lname.toString(),
-                            id = userid.toString()
+                            id = userid.toString(),
+                            product = prod
                         )
                     )
 
