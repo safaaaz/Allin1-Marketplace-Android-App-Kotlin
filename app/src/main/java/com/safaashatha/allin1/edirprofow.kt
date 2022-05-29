@@ -27,6 +27,17 @@ class edirprofow : AppCompatActivity() {
         setContentView(R.layout.fragment_editprof)
         //val view = findViewById<View>(R.id.)
         //view.findNavController().navigate(R.id.)
+        val actionbar = supportActionBar
+        actionbar!!.title = "Allin1"
+        actionbar.setDisplayHomeAsUpEnabled(true)
+        actionbar.setDisplayHomeAsUpEnabled(true)
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
+
+
 
     }
 }

@@ -66,6 +66,8 @@ class ownersignup : AppCompatActivity() {
         val intent = Intent(Intent.ACTION_PICK)
         intent.type = "image/*"
         startActivityForResult(intent, 100)
+        finish()
+
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -83,6 +85,7 @@ class ownersignup : AppCompatActivity() {
 
             }
         }
+
     }
 
     fun pickpic(view: View) {
@@ -143,6 +146,8 @@ class ownersignup : AppCompatActivity() {
             )
         Toast.makeText(this@ownersignup, "The product is add", Toast.LENGTH_LONG).show()
         startActivity(this.intent)
+        finish()
+
     }
 
     fun Cancel(view: View) {
@@ -182,6 +187,7 @@ class ownersignup : AppCompatActivity() {
 
         Toast.makeText(this@ownersignup, "The Profile is updatted ", Toast.LENGTH_LONG).show()
         startActivity(intent)
+        finish()
 
 
     }
@@ -242,6 +248,9 @@ class ownersignup : AppCompatActivity() {
 
         startActivity(intent)
         finish()
+
+
+
     }
 
 }

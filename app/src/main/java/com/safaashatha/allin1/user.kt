@@ -20,5 +20,6 @@ data class user(
     var Cardcode: Int=0,
     var Cardid: Int = 0,
     var Cardname: Int=0,
+    var product: String = "",
 )
 

@@ -16,6 +16,17 @@ class userfavorites : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_userfavorites)
         readfavoritesprod()
+        val actionbar = supportActionBar
+        actionbar!!.title = "Allin1"
+        actionbar.setDisplayHomeAsUpEnabled(true)
+        actionbar.setDisplayHomeAsUpEnabled(true)
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
+
+
     }
 
     fun readfavoritesprod() {

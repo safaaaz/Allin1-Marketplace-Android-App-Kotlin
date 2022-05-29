@@ -118,7 +118,19 @@ class editopay : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
+        val actionbar = supportActionBar
+        actionbar!!.title = "Allin1"
+        actionbar.setDisplayHomeAsUpEnabled(true)
+        actionbar.setDisplayHomeAsUpEnabled(true)
     }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
+
+
+    }
+
 
 
 }

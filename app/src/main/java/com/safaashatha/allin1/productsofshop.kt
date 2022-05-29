@@ -30,6 +30,17 @@ class productsofshop:  AppCompatActivity() {
             shopscategory.text=shopscategory.text.toString()+it.child("category").value.toString()
             shopsphone.text=shopsphone.text.toString()+it.child("phone").value.toString()
         }
+        val actionbar = supportActionBar
+        actionbar!!.title = "Allin1"
+        actionbar.setDisplayHomeAsUpEnabled(true)
+        actionbar.setDisplayHomeAsUpEnabled(true)
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
+
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

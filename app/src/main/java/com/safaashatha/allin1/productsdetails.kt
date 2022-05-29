@@ -102,6 +102,9 @@ class productsdetails : AppCompatActivity() {
             params.width = params.width+100
             peoplecomments.layoutParams = params
         }
+
+
+
         }
 
     fun rating(prodrate:Int,prodraters:Int){
@@ -118,6 +121,7 @@ class productsdetails : AppCompatActivity() {
         val cat = menu!!.findItem(R.id.categories)
         cat.isVisible=false
         return true
+
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -205,7 +209,9 @@ class productsdetails : AppCompatActivity() {
             val listVieww: ListView = findViewById(R.id.peoplecomments)
             listVieww.setAdapter(commitadapter(this, commitsarraylist))
              }
+
         }
+
 
     fun gostore(view: View) {
         val b = intent.extras!!
@@ -222,4 +228,5 @@ class productsdetails : AppCompatActivity() {
         startActivity(Intent(this,userfavorites::class.java))
 
     }
+
 }
