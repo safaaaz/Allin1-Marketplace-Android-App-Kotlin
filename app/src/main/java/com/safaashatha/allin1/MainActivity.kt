@@ -22,30 +22,34 @@ import kotlinx.android.synthetic.main.showcart.*
 class MainActivity : AppCompatActivity() {
     private lateinit var database: DatabaseReference
     private lateinit var binding: ActivityMainBinding
-    private lateinit var productsarrylist:ArrayList<product>
-    private lateinit var shopsarraylist:ArrayList<owner>
-    var userid:String? = null
+    private lateinit var productsarrylist: ArrayList<product>
+    private lateinit var shopsarraylist: ArrayList<owner>
+    var userid: String? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        userid=intent.getStringExtra("user_id")
-        val emailid=intent.getStringExtra("email_id")
+        userid = intent.getStringExtra("user_id")
+        val emailid = intent.getStringExtra("email_id")
         //try to write user name after welcom in main page
-        var usernameforwelcome=""
-        val namedata= FirebaseDatabase.getInstance("https://allin1-23085-default-rtdb.asia-southeast1.firebasedatabase.app").reference.child(
-            "users"
-        ).child(FirebaseAuth.getInstance().currentUser!!.uid).get().addOnSuccessListener {
-            usernameforwelcome=it.child("firstname").value.toString()+it.child("lastname").value.toString()
-            shopsname.text="Welcome "
-        }
-        binding=ActivityMainBinding.inflate(layoutInflater)
+        var usernameforwelcome = ""
+        val namedata =
+            FirebaseDatabase.getInstance("https://allin1-23085-default-rtdb.asia-southeast1.firebasedatabase.app").reference.child(
+                "users"
+            ).child(FirebaseAuth.getInstance().currentUser!!.uid).get().addOnSuccessListener {
+                usernameforwelcome =
+                    it.child("firstname").value.toString() + it.child("lastname").value.toString()
+                shopsname.text = "Welcome "
+            }
+        binding = ActivityMainBinding.inflate(layoutInflater)
         readshops()
         readData()
-        val reference = FirebaseDatabase.getInstance("https://allin1-23085-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference().child("shops")
+        val reference =
+            FirebaseDatabase.getInstance("https://allin1-23085-default-rtdb.asia-southeast1.firebasedatabase.app/")
+                .getReference().child("shops")
     }
 
-    fun readshops(){
+    fun readshops() {
         shopsarraylist = ArrayList()
         database =
             FirebaseDatabase.getInstance("https://allin1-23085-default-rtdb.asia-southeast1.firebasedatabase.app/")
@@ -53,15 +57,18 @@ class MainActivity : AppCompatActivity() {
         database.get().addOnSuccessListener {
             for (x in it.children)
                 if (x.exists()) {
-                    var shop=owner(x.child("name").value.toString(),x.child("about").value.toString(),x.child("address").value.toString(),
-                        x.child("category").value.toString(),x.child("phone").value.toString())
+                    var shop = owner(x.child("name").value.toString(),
+                        x.child("about").value.toString(),
+                        x.child("address").value.toString(),
+                        x.child("category").value.toString(),
+                        x.child("phone").value.toString())
                     shopsarraylist.add(shop)
 
-                    }
                 }
-            val listView: GridView = findViewById(R.id.shopslist)
-            listView.setAdapter(shopsadapter(this, shopsarraylist))
         }
+        val listView: GridView = findViewById(R.id.shopslist)
+        listView.setAdapter(shopsadapter(this, shopsarraylist))
+    }
 
     fun readData() {
         productsarrylist = ArrayList()
@@ -73,19 +80,19 @@ class MainActivity : AppCompatActivity() {
 
                 if (x.exists()) {
                     for (prod in x.child("products").children) {
-                        var rating=0
-                        var numraters=0
-                        if(prod.child("numraters").exists()){
-                            numraters=Integer.valueOf( prod.child("numraters").value.toString())
-                            rating=Integer.valueOf( prod.child("rating").value.toString())
+                        var rating = 0
+                        var numraters = 0
+                        if (prod.child("numraters").exists()) {
+                            numraters = Integer.valueOf(prod.child("numraters").value.toString())
+                            rating = Integer.valueOf(prod.child("rating").value.toString())
                         }
                         val pr = product(
-                            name=prod.child("name").value.toString(),
-                            owner=prod.child("owner").value.toString(),
-                            price=prod.child("price").value.toString(),
+                            name = prod.child("name").value.toString(),
+                            owner = prod.child("owner").value.toString(),
+                            price = prod.child("price").value.toString(),
                             category = prod.child("category").value.toString(),
-                            rating= Integer.valueOf( rating ),
-                            numraters = Integer.valueOf( numraters ),
+                            rating = Integer.valueOf(rating),
+                            numraters = Integer.valueOf(numraters),
                             about = prod.child("about").value.toString()
                         )
                         productsarrylist.add(pr)
@@ -100,13 +107,13 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
 
-        val inflater:MenuInflater = menuInflater
-        inflater.inflate(R.menu.main_menu,menu)
+        val inflater: MenuInflater = menuInflater
+        inflater.inflate(R.menu.main_menu, menu)
         val search = menu!!.findItem(R.id.prodsearch)
         val searchView = search.actionView as SearchView
         searchView.queryHint = "Search"
         val favprod = menu!!.findItem(R.id.favorites)
-        favprod.isVisible=true
+        favprod.isVisible = true
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 return false
@@ -122,34 +129,34 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when(item.itemId){
+        return when (item.itemId) {
             R.id.books -> {
-                Toast.makeText(this,"you click books category",Toast.LENGTH_LONG).show()
+                Toast.makeText(this, "you click books category", Toast.LENGTH_LONG).show()
                 showproductsbycategory("books")
                 true
             }
             R.id.clothes -> {
-                Toast.makeText(this,"you click clothes category",Toast.LENGTH_LONG).show()
+                Toast.makeText(this, "you click clothes category", Toast.LENGTH_LONG).show()
                 showproductsbycategory("clothes")
                 true
             }
             R.id.women -> {
-                Toast.makeText(this,"you click women clothes category",Toast.LENGTH_LONG).show()
+                Toast.makeText(this, "you click women clothes category", Toast.LENGTH_LONG).show()
                 showproductsbycategory("women")
                 true
             }
             R.id.men -> {
-                Toast.makeText(this,"you click men clothes category",Toast.LENGTH_LONG).show()
+                Toast.makeText(this, "you click men clothes category", Toast.LENGTH_LONG).show()
                 showproductsbycategory("men")
                 true
             }
             R.id.nails -> {
-                Toast.makeText(this,"you click nails category",Toast.LENGTH_LONG).show()
+                Toast.makeText(this, "you click nails category", Toast.LENGTH_LONG).show()
                 showproductsbycategory("nails")
                 true
             }
             R.id.home -> {
-                Toast.makeText(this,"you click home category",Toast.LENGTH_LONG).show()
+                Toast.makeText(this, "you click home category", Toast.LENGTH_LONG).show()
                 showproductsbycategory("home")
                 true
             }
@@ -160,22 +167,22 @@ class MainActivity : AppCompatActivity() {
             R.id.logout -> {
                 FirebaseAuth.getInstance().signOut()
 
-                startActivity(Intent(this,LoginActivity::class.java))
+                startActivity(Intent(this, LoginActivity::class.java))
                 finish()
                 true
             }
             R.id.editprofile -> {
-                val intent=Intent(this,editprofileuser::class.java)
+                val intent = Intent(this, editprofileuser::class.java)
                 intent.putExtra("user_id", FirebaseAuth.getInstance()!!.uid)
                 startActivity(intent)
                 true
             }
-            R.id.homepage->{
-                startActivity(Intent(this,MainActivity::class.java))
+            R.id.homepage -> {
+                startActivity(Intent(this, MainActivity::class.java))
                 true
             }
-            R.id.favorites->{
-                startActivity(Intent(this,userfavorites::class.java))
+            R.id.favorites -> {
+                startActivity(Intent(this, userfavorites::class.java))
                 true
             }
             else -> super.onOptionsItemSelected(item)
@@ -183,38 +190,39 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    fun showcart(){
+    fun showcart() {
         //nocart.text=" "
         setContentView(R.layout.showcart)
-        val cartarraylist=ArrayList<product>()
+        val cartarraylist = ArrayList<product>()
         database =
             FirebaseDatabase.getInstance("https://allin1-23085-default-rtdb.asia-southeast1.firebasedatabase.app/")
                 .getReference("cart")
-        println("-######################################################################userid  "+ FirebaseAuth.getInstance()!!.uid)
+        println("-######################################################################userid  " + FirebaseAuth.getInstance()!!.uid)
 
         database.child(FirebaseAuth.getInstance()!!.uid!!).get().addOnSuccessListener {
             for (x in it.children)
 
                 if (x.exists()) {
-                            val pr = product(
-                                x.child("name").value.toString(),
-                                x.child("price").value.toString(),
-                                x.child("category").value.toString(),
-                            )
-                            cartarraylist.add(pr)
-                        }
-        if(cartarraylist.size==0){
-            nocart.text="There is no products in the cart"
+                    val pr = product(
+                        x.child("name").value.toString(),
+                        x.child("price").value.toString(),
+                        x.child("category").value.toString(),
+                    )
+                    cartarraylist.add(pr)
+                }
+            if (cartarraylist.size == 0) {
+                nocart.text = "There is no products in the cart"
+            }
+
+            val listVieww: ListView = findViewById(R.id.cartlist!!)
+            listVieww.setAdapter(productadapter(this, cartarraylist))
         }
+    }
 
-        val listVieww: ListView = findViewById(R.id.cartlist!!)
-        listVieww.setAdapter(productadapter(this, cartarraylist))
-        }}
-
-    fun showproductsbycategory(cat:String){
-        shopsname.text=cat
+    fun showproductsbycategory(cat: String) {
+        shopsname.text = cat
         productsarrylist = ArrayList()
-        noprod.text=""
+        noprod.text = ""
         database =
             FirebaseDatabase.getInstance("https://allin1-23085-default-rtdb.asia-southeast1.firebasedatabase.app/")
                 .getReference("shops")
@@ -223,27 +231,27 @@ class MainActivity : AppCompatActivity() {
 
                 if (x.exists()) {
                     for (prod in x.child("products").children) {
-                        var rating=0
-                        var numraters=0
-                        if(prod.child("numraters").exists()){
-                            numraters=Integer.valueOf( prod.child("numraters").value.toString())
-                            rating=Integer.valueOf( prod.child("rating").value.toString())
+                        var rating = 0
+                        var numraters = 0
+                        if (prod.child("numraters").exists()) {
+                            numraters = Integer.valueOf(prod.child("numraters").value.toString())
+                            rating = Integer.valueOf(prod.child("rating").value.toString())
                         }
-                        if(cat in prod.child("category").value.toString()) {
+                        if (cat in prod.child("category").value.toString()) {
                             val pr = product(
-                                name=prod.child("name").value.toString(),
-                                owner=prod.child("owner").value.toString(),
-                                price=prod.child("price").value.toString(),
+                                name = prod.child("name").value.toString(),
+                                owner = prod.child("owner").value.toString(),
+                                price = prod.child("price").value.toString(),
                                 category = prod.child("category").value.toString(),
-                                rating= Integer.valueOf( rating ),
-                                numraters = Integer.valueOf( numraters ),
+                                rating = Integer.valueOf(rating),
+                                numraters = Integer.valueOf(numraters),
                                 about = prod.child("about").value.toString()
                             )
                             productsarrylist.add(pr)
                         }
                     }
-                    if(productsarrylist.size==0){
-                        noprod.text="there is no products in this category"
+                    if (productsarrylist.size == 0) {
+                        noprod.text = "there is no products in this category"
                     }
                 }
             val listView: GridView = findViewById(R.id.products)
@@ -251,10 +259,10 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun searchforprod(newtext:String){
-        shopsname.text=newtext
+    fun searchforprod(newtext: String) {
+        shopsname.text = newtext
         productsarrylist = ArrayList()
-        noprod.text=""
+        noprod.text = ""
         database =
             FirebaseDatabase.getInstance("https://allin1-23085-default-rtdb.asia-southeast1.firebasedatabase.app/")
                 .getReference("shops")
@@ -263,7 +271,7 @@ class MainActivity : AppCompatActivity() {
 
                 if (x.exists()) {
                     for (prod in x.child("products").children) {
-                        if(newtext in prod.child("name").value.toString()) {
+                        if (newtext in prod.child("name").value.toString()) {
                             val pr = product(
                                 prod.child("name").value.toString(),
                                 prod.child("price").value.toString(),
@@ -272,8 +280,8 @@ class MainActivity : AppCompatActivity() {
                             productsarrylist.add(pr)
                         }
                     }
-                    if(productsarrylist.size==0){
-                        noprod.text="there is no products in this category"
+                    if (productsarrylist.size == 0) {
+                        noprod.text = "there is no products in this category"
                     }
                 }
             val listView: GridView = findViewById(R.id.products)
@@ -281,26 +289,27 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun buy(view: View){
+    fun buy(view: View) {
 
 
-        val namedata= FirebaseDatabase.getInstance("https://allin1-23085-default-rtdb.asia-southeast1.firebasedatabase.app").reference.child(
-            "Users"
-        )
+        val namedata =
+            FirebaseDatabase.getInstance("https://allin1-23085-default-rtdb.asia-southeast1.firebasedatabase.app").reference.child(
+                "Users"
+            )
         namedata.get().addOnSuccessListener {
             for (x in it.children) {
                 //print("shaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
                 if (x.exists()) {
                     if (x.key == FirebaseAuth.getInstance().currentUser!!.uid) {
-                        print("\n------------------------------------------------------lakahhhhhh-----------------\n" +x.key)
+                        print("\n------------------------------------------------------lakahhhhhh-----------------\n" + x.key)
 
                         val name = x.child("firstname").getValue().toString()
-                        val owner=x.child("owner").getValue().toString()
+                        val owner = x.child("owner").getValue().toString()
                         val lastname = x.child("lastname").getValue().toString()
                         val email = x.child("email").getValue().toString()
                         val aaddress = x.child("address").getValue().toString()
                         val phone = x.child("phone").getValue().toString()
-                        print("\nsssssssssssssssssssssssssss\n"+name+email+aaddress+phone+lastname+"\nsssssssssssssssss\n")
+                        print("\nsssssssssssssssssssssssssss\n" + name + email + aaddress + phone + lastname + "\nsssssssssssssssss\n")
 
                         val intent = Intent(this, editopay::class.java)
                         intent.flags =
@@ -315,8 +324,11 @@ class MainActivity : AppCompatActivity() {
 
                         intent.putExtra("aaddress", aaddress)
 
-            intent.putExtra("phone", phone)
+                        intent.putExtra("phone", phone)
+                    }
+                    startActivity(intent)
+                }
+            }
         }
-        startActivity(intent)
     }
 }

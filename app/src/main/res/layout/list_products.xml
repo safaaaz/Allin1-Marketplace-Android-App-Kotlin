@@ -8,7 +8,6 @@
     android:layout_height="wrap_content"
     android:accessibilityLiveRegion="none"
     android:alwaysDrawnWithCache="false"
-    android:background="#f8f4f1"
     android:gravity="center"
     android:orientation="vertical"
     android:visibility="visible">

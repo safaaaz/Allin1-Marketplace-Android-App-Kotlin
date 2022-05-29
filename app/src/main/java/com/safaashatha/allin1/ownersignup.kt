@@ -2,8 +2,6 @@ package com.safaashatha.allin1
 
 import android.app.Activity
 import android.content.Intent
-import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
 import android.view.Menu
@@ -12,11 +10,10 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.*
 import android.widget.LinearLayout
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.isVisible
 import androidx.navigation.findNavController
 import com.google.firebase.auth.FirebaseAuth
 import android.widget.*
+import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
@@ -38,7 +35,7 @@ import kotlin.collections.ArrayList
 
 class ownersignup : AppCompatActivity() {
     private lateinit var productsarrylistt:ArrayList<product>
-    private lateinit var productsarrylistt: ArrayList<product>
+   // private lateinit var productsarrylistt: ArrayList<product>
 
     private lateinit var database: DatabaseReference
     private lateinit var binding: FragmentMystoreBinding
@@ -104,7 +101,7 @@ class ownersignup : AppCompatActivity() {
                     //the layout on which you are working
 
                     //the layout on which you are working
-                    val layout = findViewById<View>(R.id.productimages) as LinearLayout
+                    val layout = findViewById<View>(R.id.imagesforprod) as LinearLayout
                     var prodimage = ImageView(this)
                     //prodimage.getLayoutParams().height = 60;
                     //set the properties for button
@@ -142,8 +139,6 @@ class ownersignup : AppCompatActivity() {
                     finish()
                 }
 
-
-
     fun savestore(view: View) {
         //val layout2 = findViewById(R.id.layout) as LinearLayout
         FirebaseDatabase.getInstance("https://allin1-23085-default-rtdb.asia-southeast1.firebasedatabase.app").reference.child(
@@ -154,20 +149,8 @@ class ownersignup : AppCompatActivity() {
                 Address.text.toString(),
                 Catagory.text.toString(),
                 phone.text.toString()
-            ), "products","customers"
+            ), "products"
         )
-        //name.setText("")
-        /* FirebaseDatabase.getInstance("https://allin1-23085-default-rtdb.asia-southeast1.firebasedatabase.app").reference.child(
-                        "shops"
-                    ).child(FirebaseAuth.getInstance().currentUser!!.uid + "/products").child("1")
-                        .setValue(
-                            product(
-                                "book", "for reading", "30"
-                            )
-                        )
-
-                    FirebaseDatabase.getInstance().reference.child("300").setValue("tt")*/
-
         view.findNavController().navigate(R.id.action_storeAdd_to_mystore)
     }
 
@@ -290,10 +273,6 @@ class ownersignup : AppCompatActivity() {
         startActivity(intent)
         finish()
     }
-
-}
-
-private fun DatabaseReference.setValue(owner: owner, s: String, s1: String) {
 
 }
 

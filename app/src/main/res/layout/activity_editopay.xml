@@ -148,10 +148,10 @@
         android:id="@+id/saveprofile"
         android:layout_width="309dp"
         android:layout_height="51dp"
-        android:textColor="#FF33F3"
-        android:text="Save"
+        android:layout_gravity="center"
         android:background="@drawable/custom_dialog"
+        android:text="Save"
 
-        />
+        android:textColor="@color/black" />
 
 </LinearLayout>
