@@ -15,7 +15,7 @@
 
     <ImageView
         android:id="@+id/productimage"
-        android:layout_width="75pt"
+        android:layout_width="100pt"
         android:layout_height="75pt"
         tools:ignore="MissingConstraints" />
 

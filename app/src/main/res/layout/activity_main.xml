@@ -21,6 +21,8 @@
         android:textSize="15pt"
         android:textStyle="bold" />
 
+
+
     <GridView
         android:id="@+id/shopslist"
         android:layout_width="wrap_content"
@@ -36,6 +38,14 @@
 
         android:verticalSpacing="10dp"
         tools:listitem="@layout/list_shops" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="115pt"
+        android:text="all the shops"
+        android:textColor="@color/light_blue_900" />
 
     <LinearLayout
         android:layout_width="match_parent"
