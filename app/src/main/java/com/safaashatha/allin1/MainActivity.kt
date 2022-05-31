@@ -310,7 +310,7 @@ class MainActivity : AppCompatActivity() {
                 //print("shaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
                 if (x.exists()) {
                     if (x.key == FirebaseAuth.getInstance().currentUser!!.uid) {
-                        print("\n------------------------------------------------------lakahhhhhh-----------------\n" + x.key)
+                        print("\n------------------------------------------------------shatha1-----------------\n" + x.key)
 
                         val name = x.child("firstname").getValue().toString()
                         val owner = x.child("owner").getValue().toString()
@@ -334,8 +334,9 @@ class MainActivity : AppCompatActivity() {
                         intent.putExtra("aaddress", aaddress)
 
                         intent.putExtra("phone", phone)
+                        startActivity(intent)
                     }
-                    startActivity(intent)
+
                 }
             }
         }
@@ -343,6 +344,3 @@ class MainActivity : AppCompatActivity() {
 }
 
 
-            }
-    }
-}
