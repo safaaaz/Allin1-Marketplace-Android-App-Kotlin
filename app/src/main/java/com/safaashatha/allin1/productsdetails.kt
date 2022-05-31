@@ -33,6 +33,7 @@ class productsdetails : AppCompatActivity() {
         val prodprice = b.getString("price")
         val prodabout = b.getString("about")
         val prodowner = b.getString("owner")
+
         val prodcat = b.getString("category")
         val prodcount = b.getInt("count")
         val prodrate = b.getInt("rating",0)
