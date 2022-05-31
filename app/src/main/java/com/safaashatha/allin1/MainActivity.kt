@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity() {
             ).child(FirebaseAuth.getInstance().currentUser!!.uid).get().addOnSuccessListener {
                 usernameforwelcome =
                     it.child("firstname").value.toString() + it.child("lastname").value.toString()
-                shopsname.text = "Welcome "
+                shopsname.text = "Welcome Safaa"
             }
         binding = ActivityMainBinding.inflate(layoutInflater)
         readshops()
@@ -206,16 +206,15 @@ class MainActivity : AppCompatActivity() {
         database =
             FirebaseDatabase.getInstance("https://allin1-23085-default-rtdb.asia-southeast1.firebasedatabase.app/")
                 .getReference("cart")
-        println("-######################################################################userid  " + FirebaseAuth.getInstance()!!.uid)
-
         database.child(FirebaseAuth.getInstance()!!.uid!!).get().addOnSuccessListener {
             for (x in it.children)
 
                 if (x.exists()) {
                     val pr = product(
-                        x.child("name").value.toString(),
-                        x.child("price").value.toString(),
-                        x.child("category").value.toString(),
+                        name=x.child("name").value.toString(),
+                        price= x.child("price").value.toString(),
+                        category = x.child("category").value.toString(),
+                        owner = x.child("owner").value.toString()
                     )
                     cartarraylist.add(pr)
                 }
