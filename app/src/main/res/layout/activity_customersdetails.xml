@@ -19,8 +19,6 @@
         app:layout_constraintTop_toTopOf="parent">
 
 
-
-
         <TextView
             android:id="@+id/cust"
             android:layout_width="wrap_content"
@@ -29,7 +27,7 @@
             android:gravity="center"
             android:padding="8dp"
             android:text="show customer"
-            android:textColor="@color/purple_200"
+            android:textColor="@color/brown2"
             android:textSize="24sp"
             android:textStyle="bold" />
 
@@ -58,7 +56,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="customer name"
-                    android:textColor="@color/purple_200"
+                    android:textColor="@color/black"
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
@@ -70,14 +68,13 @@
                     android:textSize="16sp" />
 
 
-
                 <TextView
                     android:id="@+id/phonee"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
                     android:text="phone"
-                    android:textColor="@color/purple_200"
+                    android:textColor="@color/black"
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
@@ -95,7 +92,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
                     android:text="address"
-                    android:textColor="@color/purple_200"
+                    android:textColor="@color/black"
                     android:textSize="16sp"
                     android:textStyle="bold" />
 

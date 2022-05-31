@@ -37,27 +37,27 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="about the shop"
-                android:textSize="18sp" />
+                android:textSize="17sp" />
 
             <TextView
                 android:id="@+id/shopscategory"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="category: "
+                android:text="category:   "
                 android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/shopsaddress"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="address of shop: "
+                android:text="shops address:   "
                 android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/shopsphone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="phone of shop: "
+                android:text="shops phone:   "
                 android:textSize="18sp" />
         </LinearLayout>
 
@@ -91,9 +91,10 @@
                 android:gravity="center"
                 android:horizontalSpacing="10dp"
                 android:numColumns="2"
+                android:paddingTop="20pt"
                 android:stretchMode="columnWidth"
-                android:verticalSpacing="10dp"
 
+                android:verticalSpacing="10dp"
                 tools:listitem="@layout/list_products" />
         </LinearLayout>
 

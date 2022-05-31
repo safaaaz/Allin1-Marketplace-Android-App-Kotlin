@@ -23,7 +23,7 @@
             android:layout_gravity="center"
             android:background="@drawable/img"
             android:padding="4pt"
-            android:paddingTop="4pt"
+            android:paddingTop="7pt"
             android:scaleType="center" />
 
         <TextView
@@ -75,7 +75,7 @@
                 android:scrollbarSize="2dp"
                 android:text="add to cart"
                 android:textColor="@color/design_default_color_on_secondary"
-                android:textSize="15dp"
+                android:textSize="12dp"
                 android:textStyle="bold"
                 android:typeface="monospace"
                 app:iconSize="3dp" />
@@ -221,7 +221,7 @@
                 android:onClick="save_commit"
                 android:scrollbarSize="2dp"
                 android:text="save"
-                android:textSize="13dp"
+                android:textSize="10dp"
                 android:textStyle="bold"
                 android:typeface="monospace"
                 app:iconSize="3dp" />

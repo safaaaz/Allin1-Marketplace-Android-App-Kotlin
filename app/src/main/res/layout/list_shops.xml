@@ -14,15 +14,18 @@
             android:id="@+id/storename"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:text="shop name"
-            android:textSize="25sp"
+            android:textSize="20sp"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/storeabout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:text="shop about"
-            android:textSize="20sp" />
+            android:textSize="14sp"
+            android:visibility="visible" />
     </LinearLayout>
 </RelativeLayout>

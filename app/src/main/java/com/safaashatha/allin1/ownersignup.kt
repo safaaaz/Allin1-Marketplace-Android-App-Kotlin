@@ -57,6 +57,29 @@ class ownersignup : AppCompatActivity() {
         actionbar!!.title = "Allin1"
         actionbar.setDisplayHomeAsUpEnabled(true)
         actionbar.setDisplayHomeAsUpEnabled(true)
+
+
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+
+        val inflater: MenuInflater = menuInflater
+        inflater.inflate(R.menu.menu_owner,menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when(item.itemId){
+
+            R.id.logout -> {
+                FirebaseAuth.getInstance().signOut()
+                startActivity(Intent(this, LoginActivity::class.java))
+                finish()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+
     }
 
     override fun onSupportNavigateUp(): Boolean {
@@ -68,7 +91,6 @@ class ownersignup : AppCompatActivity() {
         val intent = Intent(Intent.ACTION_PICK)
         intent.type = "image/*"
         startActivityForResult(intent, 100)
-        finish()
 
     }
 
@@ -119,30 +141,19 @@ class ownersignup : AppCompatActivity() {
                 }
 
 
+
     fun savestore(view: View) {
         //val layout2 = findViewById(R.id.layout) as LinearLayout
         FirebaseDatabase.getInstance("https://allin1-23085-default-rtdb.asia-southeast1.firebasedatabase.app").reference.child(
             "shops"
         ).child(FirebaseAuth.getInstance().currentUser!!.uid).setValue(
             owner(
-                name.text.toString(),
-                Address.text.toString(),
-                Catagory.text.toString(),
-                phone.text.toString()
-            ), "products","customers"
+                name = name.text.toString(),
+                address = Address.text.toString(),
+                category = Catagory.text.toString(),
+                phone = phone.text.toString()
+            ), "products"
         )
-        //name.setText("")
-        /* FirebaseDatabase.getInstance("https://allin1-23085-default-rtdb.asia-southeast1.firebasedatabase.app").reference.child(
-                        "shops"
-                    ).child(FirebaseAuth.getInstance().currentUser!!.uid + "/products").child("1")
-                        .setValue(
-                            product(
-                                "book", "for reading", "30"
-                            )
-                        )
-
-                    FirebaseDatabase.getInstance().reference.child("300").setValue("tt")*/
-
         view.findNavController().navigate(R.id.action_storeAdd_to_mystore)
     }
 
@@ -156,11 +167,11 @@ class ownersignup : AppCompatActivity() {
         ).child(FirebaseAuth.getInstance().currentUser!!.uid + "/products")
             .child(name1.text.toString()).setValue(
                 product(
-                    name1.text.toString(),
-                    FirebaseAuth.getInstance().currentUser!!.uid,
-                    about1.text.toString(),
-                    price1.text.toString(),
-                    Catagory1.text.toString(),
+                    name=name1.text.toString(),
+                    owner = FirebaseAuth.getInstance().currentUser!!.uid,
+                    about = about1.text.toString(),
+                    price = price1.text.toString(),
+                    category = Catagory1.text.toString(),
                     //Integer.parseInt(countt.text.toString())
                 )
             )
@@ -269,10 +280,6 @@ class ownersignup : AppCompatActivity() {
 
 
     }
-
-}
-
-private fun DatabaseReference.setValue(owner: owner, s: String, s1: String) {
 
 }
 
