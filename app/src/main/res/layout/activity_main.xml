@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
 
-        android:text="well"
+        android:text="shops"
         android:textAppearance="@style/TextAppearance.AppCompat.Display2"
         android:textColor="@color/brown2"
         android:textColorLink="@color/orchid"
@@ -24,13 +24,13 @@
     <GridView
         android:id="@+id/shopslist"
         android:layout_width="wrap_content"
-        android:layout_height="100pt"
+        android:layout_height="120pt"
         android:backgroundTint="@color/softbrown"
         android:clipToPadding="false"
         android:columnWidth="90dp"
         android:gravity="center"
         android:horizontalSpacing="10dp"
-        android:numColumns="1"
+        android:numColumns="2"
         android:paddingTop="30pt"
         android:stretchMode="columnWidth"
 
@@ -53,7 +53,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Display2"
             android:textColor="@color/brown2"
             android:textColorLink="@color/orchid"
-            android:textSize="15pt"
+            android:textSize="12pt"
             android:textStyle="bold" />
 
         <TextView

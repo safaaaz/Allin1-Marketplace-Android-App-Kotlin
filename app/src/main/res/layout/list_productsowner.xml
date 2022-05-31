@@ -15,8 +15,8 @@
 
         <ImageView
             android:id="@+id/productimage"
-            android:layout_width="50pt"
-            android:layout_height="50pt"
+            android:layout_width="match_parent"
+            android:layout_height="75pt"
             tools:srcCompat="@tools:sample/avatars" />
 
         <TextView
@@ -24,14 +24,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="TextView" />
-
-        <TextView
-            android:id="@+id/productprice"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="TextView" />
+            android:text="TextView"
+            app:autoSizeTextType="uniform" />
 
 
     </LinearLayout>

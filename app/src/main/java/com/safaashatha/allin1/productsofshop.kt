@@ -92,10 +92,11 @@ class productsofshop:  AppCompatActivity() {
                         for (prod in x.child("products").children) {
 
                             val pr = product(
-                                prod.child("name").value.toString(),
-                                prod.child("owner").value.toString(),
-                                prod.child("price").value.toString(),
-                                prod.child("category").value.toString(),
+                                name = prod.child("name").value.toString(),
+                                owner = prod.child("owner").value.toString(),
+                                price = prod.child("price").value.toString(),
+                                category = prod.child("category").value.toString(),
+                                about = prod.child("about").value.toString()
                                 //R.drawable.img
                             )
                             productsarrylist.add(pr)

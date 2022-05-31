@@ -10,21 +10,31 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.fragment_addprod.*
 import kotlinx.android.synthetic.main.productsowdetails.*
+import kotlin.properties.Delegates
 
 class productsowdetails : AppCompatActivity() {
+    lateinit var prodname:String
+    lateinit var prodprice:String
+    lateinit var prodabout:String
+    lateinit var prodcategory:String
+    var prodimg by Delegates.notNull<Int>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         //print("\n -----------------------------------------ayyyaaa----------------------------------\n")
 
         setContentView(R.layout.productsowdetails)
         val b = intent.extras!!
-        val prodname = b.getString("name")
-        val prodprice = b.getString("price")
-        val prodimg = b.getInt("image")
+        prodname = b.getString("name")!!
+        prodprice = b.getString("price")!!
+        prodabout = b.getString("about")!!
+        prodcategory=b.getString("category")!!
+        prodimg = b.getInt("image")!!
             //productsname.text= prodname
             //productsprice.text = prodprice
         productsnamee.setText(prodname)
         productspricee.setText(prodprice)
+        productssabout.setText(prodabout)
+        productscategory.setText(prodcategory)
 
         productsimg.setImageResource(prodimg)
         val actionbar = supportActionBar
@@ -85,7 +95,11 @@ class productsowdetails : AppCompatActivity() {
         ).child(FirebaseAuth.getInstance().currentUser!!.uid + "/products")
             .child(prodname.toString()).setValue(
                 product(
-                    productsnamee.text.toString(), productspricee.text.toString(), "shatha"
+                    name=productsnamee.text.toString(),
+                    price = productspricee.text.toString(),
+                    owner = FirebaseAuth.getInstance().currentUser!!.uid,
+                    about = productssabout.text.toString(),
+                    category =productscategory.text.toString()
                 )
             )
         Toast.makeText(applicationContext, "Successfully edit product", Toast.LENGTH_SHORT)

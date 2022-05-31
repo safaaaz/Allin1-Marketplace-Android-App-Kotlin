@@ -47,7 +47,7 @@ R.layout.list_products,arrayList) {
                 intent.putExtra("owner",arrayList[position].owner.toString())
                 intent.putExtra("name",arrayList[position].name.toString()!!)
                 intent.putExtra("about",arrayList[position].about.toString()!!)
-                intent.putExtra("price",product.price!!)
+                intent.putExtra("price",arrayList[position].price.toString()!!)
                 intent.putExtra("user_id", FirebaseAuth.getInstance()!!.uid)
                 intent.putExtra("rating",product.rating!!)
                 intent.putExtra("numraters",product.numraters!!)

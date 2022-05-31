@@ -107,4 +107,34 @@
         android:name="com.safaashatha.allin1.payment"
         android:label="activity_payment"
         tools:layout="@layout/activity_payment" />
+    <activity
+        android:id="@+id/productsofshop"
+        android:name="com.safaashatha.allin1.productsofshop"
+        android:label="activity_productsofshop"
+        tools:layout="@layout/activity_productsofshop" />
+    <activity
+        android:id="@+id/userfavorites"
+        android:name="com.safaashatha.allin1.userfavorites"
+        android:label="activity_userfavorites"
+        tools:layout="@layout/activity_userfavorites" />
+    <activity
+        android:id="@+id/showcustomer"
+        android:name="com.safaashatha.allin1.showcustomer"
+        android:label="activity_showcustomer"
+        tools:layout="@layout/activity_showcustomer" />
+    <activity
+        android:id="@+id/customersdetails2"
+        android:name="com.safaashatha.allin1.customersdetails"
+        android:label="activity_customersdetails"
+        tools:layout="@layout/activity_customersdetails" />
+    <activity
+        android:id="@+id/editprofileuser"
+        android:name="com.safaashatha.allin1.editprofileuser"
+        android:label="activity_editprofileuser"
+        tools:layout="@layout/activity_editprofileuser" />
+    <activity
+        android:id="@+id/forgotpass2"
+        android:name="com.safaashatha.allin1.forgotpass"
+        android:label="activity_forgotpass"
+        tools:layout="@layout/activity_forgotpass" />
 </navigation>

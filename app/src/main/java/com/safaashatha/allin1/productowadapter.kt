@@ -28,7 +28,6 @@ class productowadapter(private val context: Activity,private val arrayList: Arra
 
         val imageview:ImageView=view.findViewById(R.id.productimage)
         val nameview:TextView=view.findViewById(R.id.productname)
-        val priceview:TextView=view.findViewById(R.id.productprice)
 
         val filename = FirebaseAuth.getInstance().currentUser!!.uid.toString()
         val storref = FirebaseStorage.getInstance().reference.child("productsimages/$filename/"+arrayList[position].name.toString())
@@ -41,18 +40,19 @@ class productowadapter(private val context: Activity,private val arrayList: Arra
         }
         //imageview.setImageResource(arrayList[position].image!!)
         nameview.text=arrayList[position].name
-        priceview.text=arrayList[position].price
 
-        val product=arrayList[position]
+        var product=arrayList[position]
         val inflator=context!!.getSystemService(AppCompatActivity.LAYOUT_INFLATER_SERVICE)as LayoutInflater
         //var productview=inflator.inflate(R.layout.productsowdetails,null)
 
         view.productimage.setOnClickListener(){
             var intent= Intent(context,productsowdetails::class.java)
-
+            product=arrayList[position]
             //intent.putExtra("image",product.image!!)
             intent.putExtra("name",product.name!!)
+            intent.putExtra("about",product.about!!)
             intent.putExtra("price",product.price!!)
+            intent.putExtra("category",product.category!!)
             print("\n\n\n -----------------------------------------ayaaannn----------------------------------\n\n\n"+arrayList[position].name)
 
             context!!.startActivity(intent)

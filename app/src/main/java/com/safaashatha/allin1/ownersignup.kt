@@ -12,8 +12,6 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.*
 import android.widget.LinearLayout
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.isVisible
 import androidx.navigation.findNavController
 import com.google.firebase.auth.FirebaseAuth
 import android.widget.*
@@ -93,7 +91,6 @@ class ownersignup : AppCompatActivity() {
         val intent = Intent(Intent.ACTION_PICK)
         intent.type = "image/*"
         startActivityForResult(intent, 100)
-        finish()
 
     }
 
@@ -151,10 +148,10 @@ class ownersignup : AppCompatActivity() {
             "shops"
         ).child(FirebaseAuth.getInstance().currentUser!!.uid).setValue(
             owner(
-                name.text.toString(),
-                Address.text.toString(),
-                Catagory.text.toString(),
-                phone.text.toString()
+                name = name.text.toString(),
+                address = Address.text.toString(),
+                category = Catagory.text.toString(),
+                phone = phone.text.toString()
             ), "products"
         )
         view.findNavController().navigate(R.id.action_storeAdd_to_mystore)
@@ -170,11 +167,11 @@ class ownersignup : AppCompatActivity() {
         ).child(FirebaseAuth.getInstance().currentUser!!.uid + "/products")
             .child(name1.text.toString()).setValue(
                 product(
-                    name1.text.toString(),
-                    FirebaseAuth.getInstance().currentUser!!.uid,
-                    about1.text.toString(),
-                    price1.text.toString(),
-                    Catagory1.text.toString(),
+                    name=name1.text.toString(),
+                    owner = FirebaseAuth.getInstance().currentUser!!.uid,
+                    about = about1.text.toString(),
+                    price = price1.text.toString(),
+                    category = Catagory1.text.toString(),
                     //Integer.parseInt(countt.text.toString())
                 )
             )

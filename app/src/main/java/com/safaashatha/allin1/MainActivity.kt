@@ -260,7 +260,7 @@ class MainActivity : AppCompatActivity() {
                         }
                     }
                     if (productsarrylist.size == 0) {
-                        noprod.text = "there is no products in this category"
+                        //noprod.text = "there is no products in this category"
                     }
                 }
             val listView: GridView = findViewById(R.id.products)
