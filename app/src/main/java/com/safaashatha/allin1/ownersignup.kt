@@ -12,8 +12,6 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.*
 import android.widget.LinearLayout
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.isVisible
 import androidx.navigation.findNavController
 import com.google.firebase.auth.FirebaseAuth
 import android.widget.*
@@ -82,7 +80,7 @@ class ownersignup : AppCompatActivity() {
                     //the layout on which you are working
 
                     //the layout on which you are working
-                    val layout = findViewById<View>(R.id.productimages) as LinearLayout
+                    val layout = findViewById<View>(R.id.imagesforprod) as LinearLayout
                     var prodimage = ImageView(this)
                     //prodimage.getLayoutParams().height = 60;
                     //set the properties for button
