@@ -16,3 +16,22 @@ We have 2 users:
 
 [פוסטר.pptx](https://github.com/safaaaz/allin1/files/9424282/default.pptx)
 
+
+• The system will work on any smartphone that uses the Android operating system.
+
+### Development Environment: Android Studio
+### Programming Language: kotlin
+### Markup Language: XML
+### DataBase: Firebase
+
+An example video for the application:
+https://user-images.githubusercontent.com/58644583/188473746-945038ae-3db3-4538-a37c-0f20d636d2bf.mp4
+
+
+
+-------------------
+It was the final project for my bachelor's degree on software engineering.
+
+10.7.2022
+
+SAFAA AZBARQA
